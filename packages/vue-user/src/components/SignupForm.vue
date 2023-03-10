@@ -6,17 +6,12 @@
       :placeholder="t('user.signup.form.email.placeholder')"
     />
 
-    <Password
-      v-model="credentials.password"
-      :label="t('user.signup.form.password.label')"
-      name="password"
+    <PasswordConfirmation
+      :label="{
+        password: t('user.signup.form.password.label'),
+        confirmation: t('user.signup.form.confirmation.label'),
+      }"
     />
-
-    <Password
-      :label="t('user.signup.form.confirmation.label')"
-      name="confirmation"
-    />
-
     <div class="actions">
       <LoadingButton :label="t('user.signup.form.actions.submit')" />
     </div>
@@ -31,18 +26,14 @@ export default {
 
 <script setup lang="ts">
 import { useConfig } from "@dzangolab/vue3-config";
-import {
-  Email,
-  emailSchema,
-  Password,
-  passwordSchema,
-} from "@dzangolab/vue3-form";
+import { Email, emailSchema, passwordSchema } from "@dzangolab/vue3-form";
 import { useI18n } from "@dzangolab/vue3-i18n";
 import { LoadingButton } from "@dzangolab/vue3-ui";
 import { toFormValidator } from "@vee-validate/zod";
 import { Form } from "vee-validate";
 import { z } from "zod";
 
+import PasswordConfirmation from "./PasswordConfirmation.vue";
 import { useTranslations } from "../index";
 
 import type { LoginCredentials } from "../types";

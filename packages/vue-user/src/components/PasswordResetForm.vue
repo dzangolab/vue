@@ -1,14 +1,10 @@
 <template>
   <Form :validation-schema="validationSchema" @submit="onSubmit">
-    <Password
-      v-model="payload.password"
-      :label="t('user.passwordReset.form.password.label')"
-      name="password"
-    />
-
-    <Password
-      :label="t('user.passwordReset.form.confirmation.label')"
-      name="confirmation"
+    <PasswordConfirmation
+      :label="{
+        password: t('user.passwordReset.form.password.label'),
+        confirmation: t('user.passwordReset.form.confirmation.label'),
+      }"
     />
 
     <div class="submit">
@@ -25,7 +21,7 @@ export default {
 
 <script setup lang="ts">
 import { useConfig } from "@dzangolab/vue3-config";
-import { Password, passwordSchema } from "@dzangolab/vue3-form";
+import { passwordSchema } from "@dzangolab/vue3-form";
 import { useI18n } from "@dzangolab/vue3-i18n";
 import { LoadingButton } from "@dzangolab/vue3-ui";
 import { toFormValidator } from "@vee-validate/zod";
@@ -33,6 +29,7 @@ import { Form } from "vee-validate";
 import { useRoute, useRouter } from "vue-router";
 import { z } from "zod";
 
+import PasswordConfirmation from "./PasswordConfirmation.vue";
 import { useTranslations } from "../index";
 
 import type { PasswordResetPayload } from "../types";
