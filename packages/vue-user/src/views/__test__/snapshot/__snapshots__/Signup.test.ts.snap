@@ -21,6 +21,7 @@ exports[`SignUp > matches snapshot in en 1`] = `
   <form
     novalidate=""
   >
+    
     <div
       class="field email"
       placeholder="john.doe@example.com"
@@ -41,43 +42,50 @@ exports[`SignUp > matches snapshot in en 1`] = `
       
     </div>
     
-    <div
-      class="field password"
+    <form
+      novalidate=""
     >
-      <label
-        for="password"
+      
+      <div
+        class="field password"
       >
-        Your password
-      </label>
+        <label
+          for="password"
+        >
+          Your password
+        </label>
+        
+        <input
+          class=""
+          name="password"
+          tabindex="0"
+          type="password"
+        />
+        <!---->
+        
+      </div>
       
-      <input
-        class=""
-        name="password"
-        tabindex="0"
-        type="password"
-      />
-      <!---->
       
-    </div>
-    <div
-      class="field password"
-    >
-      <label
-        for="password"
+      <div
+        class="field password"
       >
-        Confirm your password
-      </label>
+        <label
+          for="password"
+        >
+          Confirm your password
+        </label>
+        
+        <input
+          class=""
+          name="confirmation"
+          tabindex="0"
+          type="password"
+        />
+        <!---->
+        
+      </div>
       
-      <input
-        class=""
-        name="confirmation"
-        tabindex="0"
-        type="password"
-      />
-      <!---->
-      
-    </div>
-    
+    </form>
     <div
       class="actions"
     >
@@ -138,6 +146,7 @@ exports[`SignUp > matches snapshot in fr 1`] = `
   <form
     novalidate=""
   >
+    
     <div
       class="field email"
       placeholder="john.doe@example.com"
@@ -158,43 +167,50 @@ exports[`SignUp > matches snapshot in fr 1`] = `
       
     </div>
     
-    <div
-      class="field password"
+    <form
+      novalidate=""
     >
-      <label
-        for="password"
+      
+      <div
+        class="field password"
       >
-        Votre mot de passe
-      </label>
+        <label
+          for="password"
+        >
+          Votre mot de passe
+        </label>
+        
+        <input
+          class=""
+          name="password"
+          tabindex="0"
+          type="password"
+        />
+        <!---->
+        
+      </div>
       
-      <input
-        class=""
-        name="password"
-        tabindex="0"
-        type="password"
-      />
-      <!---->
       
-    </div>
-    <div
-      class="field password"
-    >
-      <label
-        for="password"
+      <div
+        class="field password"
       >
-        Confirmez votre mot de passe
-      </label>
+        <label
+          for="password"
+        >
+          Confirmez votre mot de passe
+        </label>
+        
+        <input
+          class=""
+          name="confirmation"
+          tabindex="0"
+          type="password"
+        />
+        <!---->
+        
+      </div>
       
-      <input
-        class=""
-        name="confirmation"
-        tabindex="0"
-        type="password"
-      />
-      <!---->
-      
-    </div>
-    
+    </form>
     <div
       class="actions"
     >
