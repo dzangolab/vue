@@ -1,6 +1,11 @@
 <template>
   <table :style="`width: ${table.getCenterTotalSize()}`">
-    <thead>
+    <div class="toggle-wrap">
+      <button class="toggle" @click="toggleHeader">
+        <img src="../../public/menu.png" alt="menu" />
+      </button>
+    </div>
+    <thead :class="{ expand: expand }">
       <tr v-for="headerGroup in table.getHeaderGroups()" :key="headerGroup.id">
         <th
           v-for="header in headerGroup.headers"
@@ -32,7 +37,11 @@
     </thead>
     <tbody>
       <tr v-for="row in table.getRowModel().rows" :key="row.id">
-        <td v-for="cell in row.getVisibleCells()" :key="cell.id">
+        <td
+          v-for="cell in row.getVisibleCells()"
+          :key="cell.id"
+          :data-label="cell.column.id"
+        >
           <FlexRender
             :props="cell.getContext()"
             :render="cell.column.columnDef.cell"
@@ -56,7 +65,7 @@ import {
   getCoreRowModel,
   useVueTable,
 } from "@tanstack/vue-table";
-import { PropType } from "vue";
+import { PropType, ref } from "vue";
 
 import type { ColumnDef } from "@tanstack/vue-table";
 
@@ -95,4 +104,11 @@ const table = useVueTable({
   data: props.rows,
   getCoreRowModel: getCoreRowModel(),
 });
+
+const expand = ref(false);
+
+const toggleHeader = () => {
+  expand.value = !expand.value;
+  console.log(expand.value);
+};
 </script>

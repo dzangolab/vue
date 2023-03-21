@@ -18,6 +18,10 @@ tbody > tr:hover {
   color: #009879;
 }
 
+.toggle-wrap {
+  display: none;
+}
+
 th,
 td {
   padding: 12px 15px;
@@ -41,4 +45,64 @@ tbody {
 td {
   align-items: center;
   font-size: 0.9rem;
+}
+
+@media(max-width: 600px) {
+  .toggle-wrap {
+    display: block;
+  }
+
+  table thead {
+    display: none;
+  }
+
+  table, table thead.expand, table tbody, table th, table tr, table td {
+    display: block;
+    width: 100%;
+  }
+
+  table thead.expand {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  }
+  
+  thead tr {
+    margin-bottom: 1rem;
+  }
+
+  thead th {
+    border-bottom: 1px solid #fff;
+  }
+
+  thead th:last-child {
+    border: none;
+  }
+
+  tbody tr {
+    border: 1px solid #000;
+    margin-bottom: 1rem;
+  }
+
+  td {
+    font-size: 0.8rem;
+    text-align: right;
+    position: relative;
+    border-bottom: 1px solid #000;
+  }
+
+  td:last-child {
+    border: none;
+  }
+
+  td::before {
+    content: attr(data-label);
+    left: 0;
+    width: 50%;
+    float: left;
+    text-align: left;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 0.9rem;
+  }
 }
