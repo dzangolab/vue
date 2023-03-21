@@ -12,8 +12,22 @@ const schema = (
     .string({
       required_error: errorMessages.required,
     })
-    .refine((value) => validator.isEmail(value, options || {}), {
-      message: errorMessages.invalid,
+    .superRefine((value, context) => {
+      if (value.length === 0) {
+        context.addIssue({
+          code: "invalid_string",
+          message: errorMessages.required,
+          validation: "email",
+        });
+      }
+
+      if (!validator.isEmail(value, options || {})) {
+        context.addIssue({
+          code: "invalid_string",
+          message: errorMessages.invalid,
+          validation: "email",
+        });
+      }
     });
 };
 
