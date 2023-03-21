@@ -7,7 +7,7 @@
       "import": "./dist/DzangolabVue3TanstackTable.es.js",
       "require": "./dist/DzangolabVue3TanstackTable.umd.js"
     },
-    "./dist/DzangolabVue3UI.css": "./dist/style.css"
+    "./dist/DzangolabVue3TanstackTable.css": "./dist/style.css"
   },
   "main": "dist//DzangolabVue3TanstackTable.umd.js",
   "module": "dist//DzangolabVue3TanstackTable.es.js",
@@ -21,6 +21,9 @@
     "lint:fix": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix",
     "sort-package": "npx sort-package-json",
     "typecheck": "vue-tsc --noEmit -p tsconfig.json --composite false"
+  },
+  "dependencies": {
+    "@tanstack/vue-table": "8.7.9"
   },
   "devDependencies": {
     "@types/node": "18.14.4",

@@ -22,13 +22,11 @@ export default defineConfig(({ mode }) => {
         output: {
           exports: "named",
           globals: {
-            "@vee-validate/i18n": "VeeValidateI18n",
-            "@vee-validate/rules": "VeeValidateRules",
-            "@vee-validate/zod": "VeeValidateZod",
-            "vee-validate": "VeeValidate",
-            validator: "Validator",
+            "@dzangolab/vue3-config": "DzangolabVue3Config",
+            "@dzangolab/vue3-i18n": "DzangolabVue3I18n",
+            "@dzangolab/vue3-ui": "DzangolabVue3UI",
             vue: "Vue",
-            zod: "Zod",
+            "vue-router": "VueRouter",
           },
         },
       },

@@ -266,6 +266,7 @@ importers:
 
   packages/vue-tanstack-table:
     specifiers:
+      '@tanstack/vue-table': 8.7.9
       '@types/node': 18.14.4
       '@vitejs/plugin-vue': 4.0.0
       '@vitejs/plugin-vue-jsx': 3.0.0
@@ -281,6 +282,8 @@ importers:
       vitest: 0.29.2
       vue: 3.2.47
       vue-tsc: 1.2.0
+    dependencies:
+      '@tanstack/vue-table': 8.7.9_vue@3.2.47
     devDependencies:
       '@types/node': 18.14.4
       '@vitejs/plugin-vue': 4.0.0_vite@4.1.4+vue@3.2.47
@@ -1504,6 +1507,21 @@ packages:
     transitivePeerDependencies:
       - debug
     dev: true
+
+  /@tanstack/table-core/8.7.9:
+    resolution: {integrity: sha512-4RkayPMV1oS2SKDXfQbFoct1w5k+pvGpmX18tCXMofK/VDRdA2hhxfsQlMvsJ4oTX8b0CI4Y3GDKn5T425jBCw==}
+    engines: {node: '>=12'}
+    dev: false
+
+  /@tanstack/vue-table/8.7.9_vue@3.2.47:
+    resolution: {integrity: sha512-NdMwwytlthZYP1U71rWON/quuJtPS3lIQVA7nEGte6DtnVQgSB1jus921WaAqpA4UPQz+3qjfUJz5SB7Nc3xfg==}
+    engines: {node: '>=12'}
+    peerDependencies:
+      vue: ^3.2.33
+    dependencies:
+      '@tanstack/table-core': 8.7.9
+      vue: 3.2.47
+    dev: false
 
   /@tootallnate/once/2.0.0:
     resolution: {integrity: sha512-XCuKFP5PS55gnMVu3dty8KPatLqUoy/ZYzDzAGCQ8JNFCkLXzmI7vNHCR+XpbZaMWQK/vQubr7PkYq8g470J/A==}
