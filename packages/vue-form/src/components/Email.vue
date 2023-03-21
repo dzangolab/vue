@@ -30,20 +30,24 @@ export default {
 </script>
 
 <script setup lang="ts">
+import { useI18n } from "@dzangolab/vue3-i18n";
 import { toFieldValidator } from "@vee-validate/zod";
 import { ErrorMessage, Field } from "vee-validate";
 
+import messages from "../locales/message.json";
 import { emailSchema } from "../schemas";
 
 import type { EmailErrorMessages, IsEmailOptions } from "../types";
 import type { PropType } from "vue";
 
+const { t } = useI18n({ messages });
+
 const props = defineProps({
   errorMessages: {
     default: () => {
       return {
-        invalid: "Please provide a valid email address",
-        required: "Email address is required",
+        invalid: "",
+        required: "",
       };
     },
     required: false,
@@ -74,7 +78,16 @@ const props = defineProps({
 
 defineEmits(["update:modelValue"]);
 
+const translatedErrorMessages = {
+  invalid: props.errorMessages.invalid
+    ? props.errorMessages.invalid
+    : t("validation.errors.email.invalid"),
+  required: props.errorMessages.required
+    ? props.errorMessages.required
+    : t("validation.errors.email.required"),
+};
+
 const fieldSchema = toFieldValidator(
-  emailSchema(props.errorMessages, props.options)
+  emailSchema(translatedErrorMessages, props.options)
 );
 </script>

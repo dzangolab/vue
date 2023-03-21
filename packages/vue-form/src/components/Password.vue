@@ -30,20 +30,24 @@ export default {
 </script>
 
 <script setup lang="ts">
+import { useI18n } from "@dzangolab/vue3-i18n";
 import { toFieldValidator } from "@vee-validate/zod";
 import { ErrorMessage, Field } from "vee-validate";
 
+import messages from "../locales/message.json";
 import { passwordSchema } from "../schemas";
 
 import type { PasswordErrorMessages, StrongPasswordOptions } from "../types";
 import type { PropType } from "vue";
 
+const { t } = useI18n({ messages });
+
 const props = defineProps({
   errorMessages: {
     default: () => {
       return {
-        required: "A password is required",
-        weak: "This password is too weak",
+        required: "",
+        weak: "",
       };
     },
     required: false,
@@ -75,9 +79,18 @@ const props = defineProps({
 
 defineEmits(["update:modelValue"]);
 
+const translatedErrorMessages = {
+  required: props.errorMessages.required
+    ? props.errorMessages.required
+    : t("validation.errors.password.required"),
+  weak: props.errorMessages.weak
+    ? props.errorMessages.weak
+    : t("validation.errors.password.weak"),
+};
+
 const fieldSchema = toFieldValidator(
   passwordSchema(
-    props.errorMessages,
+    translatedErrorMessages,
     props.options as StrongPasswordOptions & { returnScore: false | undefined }
   )
 );
