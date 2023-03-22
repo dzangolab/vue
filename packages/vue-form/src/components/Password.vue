@@ -16,8 +16,16 @@
           valid: meta.dirty && meta.valid,
         }"
         tabindex="0"
-        type="password"
+        :type="type"
       />
+      <Eye :visible="visible" @click="togglePasswordVisibility">
+        <template #active-icon>
+          <slot name="active-icon" />
+        </template>
+        <template #inactive-icon>
+          <slot name="inactive-icon" />
+        </template>
+      </Eye>
       <ErrorMessage :name="name" />
     </Field>
   </div>
@@ -32,7 +40,9 @@ export default {
 <script setup lang="ts">
 import { toFieldValidator } from "@vee-validate/zod";
 import { ErrorMessage, Field } from "vee-validate";
+import { computed, ref } from "vue";
 
+import Eye from "./Eye.vue";
 import { passwordSchema } from "../schemas";
 
 import type { PasswordErrorMessages, StrongPasswordOptions } from "../types";
@@ -81,4 +91,14 @@ const fieldSchema = toFieldValidator(
     props.options as StrongPasswordOptions & { returnScore: false | undefined }
   )
 );
+
+const visible = ref(false);
+
+const type = computed(() => {
+  return visible.value ? "text" : "password";
+});
+
+const togglePasswordVisibility = () => {
+  visible.value = !visible.value;
+};
 </script>

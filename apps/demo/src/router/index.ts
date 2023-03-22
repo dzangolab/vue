@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 
 import { feature } from "@/config";
+import ui from "./ui";
 
 import type { AppFeatures } from "@dzangolab/vue3-config";
 import type { LayoutType } from "@dzangolab/vue3-layout";
@@ -16,7 +17,6 @@ const About = () => import("@/views/About.vue");
 const Home = () => import("@/views/Home.vue");
 const Layout = () => import("@/views/Layout/Index.vue");
 const Sentry = () => import("@/views/Sentry.vue");
-const UI = () => import("@/views/UI/Index.vue");
 
 const router: Router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -41,11 +41,7 @@ const router: Router = createRouter({
       name: "sentry",
       path: "/sentry",
     },
-    {
-      component: UI,
-      name: "ui",
-      path: "/ui",
-    },
+    ...ui,
   ],
 } as RouterOptions);
 

@@ -1,3 +1,6 @@
 {
+  "pages": {
+    "password": "Password"
+  },
   "title": "UI Library"
 }

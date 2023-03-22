@@ -1,3 +1,6 @@
 {
+  "pages": {
+    "password": "Mot de passe"
+  },
   "title": "Librairie de composants d'interface utilisateur"
 }
