@@ -1,6 +1,6 @@
 <template>
   <table :style="`width: ${table.getCenterTotalSize()}`">
-    <div class="toggle-wrap">
+    <div v-if="props.enableToggle" class="toggle-wrap">
       <button class="toggle" @click="toggleHeader">
         <img src="../../public/menu.png" alt="menu" />
       </button>
@@ -82,6 +82,10 @@ const props = defineProps({
   rows: {
     type: Array,
     default: () => [],
+  },
+  enableToggle: {
+    type: Boolean,
+    default: () => false,
   },
 });
 
