@@ -11,7 +11,7 @@
           v-for="header in headerGroup.headers"
           :key="header.id"
           :colSpan="header.colSpan"
-          :style="`width: ${header.getSize()}`"
+          :style="`width: ${header.getSize()}px`"
         >
           <div
             :className="`resizer ${
@@ -72,6 +72,7 @@ import type { ColumnDef } from "@tanstack/vue-table";
 type ColumnProperty = {
   accessorKey: string;
   header: string;
+  size?: number;
 };
 
 const props = defineProps({
@@ -97,6 +98,7 @@ props.columns.forEach((column) => {
   const columnDef = columnHelper.accessor(column.accessorKey, {
     header: () => column.header,
     footer: (props) => props.column.id,
+    size: column.size,
   }) as ColumnDef<unknown, unknown>;
   columns.push(columnDef);
 });
