@@ -18,6 +18,9 @@
         tabindex="0"
         type="password"
       />
+      <button>
+        <Eye :active="true" />
+      </button>
       <ErrorMessage :name="name" />
     </Field>
   </div>
@@ -33,6 +36,7 @@ export default {
 import { toFieldValidator } from "@vee-validate/zod";
 import { ErrorMessage, Field } from "vee-validate";
 
+import Eye from "./Eye.vue";
 import { passwordSchema } from "../schemas";
 
 import type { PasswordErrorMessages, StrongPasswordOptions } from "../types";
