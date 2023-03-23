@@ -1,3 +1,12 @@
+button {
+  border: none;
+  outline: none;
+  background-color: #009879;
+  height: 2rem;
+  width: 2rem;
+  padding: 0;
+}
+
 table {
   background-color: #ffffff;
   border-bottom: 0.063rem solid #f5f5f5;
@@ -50,6 +59,16 @@ td {
 @media(max-width: 600px) {
   .toggle-wrap {
     display: block;
+  }
+
+  .toggle-icon {
+    margin: auto;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 1.5rem;
+    width: 1.5rem;
+    color: #fff;
   }
 
   table thead {

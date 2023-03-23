@@ -2,7 +2,7 @@
   <table :style="`width: ${table.getCenterTotalSize()}`">
     <div v-if="props.enableToggle" class="toggle-wrap">
       <button class="toggle" @click="toggleHeader">
-        <img src="../../public/menu.png" alt="menu" />
+        <Icon icon="mingcute:menu-fill" class="toggle-icon" />
       </button>
     </div>
     <thead :class="{ expand: expand }">
@@ -59,6 +59,7 @@ export default {
 </script>
 
 <script setup lang="ts">
+import { Icon } from "@iconify/vue";
 import {
   createColumnHelper,
   FlexRender,
@@ -115,6 +116,5 @@ const expand = ref(false);
 
 const toggleHeader = () => {
   expand.value = !expand.value;
-  console.log(expand.value);
 };
 </script>
