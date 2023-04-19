@@ -29,3 +29,11 @@
 .accordion.horizontal.show-toggle-icon > section > header > button {
   flex-direction: column-reverse;
 }
+
+.reload {
+  background-image: url("../../svg/reload.svg");
+  background-position: center left;
+  background-repeat: no-repeat;
+  background-size: var(--page-toolbar-icon-width, 1.5rem);
+  padding-left: var(--page-toolbar-icon-width, 1.5rem);
+}
