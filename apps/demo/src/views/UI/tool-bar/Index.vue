@@ -1,7 +1,7 @@
 <template>
   <Page title="Toolbar">
     <template #toolbar>
-      <ToolBar @add="onAdd"> </ToolBar>
+      <ToolBar :quarter-circle="true" @add="onAdd"> </ToolBar>
     </template>
   </Page>
 </template>

@@ -12,9 +12,10 @@
   <div v-else class="speed-dial quarter-circle" :class="speedDialDirection">
     <div v-if="showSpeedDial" class="speed-dial-elements">
       <button
-        v-for="button in buttons"
+        v-for="(button, index) in buttons"
         :key="button.text"
         :class="button.class"
+        :style="getStyle(index)"
         @click="button.action"
       ></button>
     </div>
@@ -30,9 +31,14 @@
 import { useWindowSize } from "@vueuse/core";
 import { computed, ref } from "vue";
 
-import type { PropType } from "vue";
+import type { CSSProperties, PropType } from "vue";
 
 const props = defineProps({
+  quarterCircle: {
+    default: false,
+    required: false,
+    type: Boolean,
+  },
   speedDialDirection: {
     default: "vertical",
     required: false,
@@ -57,10 +63,6 @@ const isMobile = computed(() => {
   return false;
 });
 
-const toggleSpeedDial = () => {
-  showSpeedDial.value = !showSpeedDial.value;
-};
-
 const add = () => {
   emit("add");
 };
@@ -75,6 +77,25 @@ const remove = () => {
 
 const reload = () => {
   window.location.reload();
+};
+
+const toggleSpeedDial = () => {
+  showSpeedDial.value = !showSpeedDial.value;
+};
+
+const getStyle = (index: number) => {
+  if (props.quarterCircle) {
+    const size = 1.5; // control arch size
+    const radius = size * (buttons.length - index);
+    const angle =
+      (3 / 2) * Math.PI - (Math.PI / (2 * (buttons.length - 1))) * index;
+
+    return {
+      position: "absolute",
+      left: `${Math.cos(angle) * radius}rem`,
+      top: `${Math.sin(angle) * radius}rem`,
+    } as CSSProperties;
+  }
 };
 
 const buttons = [
