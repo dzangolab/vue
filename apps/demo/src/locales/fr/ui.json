@@ -50,6 +50,9 @@
     "title": "Tanstack Table[fr]"
   },
   "title": "Librairie de composants d'interface utilisateur",
+  "tool-bar": {
+    "title": "ToolBar"
+  },
   "typography": {
     "title": "Typography"
   }

@@ -4,6 +4,7 @@
 @import "./accordion.css";
 @import "./page.css";
 @import "./tabbed-panel.css";
+@import "./toolbar.css";
 
 p {
   padding-bottom: 0.5rem;

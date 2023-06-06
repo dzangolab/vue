@@ -27,11 +27,45 @@
   padding-left: var(--page-toolbar-icon-width, 1.5rem);
 }
 
+.page .reload {
+  background-image: url("@/assets/svg/reload.svg");
+  background-position: center left;
+  background-repeat: no-repeat;
+  background-size: var(--page-toolbar-icon-width, 1.5rem);
+  padding-left: var(--page-toolbar-icon-width, 1.5rem);
+}
+
+.page .add {
+  background-image: url("@/assets/svg/add.svg");
+  background-position: center left;
+  background-repeat: no-repeat;
+  background-size: var(--page-toolbar-icon-width, 1.5rem);
+  padding-left: var(--page-toolbar-icon-width, 1.5rem);
+}
+
+.page .delete {
+  background-image: url("@/assets/svg/delete.svg");
+  background-position: center left;
+  background-repeat: no-repeat;
+  background-size: var(--page-toolbar-icon-width, 1.5rem);
+  padding-left: var(--page-toolbar-icon-width, 1.5rem);
+}
+
 .page > .toolbar {
   align-self: center;
   font-size: 1em;
   grid-area: toolbar;
   justify-self: right;
+}
+
+.toolbar * {
+  border: none;
+  margin: 0 0.1rem;
+}
+
+.toolbar *:hover {
+  background-color: #858383;
+  cursor: pointer;
 }
 
 .page > .speed-dial {
@@ -41,22 +75,5 @@
   grid-area: toolbar;
   justify-self: right;
   position: fixed;
-}
-
-.toggle-speed-dial {
-  background-image: url("../svg/add.svg");
-  background-position: center left;
-  background-repeat: no-repeat;
-  background-size: var(--page-speed-dial-icon-width, 2rem);
-  border: none;
-  height: var(--speed-dial-icon-height, 2rem);
-  width: var(--speed-dial-icon-width, 2rem);
-}
-
-.toggle-speed-dial:focus {
-  box-shadow: none;
-}
-
-.rotate {
-  transform: rotate(45deg);
+  z-index: 1;
 }

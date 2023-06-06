@@ -8,12 +8,8 @@ exports[`SignUp > matches snapshot in en 1`] = `
     Register 
     <!---->
   </h1>
-  <div
-    class="toolbar"
-  >
-    
-    
-  </div>
+  
+  
   <main>
     
     <!--v-if-->
@@ -125,12 +121,8 @@ exports[`SignUp > matches snapshot in fr 1`] = `
     Inscription 
     <!---->
   </h1>
-  <div
-    class="toolbar"
-  >
-    
-    
-  </div>
+  
+  
   <main>
     
     <!--v-if-->

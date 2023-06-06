@@ -10,12 +10,8 @@ exports[`Page > matches snapshot 1`] = `
       Welcome to the home page
     </small>
   </h1>
-  <div
-    class="toolbar"
-  >
-    
-    
-  </div>
+  
+  
   <main>
     
     

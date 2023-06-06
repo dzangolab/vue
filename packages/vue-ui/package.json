@@ -49,5 +49,9 @@
   "engines": {
     "node": ">=16",
     "pnpm": ">=7"
+  },
+  "dependencies": {
+    "primeicons": "6.0.1",
+    "primevue": "3.27.0"
   }
 }

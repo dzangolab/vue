@@ -26,6 +26,11 @@
           {{ $t("ui.tanstack-table.title") }}
         </router-link>
       </li>
+      <li>
+        <router-link :to="{ name: 'toolBar' }">
+          {{ $t("ui.tool-bar.title") }}
+        </router-link>
+      </li>
     </ul>
   </Page>
 </template>

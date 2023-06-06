@@ -8,12 +8,8 @@ exports[`Profile > matches snapshot in en 1`] = `
     Profile 
     <!---->
   </h1>
-  <div
-    class="toolbar"
-  >
-    
-    
-  </div>
+  
+  
   <main>
     
     
@@ -29,12 +25,8 @@ exports[`Profile > matches snapshot in fr 1`] = `
     Profil 
     <!---->
   </h1>
-  <div
-    class="toolbar"
-  >
-    
-    
-  </div>
+  
+  
   <main>
     
     

@@ -8,12 +8,8 @@ exports[`Login with signup disabled > matches snapshot in en 1`] = `
     Login 
     <!---->
   </h1>
-  <div
-    class="toolbar"
-  >
-    
-    
-  </div>
+  
+  
   <main>
     
     <!--v-if-->
@@ -104,12 +100,8 @@ exports[`Login with signup disabled > matches snapshot in fr 1`] = `
     Connexion 
     <!---->
   </h1>
-  <div
-    class="toolbar"
-  >
-    
-    
-  </div>
+  
+  
   <main>
     
     <!--v-if-->

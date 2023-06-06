@@ -50,6 +50,9 @@
     "title": "Tanstack Table"
   },
   "title": "UI Library",
+  "tool-bar": {
+    "title": "ToolBar"
+  },
   "typography": {
     "title": "Typography"
   }

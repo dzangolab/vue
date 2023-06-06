@@ -1,11 +1,11 @@
 <template>
   <Page :title="$t('ui.accordion.title')">
     <template #toolbar>
-      <router-link :to="{ name: 'ui' }" class="back">
-        {{ $t("common.back") }}
-      </router-link>
-
-      <button class="reload">reload</button>
+      <ToolBar>
+        <router-link :to="{ name: 'ui' }" class="back">
+          {{ $t("common.back") }}
+        </router-link>
+      </ToolBar>
     </template>
 
     <section>
@@ -92,7 +92,7 @@ export default {
 </script>
 
 <script lang="ts" setup>
-import { Page } from "@dzangolab/vue3-ui";
+import { Page, ToolBar } from "@dzangolab/vue3-ui";
 
 import DemoAccordion from "./DemoAccordion.vue";
 import DemoAccordionWithIcons from "./DemoAccordionWithIcons.vue";

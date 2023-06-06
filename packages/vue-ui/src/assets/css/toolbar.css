@@ -1,0 +1,8 @@
+.p-button {
+  background: var(--speed-dial-color) !important;
+  color: var(--speed-dial-toggle) !important;
+}
+
+.p-button:enabled:hover {
+  border-color: var(--border-color) !important;
+}
