@@ -1,5 +1,7 @@
 import { parse } from "@dzangolab/vue3-config";
 
+import MyCustomAuthenticator from "./auth/custom/index";
+
 import type { AppConfig, AppFeatures } from "@dzangolab/vue3-config";
 import type { LocaleMessages, VueMessageType } from "@dzangolab/vue3-i18n";
 
@@ -65,6 +67,7 @@ const config: AppConfig = {
   },
   slug: import.meta.env.VITE_APP_SLUG as string,
   user: {
+    authenticator: MyCustomAuthenticator,
     options: {
       email: {
         host_whitelist: ["dzangolab.com", "dzango.com"],

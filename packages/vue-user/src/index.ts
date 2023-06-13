@@ -18,7 +18,9 @@ const plugin: Plugin = {
   install: (app: App, options: DzangolabVueUserPluginOptions): void => {
     updateRouter(options.router, options.config?.user?.routes);
 
-    initSupertokens(options.config);
+    if (!options.config?.user?.authenticator) {
+      initSupertokens(options.config);
+    }
 
     const translations = options?.translations
       ? prependMessages(messages, options.translations)
