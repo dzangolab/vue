@@ -9,7 +9,7 @@ interface RouteOverride {
 }
 
 interface RouteOverrides {
-  google: RouteOverride;
+  google?: RouteOverride;
   home?: string;
   login: RouteOverride;
   signup: RouteOverride & { disabled?: boolean };
