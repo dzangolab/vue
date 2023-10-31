@@ -54,7 +54,7 @@
     "tsconfig-custom": "0.8.2",
     "typescript": "4.9.5",
     "vee-validate": "4.7.4",
-    "vite": "4.1.4",
+    "vite": "4.1.5",
     "vitest": "0.29.8",
     "vue": "3.2.47",
     "vue-router": "4.1.6",
