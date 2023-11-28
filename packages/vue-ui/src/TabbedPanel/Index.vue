@@ -45,7 +45,7 @@ export default {
 </script>
 
 <script lang="ts" setup>
-import { computed, ref, useSlots } from "vue";
+import { computed, onMounted, ref, useSlots } from "vue";
 
 import type { PropType } from "vue";
 
@@ -62,12 +62,33 @@ const props = defineProps({
     required: false,
     type: String as PropType<"bottom" | "left" | "right" | "top">,
   },
+  storageKey: {
+    default: "",
+    required: false,
+    type: String,
+  },
 });
 
 const active = ref(props.defaultIndex);
 
+const key = "dzangolab_vue_ui_settings";
+
+onMounted(() => {
+  const storeValue = localStorage.getItem(key);
+  if (storeValue !== null) {
+    const parsedData = JSON.parse(storeValue);
+    if (props.storageKey in parsedData) {
+      active.value = parsedData[props.storageKey];
+    }
+  }
+});
+
 const handleClick = (index: number) => {
   active.value = index;
+  const storeData = localStorage.getItem(key);
+  const dataToStore = storeData ? JSON.parse(storeData) : {};
+  dataToStore[props.storageKey] = index;
+  localStorage.setItem(key, JSON.stringify(dataToStore));
 };
 
 const filteredSlots = slots?.default

@@ -6,7 +6,7 @@
       </router-link>
     </template>
 
-    <TabbedPanel class="colorized shadow">
+    <TabbedPanel class="colorized shadow" :storage-key="key">
       <BasicUsage :title="t('ui.tabbed-panel.basic-usage')" />
       <Colorized :title="t('ui.tabbed-panel.with-color')" />
       <ColorizedWithShadow
@@ -33,6 +33,8 @@ import ColorizedWithShadow from "./ColorizedWithShadow.vue";
 import CustomIcons from "./CustomIcons.vue";
 
 const { t } = useI18n();
+
+const key = "mainTab";
 </script>
 
 <style scoped>
