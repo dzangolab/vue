@@ -1,9 +1,5 @@
 lockfileVersion: '6.0'
 
-settings:
-  autoInstallPeers: true
-  excludeLinksFromLockfile: false
-
 importers:
 
   .:
@@ -85,8 +81,8 @@ importers:
         specifier: 4.7.4
         version: 4.7.4
       '@vee-validate/zod':
-        specifier: 4.7.4
-        version: 4.7.4(vee-validate@4.7.4)(zod@3.20.6)
+        specifier: 4.12.6
+        version: 4.12.6(vue@3.2.47)
       '@vitejs/plugin-vue':
         specifier: 4.2.1
         version: 4.2.1(vite@4.1.4)(vue@3.2.47)
@@ -216,8 +212,8 @@ importers:
         specifier: 4.7.4
         version: 4.7.4
       '@vee-validate/zod':
-        specifier: 4.7.4
-        version: 4.7.4(vee-validate@4.7.4)(zod@3.20.6)
+        specifier: 4.12.6
+        version: 4.12.6(vue@3.2.47)
       '@vitejs/plugin-vue':
         specifier: 4.2.1
         version: 4.2.1(vite@4.1.4)(vue@3.2.47)
@@ -528,8 +524,8 @@ importers:
         specifier: 4.7.4
         version: 4.7.4
       '@vee-validate/zod':
-        specifier: 4.7.4
-        version: 4.7.4(vee-validate@4.7.4)(zod@3.20.6)
+        specifier: 4.12.6
+        version: 4.12.6(vue@3.2.47)
       '@vitejs/plugin-vue':
         specifier: 4.2.1
         version: 4.2.1(vite@4.1.4)(vue@3.2.47)
@@ -1976,14 +1972,14 @@ packages:
     resolution: {integrity: sha512-rWpmGKB/jy7/jbuAH/pfCYoCjiYDx77geNEaYeTl07eHo+2jL+j802Ttn85cTJsMUeXzRSUauepvNCpkVWV+aA==}
     dev: true
 
-  /@vee-validate/zod@4.7.4(vee-validate@4.7.4)(zod@3.20.6):
-    resolution: {integrity: sha512-AyOgGchUaElroaArwyPnSgftp6Ho74dzEr72qxQw6/J+BRVh7UpshkTeHAf6Tvwg4hyxIW4veurOB0yWuqYSyA==}
-    peerDependencies:
-      vee-validate: ^4.4.0
-      zod: ^3.1.0
+  /@vee-validate/zod@4.12.6(vue@3.2.47):
+    resolution: {integrity: sha512-LCP/hBWRyOgciwxVYvh4UrowVOJT/v5rJvUKCqEn+4ccx3bNtjVlOI4OvA6T1esg7LvmgseQiNQRxUvE2Pn9ng==}
     dependencies:
-      vee-validate: 4.7.4(vue@3.2.47)
-      zod: 3.20.6
+      type-fest: 4.11.1
+      vee-validate: 4.12.6(vue@3.2.47)
+      zod: 3.22.4
+    transitivePeerDependencies:
+      - vue
     dev: true
 
   /@vitejs/plugin-vue-jsx@3.0.1(vite@4.1.4)(vue@3.2.47):
@@ -2160,6 +2156,10 @@ packages:
 
   /@vue/devtools-api@6.5.0:
     resolution: {integrity: sha512-o9KfBeaBmCKl10usN4crU53fYtC1r7jJwdGKjPT24t348rHxgfpZ0xL3Xm/gLUYnc0oTp8LAmrxOeLyu6tbk2Q==}
+
+  /@vue/devtools-api@6.6.1:
+    resolution: {integrity: sha512-LgPscpE3Vs0x96PzSSB4IGVSZXZBZHpfxs+ZA1d+VEPwHdOXowy/Y2CsvCAIFrf+ssVU1pD1jidj505EpUnfbA==}
+    dev: true
 
   /@vue/reactivity-transform@3.2.47:
     resolution: {integrity: sha512-m8lGXw8rdnPVVIdIFhf0LeQ/ixyHkH5plYuS83yop5n7ggVJU+z5v0zecwEnX7fa7HNLBhh2qngJJkxpwEEmYA==}
@@ -6091,6 +6091,11 @@ packages:
     resolution: {integrity: sha512-4dbzIzqvjtgiM5rw1k5rEHtBANKmdudhGyBEajN01fEyhaAIhsoKNy6y7+IN93IfpFtwY9iqi7kD+xwKhQsNJA==}
     engines: {node: '>=8'}
 
+  /type-fest@4.11.1:
+    resolution: {integrity: sha512-MFMf6VkEVZAETidGGSYW2B1MjXbGX+sWIywn2QPEaJ3j08V+MwVRHMXtf2noB8ENJaD0LIun9wh5Z6OPNf1QzQ==}
+    engines: {node: '>=16'}
+    dev: true
+
   /typescript@4.9.5:
     resolution: {integrity: sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==}
     engines: {node: '>=4.2.0'}
@@ -6194,6 +6199,16 @@ packages:
     resolution: {integrity: sha512-B+dGG8U3fdtM0/aNK4/X8CXq/EcxU2WPrPEkJGslb47qyHsxmbggTWK0yEA4qnYVNF+nxNlN88o14hIcPmSIEA==}
     engines: {node: '>= 0.10'}
     dev: false
+
+  /vee-validate@4.12.6(vue@3.2.47):
+    resolution: {integrity: sha512-EKM3YHy8t1miPh30d5X6xOrfG/Ctq0nbN4eMpCK7ezvI6T98/S66vswP+ihL4QqAK/k5KqreWOxof09+JG7N/A==}
+    peerDependencies:
+      vue: ^3.3.11
+    dependencies:
+      '@vue/devtools-api': 6.6.1
+      type-fest: 4.11.1
+      vue: 3.2.47
+    dev: true
 
   /vee-validate@4.7.4(vue@3.2.47):
     resolution: {integrity: sha512-pfhKluYimYvSQIiFoIY29NAgl0j24DqPsodlCny/NlOrYbougdjbL1C9yYqmba4Ka3YUY6vOZ0GE2wcwMsKQ5A==}
@@ -6601,3 +6616,11 @@ packages:
   /zod@3.20.6:
     resolution: {integrity: sha512-oyu0m54SGCtzh6EClBVqDDlAYRz4jrVtKwQ7ZnsEmMI9HnzuZFj8QFwAY1M5uniIYACdGvv0PBWPF2kO0aNofA==}
     dev: true
+
+  /zod@3.22.4:
+    resolution: {integrity: sha512-iC+8Io04lddc+mVqQ9AZ7OQ2MrUKGN+oIQyq1vemgt46jwCwLfhq7/pwnBnNXXXZb8VTVLKwp9EDkx+ryxIWmg==}
+    dev: true
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
