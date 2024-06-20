@@ -5,6 +5,11 @@ import type {
 } from "@dzangolab/vue3-form";
 
 interface DzangolabVueUserConfig {
+  authenticator?: {
+    login: (username: string, password: string) => Promise<void>;
+    logout: () => Promise<void>;
+    signup: (username: string, password: string) => Promise<void>;
+  };
   password?: {
     minLength: number;
   };
