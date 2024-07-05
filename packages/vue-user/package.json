@@ -38,7 +38,7 @@
     "@dzangolab/vue3-ui": "0.8.2",
     "@iconify/vue": "4.1.0",
     "@types/node": "18.15.11",
-    "@vee-validate/i18n": "4.7.4",
+    "@vee-validate/i18n": "4.13.2",
     "@vee-validate/rules": "4.7.4",
     "@vee-validate/zod": "4.7.4",
     "@vitejs/plugin-vue": "4.2.1",
