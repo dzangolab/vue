@@ -11,7 +11,7 @@ import PasswordResetRequestAcknowledge from "./views/PasswordResetRequestAcknowl
 import Profile from "./views/Profile.vue";
 import Signup from "./views/Signup.vue";
 
-import type { RouteOverride, RouteOverrides } from "./types";
+import type { DzangolabVueUserConfig, RouteOverride } from "./types";
 import type { RouteMeta, RouteRecordRaw } from "vue-router";
 
 const _routes = {
@@ -65,8 +65,12 @@ const getRoute = (
   } as RouteRecordRaw;
 };
 
-const addRoutes = (router: Router, routes?: RouteOverrides) => {
-  router.addRoute(getRoute(_routes.google, routes?.google));
+const addRoutes = (router: Router, user?: DzangolabVueUserConfig) => {
+  const routes = user?.routes;
+
+  if (user?.socialLogins?.includes("google")) {
+    router.addRoute(getRoute(_routes.google, routes?.google));
+  }
 
   router.addRoute(getRoute(_routes.login, routes?.login));
 
@@ -128,8 +132,8 @@ const addAuthenticationGuard = (router: Router) => {
   });
 };
 
-const updateRouter = (router: Router, routes?: RouteOverrides) => {
-  addRoutes(router, routes);
+const updateRouter = (router: Router, user?: DzangolabVueUserConfig) => {
+  addRoutes(router, user);
 
   addAuthenticationGuard(router);
 
