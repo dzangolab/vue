@@ -1,9 +1,5 @@
 lockfileVersion: '6.0'
 
-settings:
-  autoInstallPeers: true
-  excludeLinksFromLockfile: false
-
 importers:
 
   .:
@@ -86,7 +82,7 @@ importers:
         version: 4.7.4
       '@vee-validate/zod':
         specifier: 4.7.4
-        version: 4.7.4(vee-validate@4.7.4)(zod@3.20.6)
+        version: 4.7.4(vee-validate@4.7.4)(zod@3.23.8)
       '@vitejs/plugin-vue':
         specifier: 4.2.1
         version: 4.2.1(vite@4.1.4)(vue@3.2.47)
@@ -139,8 +135,8 @@ importers:
         specifier: 1.2.0
         version: 1.2.0(typescript@4.9.5)
       zod:
-        specifier: 3.20.6
-        version: 3.20.6
+        specifier: 3.23.8
+        version: 3.23.8
 
   packages/vue-config:
     dependencies:
@@ -217,7 +213,7 @@ importers:
         version: 4.7.4
       '@vee-validate/zod':
         specifier: 4.7.4
-        version: 4.7.4(vee-validate@4.7.4)(zod@3.20.6)
+        version: 4.7.4(vee-validate@4.7.4)(zod@3.23.8)
       '@vitejs/plugin-vue':
         specifier: 4.2.1
         version: 4.2.1(vite@4.1.4)(vue@3.2.47)
@@ -264,8 +260,8 @@ importers:
         specifier: 1.2.0
         version: 1.2.0(typescript@4.9.5)
       zod:
-        specifier: 3.20.6
-        version: 3.20.6
+        specifier: 3.23.8
+        version: 3.23.8
 
   packages/vue-i18n:
     dependencies:
@@ -529,7 +525,7 @@ importers:
         version: 4.7.4
       '@vee-validate/zod':
         specifier: 4.7.4
-        version: 4.7.4(vee-validate@4.7.4)(zod@3.20.6)
+        version: 4.7.4(vee-validate@4.7.4)(zod@3.23.8)
       '@vitejs/plugin-vue':
         specifier: 4.2.1
         version: 4.2.1(vite@4.1.4)(vue@3.2.47)
@@ -585,8 +581,8 @@ importers:
         specifier: 1.2.0
         version: 1.2.0(typescript@4.9.5)
       zod:
-        specifier: 3.20.6
-        version: 3.20.6
+        specifier: 3.23.8
+        version: 3.23.8
 
   tools/eslint-config-custom:
     dependencies:
@@ -1976,14 +1972,14 @@ packages:
     resolution: {integrity: sha512-rWpmGKB/jy7/jbuAH/pfCYoCjiYDx77geNEaYeTl07eHo+2jL+j802Ttn85cTJsMUeXzRSUauepvNCpkVWV+aA==}
     dev: true
 
-  /@vee-validate/zod@4.7.4(vee-validate@4.7.4)(zod@3.20.6):
+  /@vee-validate/zod@4.7.4(vee-validate@4.7.4)(zod@3.23.8):
     resolution: {integrity: sha512-AyOgGchUaElroaArwyPnSgftp6Ho74dzEr72qxQw6/J+BRVh7UpshkTeHAf6Tvwg4hyxIW4veurOB0yWuqYSyA==}
     peerDependencies:
       vee-validate: ^4.4.0
       zod: ^3.1.0
     dependencies:
       vee-validate: 4.7.4(vue@3.2.47)
-      zod: 3.20.6
+      zod: 3.23.8
     dev: true
 
   /@vitejs/plugin-vue-jsx@3.0.1(vite@4.1.4)(vue@3.2.47):
@@ -6598,6 +6594,10 @@ packages:
     engines: {node: '>=12.20'}
     dev: true
 
-  /zod@3.20.6:
-    resolution: {integrity: sha512-oyu0m54SGCtzh6EClBVqDDlAYRz4jrVtKwQ7ZnsEmMI9HnzuZFj8QFwAY1M5uniIYACdGvv0PBWPF2kO0aNofA==}
+  /zod@3.23.8:
+    resolution: {integrity: sha512-XBx9AXhXktjUqnepgTiE5flcKIYWi/rme0Eaj+5Y0lftuGBq+jyRu/md4WnuxqgP1ubdpNCsYEYPxrzVHD8d6g==}
     dev: true
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
