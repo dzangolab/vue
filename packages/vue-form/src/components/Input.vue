@@ -88,33 +88,3 @@ const onInput = (event: Event) => {
   emit("update:modelValue", value);
 };
 </script>
-
-<style lang="css">
-.field {
-  align-items: flex-start;
-  display: flex;
-  flex-direction: column;
-  gap: var(--form-field-gap, 0.25em);
-  justify-content: flex-start;
-}
-
-.field input {
-  --_input-field-border-color: var(--form-input-border-color, #000);
-  --_input-field-border-radius: var(--form-input-border-radius, 0.25em);
-  --_input-field-margin-bottom: var(--form-input-margin-bottom, 1e);
-  --_input-field-padding-h: var(--form-input-padding-h, 0.5em);
-  --_input-field-padding-v: var(--form-input-padding-v, 0.5em);
-
-  border-radius: var(--_input-field-border-radius);
-  border: 1px solid var(--_input-field-border-color);
-  font-size: 1rem;
-  margin-bottom: var(--_input-field-margin-bottom);
-  padding: var(--_input-field-padding-v) var(--_input-field-padding-v);
-  width: 100%;
-}
-
-.field input:disabled {
-  background-color: var(--form-input-bg-color-disabled);
-  border-color: var(--form-input-border-color-disabled);
-}
-</style>

@@ -4,7 +4,9 @@
   },
   "errors": {
     "input": {
-      "min": "Input must be at least 3 character(s)[fr]"
+      "length": "Input must be exactly 5 characters long[fr]",
+      "min": "Input must be at least 3 character(s)[fr]",
+      "required": "The field should not be empty[fr]"
     },
     "number": {
       "invalid": "Please provide a number between 1 to 100[fr]",
@@ -17,6 +19,8 @@
   },
   "label": {
     "basicInput": "Basic[fr]",
+    "customErrorMessageInput": "With custom error message[fr]",
+    "customValidationInput": "With custom validation[fr]",
     "customStyleInput": "Custom style[fr]",
     "disabled": "Disabled[fr]",
     "email": "Email[fr]",
