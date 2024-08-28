@@ -114,8 +114,8 @@ importers:
         specifier: 4.1.5
         version: 4.1.5
       prettier:
-        specifier: 2.8.7
-        version: 2.8.7
+        specifier: 2.8.8
+        version: 2.8.8
       tsconfig-custom:
         specifier: 0.8.5
         version: link:../../tools/tsconfig-custom
@@ -169,8 +169,8 @@ importers:
         specifier: 0.8.5
         version: link:../../tools/eslint-config-custom
       prettier:
-        specifier: 2.8.7
-        version: 2.8.7
+        specifier: 2.8.8
+        version: 2.8.8
       tsconfig-custom:
         specifier: 0.8.5
         version: link:../../tools/tsconfig-custom
@@ -239,8 +239,8 @@ importers:
         specifier: 0.8.5
         version: link:../../tools/eslint-config-custom
       prettier:
-        specifier: 2.8.7
-        version: 2.8.7
+        specifier: 2.8.8
+        version: 2.8.8
       tsconfig-custom:
         specifier: 0.8.5
         version: link:../../tools/tsconfig-custom
@@ -303,8 +303,8 @@ importers:
         specifier: 2.0.32
         version: 2.0.32(typescript@4.9.5)(vue@3.2.47)
       prettier:
-        specifier: 2.8.7
-        version: 2.8.7
+        specifier: 2.8.8
+        version: 2.8.8
       tsconfig-custom:
         specifier: 0.8.5
         version: link:../../tools/tsconfig-custom
@@ -363,8 +363,8 @@ importers:
         specifier: 0.8.5
         version: link:../../tools/eslint-config-custom
       prettier:
-        specifier: 2.8.7
-        version: 2.8.7
+        specifier: 2.8.8
+        version: 2.8.8
       tsconfig-custom:
         specifier: 0.8.5
         version: link:../../tools/tsconfig-custom
@@ -421,8 +421,8 @@ importers:
         specifier: 0.8.5
         version: link:../../tools/eslint-config-custom
       prettier:
-        specifier: 2.8.7
-        version: 2.8.7
+        specifier: 2.8.8
+        version: 2.8.8
       tsconfig-custom:
         specifier: 0.8.5
         version: link:../../tools/tsconfig-custom
@@ -469,8 +469,8 @@ importers:
         specifier: 0.8.5
         version: link:../../tools/eslint-config-custom
       prettier:
-        specifier: 2.8.7
-        version: 2.8.7
+        specifier: 2.8.8
+        version: 2.8.8
       tsconfig-custom:
         specifier: 0.8.5
         version: link:../../tools/tsconfig-custom
@@ -557,8 +557,8 @@ importers:
         specifier: 2.0.32
         version: 2.0.32(typescript@4.9.5)(vue@3.2.47)
       prettier:
-        specifier: 2.8.7
-        version: 2.8.7
+        specifier: 2.8.8
+        version: 2.8.8
       tsconfig-custom:
         specifier: 0.8.5
         version: link:../../tools/tsconfig-custom
@@ -612,7 +612,7 @@ importers:
         version: 2.27.5(@typescript-eslint/parser@5.54.0)(eslint-import-resolver-typescript@3.5.5)(eslint@8.36.0)
       eslint-plugin-prettier:
         specifier: 4.2.1
-        version: 4.2.1(eslint-config-prettier@8.8.0)(eslint@8.36.0)(prettier@2.8.7)
+        version: 4.2.1(eslint-config-prettier@8.8.0)(eslint@8.36.0)(prettier@2.8.8)
       eslint-plugin-unicorn:
         specifier: 46.0.0
         version: 46.0.0(eslint@8.36.0)
@@ -627,8 +627,8 @@ importers:
         specifier: 8.36.0
         version: 8.36.0
       prettier:
-        specifier: 2.8.7
-        version: 2.8.7
+        specifier: 2.8.8
+        version: 2.8.8
       typescript:
         specifier: 4.9.5
         version: 4.9.5
@@ -3304,7 +3304,7 @@ packages:
       - supports-color
     dev: false
 
-  /eslint-plugin-prettier@4.2.1(eslint-config-prettier@8.8.0)(eslint@8.36.0)(prettier@2.8.7):
+  /eslint-plugin-prettier@4.2.1(eslint-config-prettier@8.8.0)(eslint@8.36.0)(prettier@2.8.8):
     resolution: {integrity: sha512-f/0rXLXUt0oFYs8ra4w49wYZBG5GKZpAYsJSm6rnYL5uVDjd+zowwMwVZHnAjf4edNrKpCDYfXDgmRE/Ak7QyQ==}
     engines: {node: '>=12.0.0'}
     peerDependencies:
@@ -3317,7 +3317,7 @@ packages:
     dependencies:
       eslint: 8.36.0
       eslint-config-prettier: 8.8.0(eslint@8.36.0)
-      prettier: 2.8.7
+      prettier: 2.8.8
       prettier-linter-helpers: 1.0.0
     dev: false
 
@@ -5146,8 +5146,8 @@ packages:
       fast-diff: 1.2.0
     dev: false
 
-  /prettier@2.8.7:
-    resolution: {integrity: sha512-yPngTo3aXUUmyuTjeTUT75txrf+aMh9FiD7q9ZE/i6r0bPb22g4FsE6Y338PQX1bmfy08i9QQCB7/rcUAVntfw==}
+  /prettier@2.8.8:
+    resolution: {integrity: sha512-tdN8qQGvNjw4CHbY+XXk0JgCXn9QiF21a55rBe5LJAU+kDyC4WQn4+awm2Xfk2lQMk5fKup9XgzTZtGkjBdP9Q==}
     engines: {node: '>=10.13.0'}
     hasBin: true
 
@@ -5532,7 +5532,7 @@ packages:
       inquirer: 7.1.0
       mkdirp: 1.0.4
       open: 7.4.2
-      prettier: 2.8.7
+      prettier: 2.8.8
       serialize-javascript: 3.1.0
       shell-quote: 1.7.4
       shipjs-lib: 0.26.3
