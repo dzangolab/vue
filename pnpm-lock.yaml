@@ -75,8 +75,8 @@ importers:
         specifier: 18.15.11
         version: 18.15.11
       '@vee-validate/i18n':
-        specifier: 4.7.4
-        version: 4.7.4
+        specifier: 4.13.2
+        version: 4.13.2
       '@vee-validate/rules':
         specifier: 4.7.4
         version: 4.7.4
@@ -209,8 +209,8 @@ importers:
         specifier: 13.7.13
         version: 13.7.13
       '@vee-validate/i18n':
-        specifier: 4.7.4
-        version: 4.7.4
+        specifier: 4.13.2
+        version: 4.13.2
       '@vee-validate/rules':
         specifier: 4.7.4
         version: 4.7.4
@@ -521,8 +521,8 @@ importers:
         specifier: 18.15.11
         version: 18.15.11
       '@vee-validate/i18n':
-        specifier: 4.7.4
-        version: 4.7.4
+        specifier: 4.13.2
+        version: 4.13.2
       '@vee-validate/rules':
         specifier: 4.7.4
         version: 4.7.4
@@ -1967,8 +1967,8 @@ packages:
       eslint-visitor-keys: 3.3.0
     dev: false
 
-  /@vee-validate/i18n@4.7.4:
-    resolution: {integrity: sha512-zK5rnPjgd4kBEfUj4jWUu6GHsldETji/JuorBb+emWSD1QUo4nEr1R7zFqHHunbAQu664iIQnzAlsfzkkXM40A==}
+  /@vee-validate/i18n@4.13.2:
+    resolution: {integrity: sha512-GWqGgxJsQwZZCcrQOsvLNcvxLk1DmHctGw8vYXvwgqoj2hyrLtGQSmeIAqUVa2cYR6rk7301Ity5iJgOou9K5A==}
     dev: true
 
   /@vee-validate/rules@4.7.4:
