@@ -36,6 +36,7 @@
     "customErrorMessageInput": "With custom error message[fr]",
     "customValidationInput": "With custom validation[fr]",
     "customStyleInput": "Custom style[fr]",
+    "dateInput": "Date input",
     "debouncedTypeahead": "With debounce time prop",
     "disabledMultiSelect": "Disabled multiselect[fr]",
     "disabled": "Disabled[fr]",
@@ -56,6 +57,7 @@
     "valid": "Show valid state[fr]"
   },
   "placeholder": {
+    "dateInput": "Enter no. of days[fr]",
     "email": "Enter a email[fr]",
     "input": "Enter input[fr]",
     "multiSelect": "Select multiple value[fr]",
