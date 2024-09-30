@@ -1,5 +1,6 @@
 export { default as DatePicker } from "./DatePicker.vue";
 export { default as Email } from "./Email.vue";
+export { default as FileInput } from "./File/FileUpload.vue";
 export { default as Form } from "./Form.vue";
 export { default as FormActions } from "./FormActions.vue";
 export { default as Input } from "./Input.vue";
