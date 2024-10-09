@@ -196,6 +196,24 @@
       "basic": "Basic"
     }
   },
+  "stepper": {
+    "label": {
+      "name": "Name",
+      "phone": "Phone",
+      "price": "Price"
+    },
+    "placeholder": {
+      "name": "Enter your name",
+      "phone": "Enter your phone"
+    },
+    "title": "Stepper",
+    "usage": {
+      "basic": "Basic",
+      "buttonProperties": "Action buttons properties",
+      "complete": "Are you sure you want to complete the process?",
+      "withSlot": "With slot"
+    }
+  },
   "subPane": {
     "title": "SubPane",
     "content": "This is a subpane"
