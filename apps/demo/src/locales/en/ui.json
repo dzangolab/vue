@@ -124,7 +124,7 @@
       "disableBody": "Disable body",
       "disableFooter": "Disable footer",
       "disableHeader": "Disable header",
-      "withBorder": "With border",
+      "withDivider": "With divider",
       "withI18n": "With i18n"
     }
   },

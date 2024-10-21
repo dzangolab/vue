@@ -1,5 +1,5 @@
-.modal.bordered-modal .modal-body,
-.modal.bordered-modal .modal-header {
+.modal.divided-modal .modal-body,
+.modal.divided-modal .modal-header {
   border-bottom: 1px solid var(--border-color);
 }
 
@@ -20,7 +20,10 @@
 }
 
 .modal .modal-container {
+  --_border-radius: var(--modal-border-radius, 0.3rem);
+
   background-color: #fff;
+  border-radius: var(--_border-radius);
   box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.33);
   display: flex;
   flex-direction: column;
@@ -37,6 +40,10 @@
   gap: 1em;
   margin-left: auto;
   padding: 1em;
+}
+
+.modal .modal-header.disabled-header {
+  padding-bottom: 0.1rem;
 }
 
 .modal .modal-header {

@@ -2,7 +2,7 @@
 
 exports[`ConfirmationModal > matches snapshot 1`] = `
 <div
-  class="modal bordered-modal"
+  class="modal divided-modal"
 >
   <div
     class="modal-wrapper"
