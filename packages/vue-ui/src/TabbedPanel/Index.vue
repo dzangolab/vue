@@ -45,9 +45,14 @@ export default {
 </script>
 
 <script lang="ts" setup>
-import { computed, ref, useSlots } from "vue";
+import { computed, onMounted, ref, useSlots } from "vue";
 
 import type { PropType } from "vue";
+
+interface StorageInterface {
+  save: (key: string, value: number) => void;
+  get: (key: string) => string | null;
+}
 
 const slots = useSlots();
 
@@ -62,12 +67,41 @@ const props = defineProps({
     required: false,
     type: String as PropType<"bottom" | "left" | "right" | "top">,
   },
+  storageKey: {
+    default: "",
+    required: false,
+    type: String,
+  },
 });
 
 const active = ref(props.defaultIndex);
 
+const key = "dzangolab_vue_ui_settings";
+
+onMounted(() => {
+  const storeValue = localStorage.getItem(key);
+  if (storeValue !== null) {
+    const parsedData = JSON.parse(storeValue);
+    if (props.storageKey in parsedData) {
+      active.value = parsedData[props.storageKey];
+    }
+  }
+});
+
+const getLsItem: StorageInterface["get"] = (key: string) => {
+  return localStorage.getItem(key);
+};
+
+const setLsItem: StorageInterface["save"] = (key: string, value: number) => {
+  localStorage.setItem(key, JSON.stringify(value));
+};
+
 const handleClick = (index: number) => {
   active.value = index;
+  const storeData = getLsItem(key);
+  const dataToStore = storeData ? JSON.parse(storeData) : {};
+  dataToStore[props.storageKey] = index;
+  setLsItem(key, dataToStore);
 };
 
 const filteredSlots = slots?.default
