@@ -40,7 +40,7 @@
     "eslint": "8.57.1",
     "eslint-config-custom": "0.8.5",
     "jsdom": "21.1.1",
-    "pinia": "2.0.32",
+    "pinia": "2.2.4",
     "prettier": "3.3.3",
     "tsconfig-custom": "0.8.5",
     "typescript": "5.5.4",
