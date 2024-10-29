@@ -1,0 +1,133 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Stepper > matches snapshot 1`] = `
+<div
+  class="stepper"
+  data-v-8f3c25f9=""
+>
+  <ul
+    class="steps"
+    data-v-8f3c25f9=""
+  >
+    
+    <li
+      class="step active"
+      data-v-8f3c25f9=""
+    >
+      <span
+        class="step-number active"
+        data-v-8f3c25f9=""
+      >
+        
+        1
+        
+      </span>
+      <span
+        class="active step-label"
+        data-v-8f3c25f9=""
+      >
+        Step 1
+      </span>
+    </li>
+    <li
+      class="step"
+      data-v-8f3c25f9=""
+    >
+      <span
+        class="step-number"
+        data-v-8f3c25f9=""
+      >
+        
+        2
+        
+      </span>
+      <span
+        class="step-label"
+        data-v-8f3c25f9=""
+      >
+        Step 2
+      </span>
+    </li>
+    <li
+      class="step"
+      data-v-8f3c25f9=""
+    >
+      <span
+        class="step-number"
+        data-v-8f3c25f9=""
+      >
+        
+        3
+        
+      </span>
+      <span
+        class="step-label"
+        data-v-8f3c25f9=""
+      >
+        Step 3
+      </span>
+    </li>
+    
+  </ul>
+  
+  
+  <div
+    class="content"
+    data-v-8f3c25f9=""
+  >
+    
+    This is first step.
+    
+  </div>
+  
+  
+  <!--v-if-->
+  
+  
+  <!--v-if-->
+  
+  
+  <div
+    class="actions"
+    data-v-8f3c25f9=""
+  >
+    <button
+      class="button primary medium outlined disabled"
+      data-v-8f3c25f9=""
+      disabled=""
+      role="button"
+    >
+      <!--v-if-->
+      <div
+        class="label"
+      >
+        
+        <span>
+          Previous
+        </span>
+        
+      </div>
+      <!--v-if-->
+      <!--v-if-->
+    </button>
+    <button
+      class="button primary medium filled"
+      data-v-8f3c25f9=""
+      role="button"
+    >
+      <!--v-if-->
+      <div
+        class="label"
+      >
+        
+        <span>
+          Next
+        </span>
+        
+      </div>
+      <!--v-if-->
+      <!--v-if-->
+    </button>
+  </div>
+</div>
+`;

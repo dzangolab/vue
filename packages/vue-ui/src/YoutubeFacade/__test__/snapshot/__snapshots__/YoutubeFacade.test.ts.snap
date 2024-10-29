@@ -1,0 +1,36 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`YoutubeFacade > matches snapshot 1`] = `
+<div
+  class="youtube-facade"
+  style="background-image: url(https://img.youtube.com/vi/YrxBCBibVo0/maxresdefault.jpg);"
+>
+  <div
+    style="aspect-ratio: 16/9;"
+  >
+    <a
+      data-youtube-video-token="YrxBCBibVo0"
+      href="https://www.youtube.com/watch?v=YrxBCBibVo0"
+      rel="noreferrer"
+      style="aspect-ratio: 16/9;"
+      target="_blank"
+    >
+      <img
+        data-aspect-ratio="16/9"
+        src="https://img.youtube.com/vi/YrxBCBibVo0/maxresdefault.jpg"
+        style="aspect-ratio: 16/9;"
+      />
+    </a>
+    <a
+      href="https://www.youtube.com/watch?v=YrxBCBibVo0"
+      rel="noreferrer"
+      target="_blank"
+    >
+       Watch On 
+      <b>
+        YouTube
+      </b>
+    </a>
+  </div>
+</div>
+`;
