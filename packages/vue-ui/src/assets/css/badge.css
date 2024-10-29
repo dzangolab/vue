@@ -41,10 +41,6 @@
   --badge-color: var(--badge-danger-color);
 }
 
-.badge.full-width {
-  width: 100%;
-}
-
 .badge.primary {
   --badge-color: var(--badge-primary-color);
 }

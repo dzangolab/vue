@@ -115,20 +115,20 @@ const isAllSelected = (options: SelectOption[]): boolean => {
   }
 
   return selectedOptions.value.every((selectedOption) =>
-    options.includes(selectedOption)
+    options.includes(selectedOption),
   );
 };
 
 const isSelected = (option: SelectOption): boolean =>
   selectedOptions.value.some(
-    (selectedOption) => selectedOption.value === option.value
+    (selectedOption) => selectedOption.value === option.value,
   );
 
 const onSelect = (event: Event, option: SelectOption) => {
   event.stopPropagation();
 
   const index = selectedOptions.value.findIndex(
-    (i) => i.value === option.value
+    (i) => i.value === option.value,
   );
 
   if (multiple.value) {
@@ -139,7 +139,7 @@ const onSelect = (event: Event, option: SelectOption) => {
     }
 
     const selectedValues = selectedOptions.value?.map(
-      (selectedOption) => selectedOption.value
+      (selectedOption) => selectedOption.value,
     );
 
     emit("update:modelValue", selectedValues);

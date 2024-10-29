@@ -307,8 +307,8 @@ export default {
 
 <script setup lang="ts">
 import { Form, NumberInput } from "@dzangolab/vue3-form";
-import { reactive, ref } from "vue";
 import { useI18n } from "@dzangolab/vue3-i18n";
+import { reactive, ref } from "vue";
 import { z } from "zod";
 
 import type { NumberErrorMessages, IsIntOptions } from "@dzangolab/vue3-form";

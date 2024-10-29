@@ -106,7 +106,14 @@ const filteredAttributes = computed(() => {
 });
 
 const onUpdate = (
-  date: string | string[] | number | number[] | Date | Date[] | MonthPickerValue
+  date:
+    | string
+    | string[]
+    | number
+    | number[]
+    | Date
+    | Date[]
+    | MonthPickerValue,
 ) => {
   emit("update:modelValue", date);
 };

@@ -63,6 +63,7 @@
               border: 1px solid #000;
               border-radius: 0.25rem;
               padding: 0.5rem;
+              text-align: center;
               width: 12rem
             }
           &lt;/style&gt;
@@ -207,7 +208,7 @@
 
         <Tooltip clickable>
           <div class="trigger">
-            {{ $t("ui.tooltip.usage.clickable") }}
+            {{ $t("ui.tooltip.label.button") }}
           </div>
           <template #content>
             {{ $t("ui.tooltip.content") }}
@@ -249,47 +250,6 @@
         </Tooltip>
       </div>
     </section>
-
-    <section>
-      <h2>{{ $t("ui.tooltip.usage.customStyle") }}</h2>
-
-      <div class="section-content">
-        <!-- eslint-disable -->
-        <SshPre language="html-vue">
-          &lt;template&gt;
-            &lt;Tooltip class="custom-style-tooltip"&gt;
-              &lt;div class="trigger"&gt;
-                Custom
-              &lt;/div&gt;
-              &lt;template #tooltip&gt;
-                This is a tooltip
-              &lt;/template&gt;
-            &lt;/Tooltip&gt;
-          &lt;/template&gt;
-
-          &lt;script setup lang="ts"&gt;
-          import { Tooltip } from "@dzangolab/vue3-ui";
-          &lt;/script&gt;
-
-          &lt;style lang="css"&gt;
-            .custom-style-tooltip .tooltip-box {
-              --_bg-color: var(--dz-success-color);
-              --_text-color: var(--dz-secondary-color);
-            }
-          &lt;/style&gt;
-        </SshPre>
-        <!-- eslint-enable -->
-
-        <Tooltip class="custom-style-tooltip">
-          <div class="trigger">
-            {{ $t("ui.tooltip.label.custom") }}
-          </div>
-          <template #content>
-            {{ $t("ui.tooltip.content") }}
-          </template>
-        </Tooltip>
-      </div>
-    </section>
   </Page>
 </template>
 
@@ -307,6 +267,7 @@ import { ButtonElement, Tooltip } from "@dzangolab/vue3-ui";
   border: 1px solid #000;
   border-radius: 0.25rem;
   padding: 0.5rem;
+  text-align: center;
   width: 12rem;
 }
 </style>

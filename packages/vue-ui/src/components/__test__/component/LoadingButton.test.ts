@@ -20,7 +20,7 @@ describe("LoadingButton", () => {
 
     it(`should be disabled based on loading props: ${loading}`, async () => {
       expect(wrapper.find(".loading-button").attributes().disabled).toBe(
-        loading ? "" : undefined
+        loading ? "" : undefined,
       );
     });
   }

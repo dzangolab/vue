@@ -40,10 +40,10 @@
     "usage": {
       "basic": "Basic",
       "customStyle": "Custom style",
-      "fullWidth": "Full width",
-      "iconElement": "Icon using element",
-      "iconName": "Icon using name",
-      "iconWithText": "Icon with text",
+      "icon": "Icon",
+      "iconAndLabel": "Icon and label",
+      "iconElement": "Icon slot",
+      "iconPackage": "Different packages icon",
       "rounded": "Rounded",
       "severity": "Severity",
       "withI18n": "With i18n"
@@ -72,12 +72,13 @@
     "title": "Button",
     "usage": {
       "basic": "Basic",
-      "buttonWithChild": "Button with child element",
+      "contentSlot": "Button content slot",
       "disabled": "Disabled",
       "icons": {
-        "iconElement": "Icon using element",
-        "iconName": "Icon using name",
-        "iconWithText": "Icon with text"
+        "icon": "Icon",
+        "iconAndLabel": "Icon and label",
+        "iconElement": "Icon slot",
+        "iconPackage": "Different packages icon"
       },
       "loading": "Loading",
       "outlined": "Outlined",
@@ -118,23 +119,27 @@
     "title": "Confirmation modal",
     "usage": {
       "basic": "Basic",
-      "customContent": "Custom content",
       "customStyle":"Custom style",
       "disableBody": "Disable body",
       "disableFooter": "Disable footer",
       "disableHeader": "Disable header",
-      "withBorder": "With border",
+      "slots": "With slots",
+      "withDivider": "With divider",
       "withI18n": "With i18n"
     }
   },
   "dropdown": {
     "label": {
+      "email": "Email",
+      "name": "Name",
       "user": "User"
     },
     "title": "Dropdown",
     "usage": {
       "basic": "Basic",
       "customStyle":"Custom style",
+      "email": "monorepo@dzangolab.com",
+      "name": "Monorepo",
       "withSlot": "With slot"
     }
   },
@@ -158,11 +163,10 @@
     "title": "Message",
     "usage": {
       "basic": "Basic",
-      "customStyle":"Custom style",
       "enableClose": "Enable close",
       "icons": {
-        "iconElement": "With icon using element",
-        "iconName": "With icon using name"
+        "icon": "Icon",
+        "iconSlot": "Icon slot"
       },
       "withI18n": "With i18n"
     }
@@ -187,13 +191,33 @@
     "games": {
       "basketball": "Basketball",
       "cricket": "Cricket",
+      "favourite": "{sport} is your most favorite sport.",
       "football": "Football",
-      "hokey": "Hokey",
+      "hockey": "Hockey",
       "volleyball": "Volleyball"
     },
     "title": "Sortable list",
     "usage": {
-      "basic": "Basic"
+      "basic": "Basic",
+      "sortSport": "Sort sports from most to least favorite"
+    }
+  },
+  "stepper": {
+    "label": {
+      "name": "Name",
+      "phone": "Phone",
+      "price": "Price"
+    },
+    "placeholder": {
+      "name": "Enter your name",
+      "phone": "Enter your phone"
+    },
+    "title": "Stepper",
+    "usage": {
+      "basic": "Basic",
+      "buttonProperties": "Action buttons properties",
+      "complete": "Are you sure you want to complete the process?",
+      "withSlot": "With slot"
     }
   },
   "stepper": {
@@ -249,7 +273,7 @@
   "tooltip": {
     "content":"This is a tooltip",
     "label": {
-      "button": "Tooltip",
+      "button": "Click me",
       "custom": "Custom",
       "delay": "Delay"
     },

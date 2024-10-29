@@ -66,21 +66,21 @@ const validationSchema = toFormValidator(
           invalid: t("user.signup.form.email.errors.invalid"),
           required: t("user.signup.form.email.errors.required"),
         },
-        config?.user?.options?.email
+        config?.user?.options?.email,
       ),
       password: passwordSchema(
         {
           required: t("user.signup.form.password.errors.required"),
           weak: t("user.signup.form.password.errors.weak"),
         },
-        config?.user?.options?.password
+        config?.user?.options?.password,
       ),
       confirmation: passwordSchema(
         {
           required: t("user.signup.form.password.errors.required"),
           weak: t("user.signup.form.password.errors.weak"),
         },
-        { minLength: 0 }
+        { minLength: 0 },
       ),
     })
     .refine(
@@ -90,8 +90,8 @@ const validationSchema = toFormValidator(
       {
         message: t("user.signup.form.confirmation.errors.match"),
         path: ["confirmation"],
-      }
-    )
+      },
+    ),
 );
 
 const emit = defineEmits(["submit"]);

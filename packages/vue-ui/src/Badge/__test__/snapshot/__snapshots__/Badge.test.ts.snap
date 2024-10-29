@@ -9,7 +9,7 @@ exports[`Badge > matches snapshot 1`] = `
   >
     
     <i
-      class=""
+      class="pi pi-home"
     />
     
   </span>
@@ -23,7 +23,7 @@ exports[`Badge > matches snapshot 1`] = `
   >
     
     <i
-      class=""
+      class="pi pi-home"
     />
     
   </span>

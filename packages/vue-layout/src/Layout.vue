@@ -54,6 +54,6 @@ watch(
     } else {
       layout.value = props.defaultLayout;
     }
-  }
+  },
 );
 </script>

@@ -20,7 +20,7 @@ const defaultOptions = {
 
 const schema = (
   errorMessages: PasswordErrorMessages,
-  options: StrongPasswordOptions | undefined
+  options: StrongPasswordOptions | undefined,
 ) => {
   const _options = {
     ...defaultOptions,
@@ -38,12 +38,12 @@ const schema = (
           value,
           _options as StrongPasswordOptions & {
             returnScore: false | undefined;
-          }
+          },
         );
       },
       {
         message: errorMessages.weak,
-      }
+      },
     );
 };
 

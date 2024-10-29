@@ -33,7 +33,7 @@ declare module "vue-router" {
 }
 
 const __dzangolabVueLayoutTranslations = Symbol.for(
-  "dzangolab.vue-layout.translations"
+  "dzangolab.vue-layout.translations",
 );
 
 const useTranslations = () => {

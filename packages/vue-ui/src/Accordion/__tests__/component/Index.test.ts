@@ -67,7 +67,7 @@ describe("Accordion", () => {
     const active = wrapper.findAll(".accordion > section");
 
     expect(active[props.defaultIndex].html()).toContain(
-      contents.second.content
+      contents.second.content,
     );
   });
 

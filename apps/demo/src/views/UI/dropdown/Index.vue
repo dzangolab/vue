@@ -8,29 +8,75 @@
         <SshPre language="html-vue">
           &lt;template&gt;
             &lt;Dropdown 
-              label="User"
               :menu="menu"
+              label="User"
               @select="onSelect"
             /&gt;
+
+            &lt;template v-if="showProfile"&gt;
+              &lt;div class="email"&gt;
+                &lt;span class="label"&gt;
+                  Email
+                &lt;/span&gt;
+                &lt;span class="value"&gt;
+                  : monorepo@dzangolab.com
+                &lt;/span&gt;
+              &lt;/div&gt;
+              &lt;div class="name"&gt;
+                &lt;span class="label"&gt;
+                  Name
+                &lt;/span&gt;
+                &lt;span class="value"&gt;
+                  : Monorepo
+                &lt;/span&gt;
+              &lt;/div&gt;
+            &lt;/template&gt;
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-            import { Dropdown } from "@dzangolab/vue3-ui";
-            import { ref } from "vue";
+          import { Dropdown } from "@dzangolab/vue3-ui";
+          import { ref } from "vue";
 
-            const menu = ref([
-              { disabled: true, label: "Change password", value: "password"  },
-              { label: "Profile", value: "profile" },
-            ]);
+          const menu = ref([
+            { disabled: true, label: "Change password", value: "password"  },
+            { label: "Profile", value: "profile" },
+          ]);
 
-            const onSelect = (value: string | number) => {
-              ...
-            };
+          const showProfile = ref&lt;boolean&gt;(false);
+
+          const onSelect = (value: string | number) => {
+            if (value === menu.value[1].value) {
+              showProfile.value = true;
+            }
+          };
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
 
-        <Dropdown :label="$t('ui.dropdown.label.user')" :menu="menu" />
+        <Dropdown
+          :label="$t('ui.dropdown.label.user')"
+          :menu="menu"
+          @select="onSelect"
+        />
+
+        <template v-if="showProfile">
+          <div class="email">
+            <span class="label">
+              {{ $t("ui.dropdown.label.email") }}
+            </span>
+            <span class="value">
+              {{ ": " + $t("ui.dropdown.usage.email") }}
+            </span>
+          </div>
+          <div class="name">
+            <span class="label">
+              {{ $t("ui.dropdown.label.name") }}
+            </span>
+            <span class="value">
+              {{ ": " + $t("ui.dropdown.usage.name") }}
+            </span>
+          </div>
+        </template>
       </div>
     </section>
 
@@ -43,84 +89,34 @@
           &lt;template&gt;
             &lt;Dropdown 
               :menu="menu"
-              @select="onSelect"
             &gt;
               &lt;div class="trigger"&gt;...&lt;/div&gt;
             &lt;/Dropdown&gt;
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-            import { Dropdown } from "@dzangolab/vue3-ui";
-            import { ref } from "vue";
+          import { Dropdown } from "@dzangolab/vue3-ui";
+          import { ref } from "vue";
 
-            const menu = ref([
-              { disabled: true, label: "Change password", value: "password"  },
-              { label: "Profile", value: "profile" },
-            ]);
-
-            const onSelect = (value: string | number) => {
-              ...
-            };
+          const menu = ref([
+            { disabled: true, label: "Change password", value: "password"  },
+            { label: "Profile", value: "profile" },
+          ]);
           &lt;/script&gt;
+
+          &lt;style lang="css"&gt;
+          .trigger {
+            font-size: 1.5rem;
+            font-weight: 600;
+            letter-spacing: 0.2rem;
+          }
+          &lt;/style&gt;
         </SshPre>
         <!-- eslint-enable -->
 
         <Dropdown :menu="menu">
           <div class="trigger">...</div>
         </Dropdown>
-      </div>
-    </section>
-
-    <section>
-      <h2>{{ $t("ui.dropdown.usage.customStyle") }}</h2>
-
-      <div class="section-content">
-        <!-- eslint-disable -->
-        <SshPre language="html-vue">
-          &lt;template&gt;
-            &lt;Dropdown 
-              :label="$t('ui.dropdown.label.user')"
-              :menu="menu"
-              class="custom-style-dropdown"
-            /&gt;
-          &lt;/template&gt;
-
-          &lt;script setup lang="ts"&gt;
-            import { Dropdown } from "@dzangolab/vue3-ui";
-            import { ref } from "vue";
-
-            const menu = ref([
-              { disabled: true, label: "Change password", value: "password"  },
-              { label: "Profile", value: "profile" },
-            ]);
-          &lt;/script&gt;
-
-          &lt;style lang="css"&gt;
-            .custom-style-dropdown .dropdown ul {
-              --_min-width: 12rem;
-            }
-
-            .custom-style-dropdown .dropdown-trigger:hover,
-            .custom-style-dropdown .dropdown-trigger.triggered {
-              --_bg-color: var(--dz-primary-color);
-              
-              color: #fff;
-            }
-
-            .custom-style-dropdown ul > li.menu-item:hover:not(.disabled) {
-              --_bg-color: var(--dz-primary-color);
-
-              color: #fff;
-            }
-          &lt;style&gt;
-        </SshPre>
-        <!-- eslint-enable -->
-
-        <Dropdown
-          :label="$t('ui.dropdown.label.user')"
-          :menu="menu"
-          class="custom-style-dropdown"
-        />
       </div>
     </section>
   </Page>
@@ -134,29 +130,25 @@ const menu = ref([
   { disabled: true, label: "Change password", value: "password" },
   { label: "Profile", value: "profile" },
 ]);
+
+const showProfile = ref<boolean>(false);
+
+const onSelect = (value: string | number) => {
+  if (value === menu.value[1].value) {
+    showProfile.value = true;
+  }
+};
 </script>
 
 <style lang="css">
+.label {
+  font-weight: 600;
+  margin-right: 1rem;
+}
+
 .trigger {
   font-size: 1.5rem;
   font-weight: 600;
   letter-spacing: 0.2rem;
-}
-
-.custom-style-dropdown .dropdown ul {
-  --_min-width: 12rem;
-}
-
-.custom-style-dropdown .dropdown-trigger:hover,
-.custom-style-dropdown .dropdown-trigger.triggered {
-  --_bg-color: var(--dz-primary-color);
-
-  color: #fff;
-}
-
-.custom-style-dropdown ul > li.menu-item:hover:not(.disabled) {
-  --_bg-color: var(--dz-primary-color);
-
-  color: #fff;
 }
 </style>

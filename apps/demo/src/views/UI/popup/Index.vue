@@ -13,7 +13,8 @@
                 severity="success"
               /&gt;
               &lt;template #content&gt;
-                This is a popup
+                &lt;h3 class="popup-title"&gt;Popup&lt;/h3&gt;
+                &lt;div class="popup-body"&gt;This is a popup&lt;/div&gt;
               &lt;/template&gt;
             &lt;/Popup&gt;
           &lt;/template&gt;
@@ -30,7 +31,8 @@
             severity="success"
           />
           <template #content>
-            {{ $t("ui.popup.content") }}
+            <h3 class="popup-title">{{ $t("ui.popup.title") }}</h3>
+            <div class="popup-body">{{ $t("ui.popup.content") }}</div>
           </template>
         </Popup>
       </div>
@@ -55,8 +57,8 @@
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
-          import { useI18n } from "@dzangolab/vue3-i18n";
           import { ButtonElement, Popup } from "@dzangolab/vue3-ui";
+          import { useI18n } from "@dzangolab/vue3-i18n";
 
           const { t } = useI18n();
           &lt;/script&gt;
@@ -215,54 +217,9 @@
         </Popup>
       </div>
     </section>
-
-    <section>
-      <h2>{{ $t("ui.popup.usage.customStyle") }}</h2>
-
-      <div class="section-content">
-        <!-- eslint-disable -->
-        <SshPre language="html-vue">
-          &lt;template&gt;
-            &lt;Popup class="custom-style-popup"&gt;
-              &lt;ButtonElement
-                :label="Click me"
-                severity="success"
-              /&gt;
-              &lt;template #content&gt;
-                This is a popup
-              &lt;/template&gt;
-            &lt;/Popup&gt;
-          &lt;/template&gt;
-
-          &lt;script setup lang="ts"&gt;
-          import { ButtonElement, Popup } from "@dzangolab/vue3-ui";
-          &lt;/script&gt;
-        </SshPre>
-        <!-- eslint-enable -->
-
-        <Popup class="custom-style-popup">
-          <ButtonElement
-            :label="$t('ui.popup.label.button')"
-            severity="success"
-          />
-
-          <template #content>
-            {{ $t("ui.popup.content") }}
-          </template>
-        </Popup>
-      </div>
-    </section>
   </Page>
 </template>
 
 <script setup lang="ts">
 import { ButtonElement, Popup } from "@dzangolab/vue3-ui";
 </script>
-
-<style lang="css">
-.custom-style-popup .popup-content {
-  --_bg-color: var(--dz-success-color);
-  --_border-radius: 0.5rem;
-  --_text-color: #fff;
-}
-</style>

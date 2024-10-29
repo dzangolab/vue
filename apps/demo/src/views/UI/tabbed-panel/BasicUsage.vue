@@ -170,8 +170,8 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { TabbedPanel } from "@dzangolab/vue3-ui";
 import { useI18n } from "@dzangolab/vue3-i18n";
+import { TabbedPanel } from "@dzangolab/vue3-ui";
 import { Icon } from "@iconify/vue";
 
 import Pane1 from "./Pane1.vue";

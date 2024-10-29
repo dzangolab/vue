@@ -56,14 +56,14 @@ const validationSchema = toFormValidator(
           required: t("user.passwordReset.form.password.errors.required"),
           weak: t("user.passwordReset.form.password.errors.weak"),
         },
-        config?.user?.options?.password
+        config?.user?.options?.password,
       ),
       confirmation: passwordSchema(
         {
           required: t("user.passwordReset.form.password.errors.required"),
           weak: t("user.passwordReset.form.password.errors.weak"),
         },
-        {}
+        {},
       ),
     })
     .refine(
@@ -73,8 +73,8 @@ const validationSchema = toFormValidator(
       {
         message: t("user.passwordReset.form.confirmation.errors.match"),
         path: ["confirmation"],
-      }
-    )
+      },
+    ),
 );
 
 const emit = defineEmits(["submit"]);
@@ -86,8 +86,8 @@ const onSubmit = (payload: PasswordResetPayload) => {
     typeof route.query.token === "string"
       ? route.query.token
       : typeof route.params.token === "string"
-      ? route.params.token
-      : undefined;
+        ? route.params.token
+        : undefined;
 
   if (!payload.token) {
     router.push({ name: "login" });

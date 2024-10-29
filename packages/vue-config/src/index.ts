@@ -28,7 +28,7 @@ const plugin: Plugin = {
 
 const useConfig = (): AppConfig => {
   return inject<AppConfig>(
-    Symbol.for("dzangolab.vue-config.config")
+    Symbol.for("dzangolab.vue-config.config"),
   ) as AppConfig;
 };
 

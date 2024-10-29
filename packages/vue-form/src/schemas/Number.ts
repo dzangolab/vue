@@ -6,7 +6,7 @@ import type { IsIntOptions } from "../types/validator";
 
 const schema = (
   errorMessages: NumberErrorMessages,
-  options: IsIntOptions | undefined
+  options: IsIntOptions | undefined,
 ) => {
   return z
     .string({

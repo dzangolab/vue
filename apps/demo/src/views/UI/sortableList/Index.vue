@@ -7,7 +7,13 @@
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
+            &lt;h3&gt;Sort sports from most to least favorite&lt;/h3&gt;
+
             &lt;SortableList :list="list" @on-drag="onDrag" /&gt;
+
+            &lt;div v-if="mostFavourite" class="most-favourite"&gt;
+              &lbrace;&lbrace; mostFavorite + " is your most favorite sport." &rbrace;&rbrace;
+            &lt;/div&gt;
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt; 
@@ -22,23 +28,29 @@
               ...
             ]);
 
-            const onDrag = (sortedList: []) => {
-              ...
+            const mostFavourite = ref&lt;string&gt;();
+
+            const onDrag = (sortedList: [{ id: number, data: string }]) => {
+              mostFavourite.value = sortedList[0].data;
             };
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
 
+        <h3>{{ $t("ui.sortableList.usage.sortSport") }}</h3>
         <SortableList :list="list" @on-drag="onDrag" />
+        <div v-if="mostFavourite" class="most-favourite">
+          {{ $t("ui.sortableList.games.favourite", { sport: mostFavourite }) }}
+        </div>
       </div>
     </section>
   </Page>
 </template>
 
 <script setup lang="ts">
+import { useI18n } from "@dzangolab/vue3-i18n";
 import { SortableList } from "@dzangolab/vue3-ui";
 import { ref } from "vue";
-import { useI18n } from "@dzangolab/vue3-i18n";
 
 const { t } = useI18n();
 
@@ -57,7 +69,7 @@ const list = ref([
   },
   {
     id: 4,
-    data: t("ui.sortableList.games.hokey"),
+    data: t("ui.sortableList.games.hockey"),
   },
   {
     id: 5,
@@ -65,8 +77,10 @@ const list = ref([
   },
 ]);
 
-const onDrag = (sortedList: []) => {
-  list.value = sortedList;
+const mostFavourite = ref<string>();
+
+const onDrag = (sortedList: [{ id: number; data: string }]) => {
+  mostFavourite.value = sortedList[0].data;
 };
 </script>
 

@@ -3,7 +3,7 @@ import { emailPasswordSignIn } from "supertokens-web-js/recipe/thirdpartyemailpa
 import type { LoginCredentials, User } from "../types";
 
 const login = async (
-  credentials: LoginCredentials
+  credentials: LoginCredentials,
 ): Promise<User | undefined> => {
   let user: User | undefined;
   let response;
@@ -23,6 +23,7 @@ const login = async (
 
   try {
     response = await emailPasswordSignIn(data);
+    // eslint-disable-next-line
   } catch (error) {
     throw new Error("SOMETHING_WRONG");
   }

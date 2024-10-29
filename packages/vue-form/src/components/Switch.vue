@@ -68,7 +68,9 @@ const onChange = (event: Event) => {
   height: 1.6rem;
   left: 0.25rem;
   position: absolute;
-  transition: transform 0.3s, background-color 0.3s;
+  transition:
+    transform 0.3s,
+    background-color 0.3s;
   width: 1.6rem;
 }
 

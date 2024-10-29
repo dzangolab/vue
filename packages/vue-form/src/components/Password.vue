@@ -101,8 +101,8 @@ const fieldSchema = toFieldValidator(
         props.errorMessages,
         props.options as StrongPasswordOptions & {
           returnScore: false | undefined;
-        }
-      )
+        },
+      ),
 );
 
 const onInput = (event: Event) => {

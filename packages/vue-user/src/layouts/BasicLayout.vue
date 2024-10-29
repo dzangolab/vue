@@ -61,8 +61,8 @@ const home = computed(() => {
       ? userConfig.routes.home
       : "profile"
     : layoutConfig && layoutConfig?.homeRoute
-    ? layoutConfig.homeRoute
-    : undefined;
+      ? layoutConfig.homeRoute
+      : undefined;
 });
 
 const router = useRouter();

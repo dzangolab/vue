@@ -8,7 +8,7 @@
       </div>
       <colgroup>
         <col
-          v-for="column in props.columns"
+          v-for="column in props.columnsData"
           :key="column.accessorKey"
           :style="`width: ${column.size}px`"
         />
@@ -162,7 +162,11 @@ import {
 } from "@tanstack/vue-table";
 import { PropType, ref } from "vue";
 
-import type { ColumnDef } from "@tanstack/vue-table";
+import type {
+  AccessorFn,
+  ColumnDef,
+  DisplayColumnDef,
+} from "@tanstack/vue-table";
 
 type ColumnProperty = {
   accessorKey: string;
@@ -172,7 +176,7 @@ type ColumnProperty = {
 };
 
 const props = defineProps({
-  columns: {
+  columnsData: {
     type: Array as PropType<ColumnProperty[]>,
     default: () => [],
   },
@@ -186,16 +190,19 @@ const props = defineProps({
   },
 });
 
-const columnHelper = createColumnHelper<any>();
+const columnHelper = createColumnHelper();
 
 const columns: ColumnDef<unknown, unknown>[] = [];
 
-props.columns.forEach((column) => {
-  const columnDef = columnHelper.accessor(column.accessorKey, {
-    header: () => column.header,
-    footer: (props) => props.column.id,
-    enableSorting: column.sort !== undefined ? column.sort : false,
-  }) as ColumnDef<unknown, unknown>;
+props.columnsData.forEach((column) => {
+  const columnDef = columnHelper.accessor(
+    column.accessorKey as string as unknown as AccessorFn<unknown>,
+    {
+      header: () => column.header,
+      footer: (props: { column: { id: string | number } }) => props.column.id,
+      enableSorting: column.sort !== undefined ? column.sort : false,
+    } as object as unknown as DisplayColumnDef<unknown>,
+  ) as ColumnDef<unknown, unknown>;
   columns.push(columnDef);
 });
 

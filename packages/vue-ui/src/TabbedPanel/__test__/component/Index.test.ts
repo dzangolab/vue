@@ -33,33 +33,33 @@ describe("TabbedPanel", () => {
 
   it("should have the correct position", () => {
     expect(wrapper.find(".tabbed-panel").attributes("data-position")).toBe(
-      "bottom"
+      "bottom",
     );
   });
 
   it("should show correct tab on click", async () => {
     const firstTab = wrapper.find(
-      ".tabbed-panel ul[role='tablist'] li:first-child button"
+      ".tabbed-panel ul[role='tablist'] li:first-child button",
     );
     await firstTab.trigger("click");
 
     expect(wrapper.find(".tabbed-panel .tabbed-pane p").text()).toBe(
-      contents.first.content
+      contents.first.content,
     );
   });
 
   it("should show correct tab on multiple tab click", async () => {
     const firstTab = wrapper.find(
-      ".tabbed-panel ul[role='tablist'] li:first-child button"
+      ".tabbed-panel ul[role='tablist'] li:first-child button",
     );
     const secondTab = wrapper.find(
-      ".tabbed-panel ul[role='tablist'] li:last-child button"
+      ".tabbed-panel ul[role='tablist'] li:last-child button",
     );
     await firstTab.trigger("click");
     await secondTab.trigger("click");
 
     expect(wrapper.find(".tabbed-panel .tabbed-pane p").text()).toBe(
-      contents.second.content
+      contents.second.content,
     );
   });
 });

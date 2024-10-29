@@ -59,7 +59,11 @@
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
-            &lt;ButtonElement label="Submit" :loading="loading" /&gt;
+            &lt;ButtonElement
+              :loading="loading"
+              label="Submit"
+              @click="startLoading"
+            /&gt;
           &lt;/template&gt;
 
           &lt;script setup lang="ts"&gt;
@@ -70,7 +74,11 @@
 
             const startLoading = () => {
               loading.value = true;
-            }
+
+              setTimeout(() => {
+                loading.value = false;
+              }, 5000);
+            };
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
@@ -79,14 +87,14 @@
           <ButtonElement
             :label="$t('ui.button.label.submit')"
             :loading="loading"
-            @click="startLoading()"
+            @click="startLoading"
           />
         </div>
       </div>
     </section>
 
     <section>
-      <h2>{{ $t("ui.button.usage.buttonWithChild") }}</h2>
+      <h2>{{ $t("ui.button.usage.contentSlot") }}</h2>
 
       <div class="section-content">
         <!-- eslint-disable -->
@@ -233,7 +241,7 @@
     </section>
 
     <section>
-      <h2>{{ $t("ui.button.usage.icons.iconName") }}</h2>
+      <h2>{{ $t("ui.button.usage.icons.icon") }}</h2>
 
       <div class="section-content">
         <!-- eslint-disable -->
@@ -275,19 +283,19 @@
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt; 
-            &lt;ButtonElement icon-left="true" rounded severity="secondary" variant="textOnly"&gt;
+            &lt;ButtonElement rounded severity="secondary" variant="textOnly"&gt;
                 &lt;template #iconLeft&gt;
                   &lt;i class="pi pi-user" &gt;
                 &lt;/template&gt;
             &lt;/ButtonElement&gt;
 
-            &lt;ButtonElement icon-right="true" rounded variant="outlined"&gt;
+            &lt;ButtonElement rounded variant="outlined"&gt;
               &lt;template #iconRight&gt;
                 &lt;i class="pi pi-user" &gt;
               &lt;/template&gt;
             &lt;/ButtonElement&gt;
 
-            &lt;ButtonElement icon-right="true" rounded severity="secondary" variant="filled"&gt;
+            &lt;ButtonElement rounded variant="filled"&gt;
                 &lt;template #iconRight&gt;
                   &lt;i class="pi pi-user" &gt;
                 &lt;/template&gt;
@@ -301,29 +309,19 @@
         <!-- eslint-enable -->
 
         <div className="container">
-          <ButtonElement
-            variant="textOnly"
-            severity="secondary"
-            icon-left="true"
-            rounded
-          >
+          <ButtonElement rounded variant="textOnly" severity="secondary">
             <template #iconLeft>
               <i class="pi pi-user" />
             </template>
           </ButtonElement>
 
-          <ButtonElement
-            severity="secondary"
-            variant="outlined"
-            icon-right="true"
-            rounded
-          >
+          <ButtonElement rounded severity="secondary" variant="outlined">
             <template #iconRight>
               <i class="pi pi-user" />
             </template>
           </ButtonElement>
 
-          <ButtonElement icon-right="true" variant="filled" rounded>
+          <ButtonElement rounded variant="filled">
             <template #iconRight>
               <i class="pi pi-user" />
             </template>
@@ -333,7 +331,49 @@
     </section>
 
     <section>
-      <h2>{{ $t("ui.button.usage.icons.iconWithText") }}</h2>
+      <h2>{{ $t("ui.button.usage.icons.iconPackage") }}</h2>
+
+      <div class="section-content">
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt; 
+            &lt;ButtonElement
+              label="Home"
+              icon-left="pi pi-home"
+              variant="outlined"
+            /&gt;
+
+            &lt;ButtonElement
+              label="Home"
+              icon-left="fa-solid fa-house"
+              variant="outlined"
+            /&gt;
+          &lt;/template&gt;
+
+          &lt;script setup lang="ts"&gt; 
+            import { ButtonElement } from "@dzangolab/vue3-ui"; 
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+
+        <div class="container">
+          <ButtonElement
+            :label="$t('ui.button.label.home')"
+            icon-left="pi pi-home"
+            variant="outlined"
+          />
+
+          <ButtonElement
+            :label="$t('ui.button.label.home')"
+            icon-left="fa-solid fa-house"
+            variant="outlined"
+          />
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>{{ $t("ui.button.usage.icons.iconAndLabel") }}</h2>
 
       <div class="section-content">
         <!-- eslint-disable -->
@@ -430,44 +470,6 @@
         </div>
       </div>
     </section>
-
-    <section>
-      <h2>Custom style</h2>
-
-      <div class="section-content">
-        <!-- eslint-disable -->
-        <SshPre language="html-vue">
-          &lt;template&gt; 
-            &lt;ButtonElement label="Custom" icon-right="pi pi-user" class="custom-button" /&gt;
-          &lt;/template&gt;
-          
-          &lt;script setup lang="ts"&gt; 
-            import { ButtonElement } from "@dzangolab/vue3-ui";
-          &lt;/script&gt;
-
-          &lt;style lang="css" scoped&gt;
-            .custom-button {
-              --_button-color: #e9527e;
-              --_button-font-size: 1.5rem;
-              --_button-font-width: 800;
-              --_button-icon-size: 1.5rem;
-              --_button-outlined-hover-color: #f5bcdb;
-              --_button-padding: 1rem 2rem;
-              --_button-text-color: #ffffff;
-            }
-          &lt;/style&gt;
-        </SshPre>
-        <!-- eslint-enable -->
-
-        <div class="container">
-          <ButtonElement
-            label="Custom"
-            icon-right="pi pi-user"
-            class="custom-button"
-          />
-        </div>
-      </div>
-    </section>
   </Page>
 </template>
 
@@ -492,16 +494,6 @@ const startLoading = () => {
 </script>
 
 <style lang="css" scoped>
-.custom-button {
-  --_button-color: #e9527e;
-  --_button-font-size: 1.5rem;
-  --_button-font-width: 800;
-  --_button-icon-size: 1.5rem;
-  --_button-outlined-hover-color: #f5bcdb;
-  --_button-padding: 1rem 2rem;
-  --_button-text-color: #ffffff;
-}
-
 .demo-button .container {
   display: flex;
   align-items: center;

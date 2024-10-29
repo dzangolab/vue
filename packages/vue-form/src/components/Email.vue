@@ -96,7 +96,7 @@ const emit = defineEmits(["update:modelValue"]);
 const fieldSchema = toFieldValidator(
   Object.keys(props.schema).length
     ? props.schema
-    : emailSchema(props.errorMessages, props.options)
+    : emailSchema(props.errorMessages, props.options),
 );
 
 const onInput = (event: Event) => {

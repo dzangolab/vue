@@ -7,9 +7,9 @@
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
-            &lt;ButtonElement label="Click me" @click="startLoading()" /&gt;
+            &lt;ButtonElement label="Click me" @click="startLoading" /&gt;
 
-            &lt;LoadingPage v-if="loading" /&gt;
+            &lt;LoadingPage :loading="loading" /&gt;
           &lt;/template&gt;
           
           &lt;script setup lang="ts"&gt; 
@@ -20,6 +20,10 @@
 
             const startLoading = () => {
               loading.value = true;
+
+              setTimeout(() => {
+                loading.value = false;
+              }, 5000);
             };
           &lt;/script&gt;
         </SshPre>
@@ -28,10 +32,10 @@
         <div class="container">
           <ButtonElement
             :label="$t('ui.loading.buttonLabel.clickMe')"
-            @click="startLoading()"
+            @click="startLoading"
           />
 
-          <LoadingPage v-if="loading" />
+          <LoadingPage :loading="loading" />
         </div>
       </div>
     </section>
@@ -46,6 +50,7 @@ const loading = ref(false);
 
 const startLoading = () => {
   loading.value = true;
+
   setTimeout(() => {
     loading.value = false;
   }, 5000);

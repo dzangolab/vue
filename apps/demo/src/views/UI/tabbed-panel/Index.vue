@@ -24,8 +24,8 @@ export default {
 </script>
 
 <script lang="ts" setup>
-import { TabbedPanel } from "@dzangolab/vue3-ui";
 import { useI18n } from "@dzangolab/vue3-i18n";
+import { TabbedPanel } from "@dzangolab/vue3-ui";
 
 import BasicUsage from "./BasicUsage.vue";
 import Colorized from "./Colorized.vue";

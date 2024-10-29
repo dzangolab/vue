@@ -5,7 +5,11 @@ import LoadingPage from "../../Index.vue";
 
 describe("LoadingPage", () => {
   it("matches snapshot", () => {
-    const wrapper = mount(LoadingPage);
+    const wrapper = mount(LoadingPage, {
+      props: {
+        loading: true,
+      },
+    });
 
     expect(wrapper.element).toMatchSnapshot();
   });

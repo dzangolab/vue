@@ -14,11 +14,13 @@
   --_border-color: var(--card-border-color, #ddd);
   --_border-radius: var(--card-border-radius, 0.5rem);
   --_box-shadow-color: var(--card-box-shadow-color, rgba(0, 0, 0, 0.1));
+  --_padding: var(--card-padding, 0.625rem);
 
   border: 1px solid var(--_border-color);
   border-radius: var(--_border-radius);
   box-shadow: 0 2px 8px var(--_box-shadow-color);
   overflow: hidden;
+  padding: var(--_padding);
 }
 
 .card-footer {

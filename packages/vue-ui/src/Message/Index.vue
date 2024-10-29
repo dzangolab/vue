@@ -1,6 +1,6 @@
 <template>
-  <div class="message">
-    <span v-if="icon" class="icon">
+  <div v-show="showMessage" class="message">
+    <span v-if="icon || !!slots.icon" class="icon">
       <slot name="icon">
         <i :class="icon" />
       </slot>
@@ -24,6 +24,8 @@ export default {
 </script>
 
 <script setup lang="ts">
+import { ref, useSlots } from "vue";
+
 const emits = defineEmits(["close"]);
 
 defineProps({
@@ -33,7 +35,7 @@ defineProps({
   },
   icon: {
     default: null,
-    type: [String, Boolean],
+    type: String,
   },
   message: {
     required: true,
@@ -41,7 +43,13 @@ defineProps({
   },
 });
 
+const slots = useSlots();
+
+const showMessage = ref<boolean>(true);
+
 const onClose = () => {
+  showMessage.value = false;
+
   emits("close");
 };
 </script>

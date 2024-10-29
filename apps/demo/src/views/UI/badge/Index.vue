@@ -64,26 +64,6 @@
     </section>
 
     <section>
-      <h2>{{ $t("ui.badge.usage.fullWidth") }}</h2>
-
-      <div class="section-content">
-        <!-- eslint-disable -->
-        <SshPre language="html-vue">
-          &lt;template&gt;
-            &lt;Badge label="fullWidth" fullWidth /&gt; 
-          &lt;/template&gt;
-          
-          &lt;script setup lang="ts"&gt;
-            import { Badge } from "@dzangolab/vue3-ui";
-          &lt;/script&gt;
-        </SshPre>
-        <!-- eslint-enable -->
-
-        <BadgeComponent :label="$t('ui.badge.label.fullWidth')" full-width />
-      </div>
-    </section>
-
-    <section>
       <h2>{{ $t("ui.badge.usage.severity") }}</h2>
 
       <div class="section-content">
@@ -134,7 +114,7 @@
     </section>
 
     <section>
-      <h2>{{ $t("ui.badge.usage.iconName") }}</h2>
+      <h2>{{ $t("ui.badge.usage.icon") }}</h2>
 
       <div class="section-content">
         <!-- eslint-disable -->
@@ -158,7 +138,39 @@
     </section>
 
     <section>
-      <h2>{{ $t("ui.badge.usage.iconWithText") }}</h2>
+      <h2>{{ $t("ui.badge.usage.iconPackage") }}</h2>
+
+      <div class="section-content">
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;Badge label="Locked" icon-left="pi pi-lock" /&gt;
+            &lt;Badge label="Unlocked" icon-right="fa-solid fa-lock-open" severity="success /&gt;
+          &lt;/template&gt;
+          
+          &lt;script setup lang="ts"&gt;
+            import { Badge } from "@dzangolab/vue3-ui";
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+
+        <div class="container">
+          <BadgeComponent
+            :label="$t('ui.badge.label.locked')"
+            icon-left="pi pi-lock"
+          />
+
+          <BadgeComponent
+            :label="$t('ui.badge.label.unLocked')"
+            icon-right="fa-solid fa-lock-open"
+            severity="success"
+          />
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>{{ $t("ui.badge.usage.iconAndLabel") }}</h2>
 
       <div class="section-content">
         <!-- eslint-disable -->
@@ -196,13 +208,13 @@
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
-            &lt;Badge label="Correct" icon-left="true"&gt;
+            &lt;Badge label="Correct"&gt;
               &lt;template #iconLeft&gt;
                 &lt;i class="pi pi-check" &gt;
               &lt;/template&gt;
             &lt;/Badge&gt;
 
-            &lt;Badge label="Wrong" severity="danger" icon-right="true"&gt;
+            &lt;Badge label="Wrong" severity="danger"&gt;
               &lt;template #iconRight&gt;
                 &lt;i class="pi pi-times" &gt;
               &lt;/template&gt;
@@ -216,58 +228,18 @@
         <!-- eslint-enable -->
 
         <div class="container">
-          <BadgeComponent
-            :label="$t('ui.badge.label.correct')"
-            icon-left="true"
-          >
+          <BadgeComponent :label="$t('ui.badge.label.correct')">
             <template #iconLeft>
               <i class="pi pi-check" />
             </template>
           </BadgeComponent>
 
-          <BadgeComponent
-            :label="$t('ui.badge.label.wrong')"
-            severity="danger"
-            icon-right="true"
-          >
+          <BadgeComponent :label="$t('ui.badge.label.wrong')" severity="danger">
             <template #iconRight>
               <i class="pi pi-times" />
             </template>
           </BadgeComponent>
         </div>
-      </div>
-    </section>
-
-    <section>
-      <h2>{{ $t("ui.badge.usage.customStyle") }}</h2>
-
-      <div class="section-content">
-        <!-- eslint-disable -->
-        <SshPre language="html-vue">
-          &lt;template&gt;
-            &lt;Badge label="Custom" class="custom-badge" /&gt; 
-          &lt;/template&gt;
-          
-          &lt;script setup lang="ts"&gt;
-            import { Badge } from "@dzangolab/vue3-ui";
-          &lt;/script&gt;
-
-          &lt;style lang="css" scoped&gt;
-            .custom-badge {
-              --_badge-color: #0dcaf0;
-              --_badge-font-size: 1rem;
-              --_badge-font-weight: 800;
-              --_badge-padding: 0.5rem 1rem;
-              --_badge-text-color: black;
-            }
-          &lt;/style&gt;
-        </SshPre>
-        <!-- eslint-enable -->
-
-        <BadgeComponent
-          :label="$t('ui.badge.label.custom')"
-          class="custom-badge"
-        />
       </div>
     </section>
   </Page>
@@ -278,14 +250,6 @@ import { BadgeComponent } from "@dzangolab/vue3-ui";
 </script>
 
 <style lang="css" scoped>
-.custom-badge {
-  --_badge-color: #0dcaf0;
-  --_badge-font-size: 1rem;
-  --_badge-font-weight: 800;
-  --_badge-padding: 0.5rem 1rem;
-  --_badge-text-color: black;
-}
-
 .demo-badge .container {
   display: flex;
   align-items: center;

@@ -16,7 +16,7 @@ const getLocaleNames = (supportedLocales: string[]) => {
 
 const getPreferredLocale = (
   languages: readonly string[],
-  locales: string[]
+  locales: string[],
 ): string | undefined => {
   let locale: string | undefined;
 
@@ -43,7 +43,7 @@ const getPreferredLocale = (
 
 const prependMessages = (
   messages: LocaleMessages<VueMessageType>,
-  defaults: LocaleMessages<VueMessageType> | undefined
+  defaults: LocaleMessages<VueMessageType> | undefined,
 ): LocaleMessages<VueMessageType> => {
   if (!defaults) {
     return messages;

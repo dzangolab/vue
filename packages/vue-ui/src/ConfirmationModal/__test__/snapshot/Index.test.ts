@@ -7,7 +7,7 @@ describe("ConfirmationModal", () => {
   it("matches snapshot", () => {
     const wrapper = mount(ConfirmationModal, {
       props: {
-        border: true,
+        divider: true,
       },
     });
 

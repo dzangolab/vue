@@ -6,7 +6,7 @@ import type { IsEmailOptions } from "../types/validator";
 
 const schema = (
   errorMessages: EmailErrorMessages,
-  options: IsEmailOptions | undefined
+  options: IsEmailOptions | undefined,
 ) => {
   return z
     .string({

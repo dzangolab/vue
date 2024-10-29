@@ -121,7 +121,7 @@ const filteredSuggestions = computed(() => {
   return props.suggestions.filter((suggestion) =>
     (suggestion.value as string)
       .toLowerCase()
-      .includes((inputValue.value as string).toLowerCase())
+      .includes((inputValue.value as string).toLowerCase()),
   );
 });
 

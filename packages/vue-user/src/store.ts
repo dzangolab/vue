@@ -55,13 +55,13 @@ const useUserStore = defineStore("user", () => {
   };
 
   const requestPasswordReset = async (
-    payload: PasswordResetRequestPayload
+    payload: PasswordResetRequestPayload,
   ): Promise<boolean> => {
     return doRequestPasswordReset(payload);
   };
 
   const resetPassword = async (
-    payload: PasswordResetPayload
+    payload: PasswordResetPayload,
   ): Promise<boolean> => {
     return doResetPassword(payload);
   };

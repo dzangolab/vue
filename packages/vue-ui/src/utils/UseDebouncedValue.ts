@@ -17,7 +17,7 @@ export function useDebouncedValue<T>(value: T, delay: number): Promise<Ref<T>> {
           resolve(debouncedValue);
         }, delay);
       },
-      { immediate: true }
+      { immediate: true },
     );
   });
 }

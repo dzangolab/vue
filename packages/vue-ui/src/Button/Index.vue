@@ -1,11 +1,13 @@
 <template>
-  <button
+  <component
+    :is="to ? 'a' : 'button'"
     :class="buttonClassName"
-    :disabled="disabled || loading"
+    :disabled="!to && isDisabled"
+    :href="to && !isDisabled ? to : null"
     :role="buttonRole"
-    @click="handleClick()"
+    @click="!to && handleClick()"
   >
-    <span v-if="iconLeft" class="icon-left">
+    <span v-if="iconLeft || !!slots.iconLeft" class="icon-left">
       <slot name="iconLeft">
         <i :class="iconLeft" />
       </slot>
@@ -17,14 +19,14 @@
       </slot>
     </div>
 
-    <span v-if="iconRight" class="icon-right">
+    <span v-if="iconRight || !!slots.iconRight" class="icon-right">
       <slot name="iconRight">
         <i :class="iconRight" />
       </slot>
     </span>
 
     <LoadingIcon v-if="loading" class="loading-button" />
-  </button>
+  </component>
 </template>
 
 <script lang="ts">
@@ -34,7 +36,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed, useSlots } from "vue";
 
 import LoadingIcon from "../components/LoadingIcon.vue";
 
@@ -107,6 +109,8 @@ const props = defineProps({
   },
 });
 
+const slots = useSlots();
+
 const buttonClassName = computed(() => {
   return [
     "button",
@@ -117,6 +121,7 @@ const buttonClassName = computed(() => {
     !(props.label || props.children) && "icon-only",
     props.loading && "loading",
     props.rounded && "rounded",
+    isDisabled.value && "disabled",
   ]
     .filter(Boolean)
     .join(" ");
@@ -124,11 +129,9 @@ const buttonClassName = computed(() => {
 
 const buttonRole = computed(() => (props.to ? "link" : "button"));
 
-function handleClick() {
-  if (props.to) {
-    window.location.href = props.to;
-  }
+const isDisabled = computed(() => props.disabled || props.loading);
 
+function handleClick() {
   emits("click");
 }
 </script>

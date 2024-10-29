@@ -3,7 +3,7 @@ import { submitNewPassword } from "supertokens-web-js/recipe/thirdpartyemailpass
 import type { PasswordResetPayload } from "../types";
 
 const resetPassword = async (
-  payload: PasswordResetPayload
+  payload: PasswordResetPayload,
 ): Promise<boolean> => {
   const response = await submitNewPassword({
     formFields: [

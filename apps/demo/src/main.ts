@@ -18,6 +18,7 @@ import "@dzangolab/vue3-i18n/dist/DzangolabVue3I18n.css";
 import "@dzangolab/vue3-layout/dist/DzangolabVue3Layout.css";
 import "@dzangolab/vue3-tanstack-table/dist/DzangolabVue3TanstackTable.css";
 import "@dzangolab/vue3-user/dist/DzangolabVue3User.css";
+import "@fortawesome/fontawesome-free/css/all.css";
 import "simple-syntax-highlighter/dist/sshpre.css";
 import "./assets/css/index.css";
 import "primeicons/primeicons.css";

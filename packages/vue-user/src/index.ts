@@ -11,7 +11,7 @@ import type { LocaleMessages, VueMessageType } from "@dzangolab/vue3-i18n";
 import type { App, Plugin } from "vue";
 
 const __dzangolabVueUserTranslations = Symbol.for(
-  "dzangolab.vue-user.translations"
+  "dzangolab.vue-user.translations",
 );
 
 const plugin: Plugin = {
@@ -31,7 +31,7 @@ const plugin: Plugin = {
 const useTranslations = () => {
   return inject<LocaleMessages<VueMessageType>>(
     __dzangolabVueUserTranslations,
-    messages
+    messages,
   );
 };
 

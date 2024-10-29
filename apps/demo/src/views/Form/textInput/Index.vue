@@ -301,8 +301,8 @@ export default {
 
 <script setup lang="ts">
 import { Form, TextInput } from "@dzangolab/vue3-form";
-import { reactive, ref } from "vue";
 import { useI18n } from "@dzangolab/vue3-i18n";
+import { reactive, ref } from "vue";
 import { z } from "zod";
 
 const { t } = useI18n();

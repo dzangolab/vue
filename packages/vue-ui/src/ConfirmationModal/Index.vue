@@ -2,7 +2,7 @@
   <div :class="modalClassName">
     <div class="modal-wrapper" @click="handleClose()">
       <div class="modal-container">
-        <div class="modal-header">
+        <div :class="['modal-header', { 'disabled-header': disableHeader }]">
           <slot v-if="!disableHeader" name="header">
             <span>Confirmation required</span>
           </slot>
@@ -27,7 +27,7 @@
           </slot>
         </div>
 
-        <div v-if="!disableFooter" class="modal-footer">
+        <div class="modal-footer">
           <slot name="footer">
             <ButtonElement
               size="small"
@@ -63,7 +63,7 @@ import ButtonElement from "../Button/Index.vue";
 const emits = defineEmits(["on:confirm", "on:close"]);
 
 const props = defineProps({
-  border: {
+  divider: {
     default: false,
     type: Boolean,
   },
@@ -75,14 +75,10 @@ const props = defineProps({
     default: false,
     type: Boolean,
   },
-  disableFooter: {
-    default: false,
-    type: Boolean,
-  },
 });
 
 const modalClassName = computed(() => {
-  return ["modal", props.border && "bordered-modal"].filter(Boolean).join(" ");
+  return ["modal", props.divider && "divided-modal"].filter(Boolean).join(" ");
 });
 
 function handleConfirm() {

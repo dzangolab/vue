@@ -316,8 +316,8 @@ export default {
 
 <script setup lang="ts">
 import { Form, Password } from "@dzangolab/vue3-form";
-import { reactive, ref } from "vue";
 import { useI18n } from "@dzangolab/vue3-i18n";
+import { reactive, ref } from "vue";
 import { z } from "zod";
 
 import type {
@@ -335,7 +335,7 @@ const inputSchema = z
   .min(8, { message: t("form.errors.password.min", { length: 8 }) })
   .regex(
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).+$/,
-    t("form.errors.password.invalid")
+    t("form.errors.password.invalid"),
   );
 
 const validationMessages = {

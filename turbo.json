@@ -9,7 +9,7 @@
       "outputs": []
     },
     "lint": {
-      "env": ["NODE_ENV"],
+      "env": ["NODE_ENV", "BASE_URL"],
       "outputs": []
     },
     "lint:fix": {

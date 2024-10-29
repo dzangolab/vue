@@ -21,15 +21,15 @@
     </section>
 
     <section>
-      <h2>{{ $t("ui.message.usage.icons.iconName") }}</h2>
+      <h2>{{ $t("ui.message.usage.icons.icon") }}</h2>
 
       <div class="section-content">
         <!-- eslint-disable -->
         <SshPre language="html-vue">
           &lt;template&gt;
             &lt;Message
-              message="New features just launched! Check them out!"
               icon="pi pi-android"
+              message="New features just launched! Check them out!"
             /&gt;
           &lt;/template&gt;
           
@@ -47,7 +47,7 @@
     </section>
 
     <section>
-      <h2>{{ $t("ui.message.usage.icons.iconElement") }}</h2>
+      <h2>{{ $t("ui.message.usage.icons.iconSlot") }}</h2>
 
       <div class="section-content">
         <!-- eslint-disable -->
@@ -55,10 +55,9 @@
           &lt;template&gt;
             &lt;Message
               message="New Year, New You: Start fresh with our services!"
-              icon="true"
             &gt;
               &lt;template #icon&gt;
-                &lt;i class="pi pi-bell" /&gt;
+                &lt;i class="fa-regular fa-bell" /&gt;
               &lt;/template&gt;
             &lt;/Message&gt;
           &lt;/template&gt;
@@ -69,27 +68,26 @@
         </SshPre>
         <!-- eslint-enable -->
 
-        <Message :message="$t('ui.message.contents.content3')" icon="true">
+        <Message :message="$t('ui.message.contents.content3')">
           <template #icon>
-            <i class="pi pi-bell" />
+            <i class="fa-regular fa-bell" />
           </template>
         </Message>
       </div>
     </section>
 
-    <section>
+    <section v-if="showEnableCloseSection">
       <h2>{{ $t("ui.message.usage.enableClose") }}</h2>
 
       <div class="section-content">
         <!-- eslint-disable -->
         <SshPre language="html-vue">
-          &lt;template&gt;
+          &lt;template v-if="showEnableCloseSection"&gt;
             &lt;Message
-              v-if="displayMessage"
-              message="We value your feedback: take our quick survey!"
               icon="pi pi-comments"
+              message="We value your feedback: take our quick survey!"
               enable-close
-              @close="onClose()"
+              @close="showEnableCloseSection = false"
             /&gt;
           &lt;/template&gt;
           
@@ -97,21 +95,16 @@
             import { Message } from "@dzangolab/vue3-ui";
             import { ref } from "vue";
 
-            const displayMessage = ref(true);
-
-            const onClose = () => {
-              displayMessage.value = false;
-            }
+            const showEnableCloseSection = ref(true);
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
 
         <Message
-          v-if="displayMessage"
           :message="$t('ui.message.contents.content4')"
           icon="pi pi-comments"
           enable-close
-          @close="displayMessage = false"
+          @close="showEnableCloseSection = false"
         />
       </div>
     </section>
@@ -138,42 +131,6 @@
         <Message :message="$t('ui.message.contents.content1')" />
       </div>
     </section>
-
-    <section>
-      <h2>{{ $t("ui.message.usage.customStyle") }}</h2>
-
-      <div class="section-content">
-        <!-- eslint-disable -->
-        <SshPre language="html-vue">
-          &lt;template&gt;
-            &lt;Message
-              class="custom-message"
-              message="Warning: Limited time only! Sale ends soon!"
-              icon="pi pi-exclamation-triangle"
-            /&gt;
-          &lt;/template&gt;
-          
-          &lt;script setup lang="ts"&gt;
-            import { Message } from "@dzangolab/vue3-ui";
-          &lt;/script&gt;
-
-          &lt;style lang="css"&gt;
-            .custom-message {
-              --_background-color: #faedc4;
-              --_border-color: #816204;
-              --_message-color: #816204;
-            }
-          &lt;/style&gt;
-        </SshPre>
-        <!-- eslint-enable -->
-
-        <Message
-          class="custom-message"
-          :message="$t('ui.message.contents.content5')"
-          icon="pi pi-exclamation-triangle"
-        />
-      </div>
-    </section>
   </Page>
 </template>
 
@@ -181,7 +138,7 @@
 import { Message } from "@dzangolab/vue3-ui";
 import { ref } from "vue";
 
-const displayMessage = ref(true);
+const showEnableCloseSection = ref(true);
 </script>
 
 <style lang="css">

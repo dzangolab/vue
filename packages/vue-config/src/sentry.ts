@@ -17,7 +17,7 @@ const plugin: Plugin = {
         integrations: [
           new BrowserTracing({
             routingInstrumentation: Sentry.vueRouterInstrumentation(
-              options.router
+              options.router,
             ),
             tracePropagationTargets: ["localhost", config.websiteDomain, /^\//],
           }),

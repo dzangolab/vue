@@ -57,7 +57,7 @@ const _routes = {
 
 const getRoute = (
   defaultRoute: object,
-  override?: RouteOverride
+  override?: RouteOverride,
 ): RouteRecordRaw => {
   return {
     ...defaultRoute,
@@ -77,7 +77,7 @@ const addRoutes = (router: Router, routes?: RouteOverrides) => {
   router.addRoute(getRoute(_routes.passwordReset, routes?.passwordReset));
 
   router.addRoute(
-    getRoute(_routes.passwordResetRequest, routes?.passwordResetRequest)
+    getRoute(_routes.passwordResetRequest, routes?.passwordResetRequest),
   );
 
   router.addRoute(getRoute(_routes.profile, routes?.profile));
@@ -85,8 +85,8 @@ const addRoutes = (router: Router, routes?: RouteOverrides) => {
   router.addRoute(
     getRoute(
       _routes.passwordResetRequestAcknowledge,
-      routes?.passwordResetRequestAcknowledge
-    )
+      routes?.passwordResetRequestAcknowledge,
+    ),
   );
 };
 

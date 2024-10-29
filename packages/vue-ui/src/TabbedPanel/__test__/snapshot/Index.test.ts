@@ -29,7 +29,7 @@ describe("TabbedPanel", () => {
 
   it("matches snapshot when there is an active tab", async () => {
     const firstTab = wrapper.find(
-      ".tabbed-panel ul[role='tablist'] li:first-child button"
+      ".tabbed-panel ul[role='tablist'] li:first-child button",
     );
     await firstTab.trigger("click");
 

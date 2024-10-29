@@ -7,8 +7,8 @@ describe("Badge", () => {
   it("matches snapshot", () => {
     const wrapper = mount(Badge, {
       props: {
-        iconLeft: true,
-        iconRight: true,
+        iconLeft: "pi pi-home",
+        iconRight: "pi pi-home",
         label: "Basic",
         className: "rounded",
       },

@@ -1,5 +1,5 @@
 <template>
-  <div class="loading-page">
+  <div v-if="loading" class="loading-page">
     <LoadingIcon class="loading-icon" />
   </div>
 </template>
@@ -12,6 +12,13 @@ export default {
 
 <script setup lang="ts">
 import LoadingIcon from "../components/LoadingIcon.vue";
+
+defineProps({
+  loading: {
+    default: false,
+    type: Boolean,
+  },
+});
 </script>
 
 <style lang="css">

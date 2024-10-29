@@ -19,7 +19,7 @@ const createI18n = (options: DzangolabVueI18nPluginOptions): Plugin => {
   if (!locale) {
     const preferred = getPreferredLocale(
       navigator.languages,
-      i18nOptions.supportedLocales
+      i18nOptions.supportedLocales,
     );
 
     setLocale(preferred);
@@ -27,7 +27,7 @@ const createI18n = (options: DzangolabVueI18nPluginOptions): Plugin => {
 
   const messages = prependMessages(
     getLocaleNames(i18nOptions.supportedLocales),
-    i18nOptions?.messages
+    i18nOptions?.messages,
   );
 
   const i18n = baseCreateI18n({

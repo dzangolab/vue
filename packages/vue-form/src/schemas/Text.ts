@@ -6,7 +6,7 @@ import type { IsTextOptions } from "../types/validator";
 
 const schema = (
   errorMessages: TextErrorMessages,
-  options: IsTextOptions | undefined
+  options: IsTextOptions | undefined,
 ) => {
   return z
     .string({
@@ -18,7 +18,7 @@ const schema = (
         if (options?.required) {
           return !validator.isEmpty(
             value,
-            { ignore_whitespace: options?.ignore_whitespace } || {}
+            { ignore_whitespace: options?.ignore_whitespace } || {},
           );
         }
 
@@ -26,7 +26,7 @@ const schema = (
       },
       {
         message: errorMessages.required,
-      }
+      },
     );
 };
 
