@@ -82,8 +82,8 @@ importers:
         specifier: 0.1.11
         version: 0.1.11(@types/node@18.15.11)
       '@types/jsdom':
-        specifier: 21.1.1
-        version: 21.1.1
+        specifier: 21.1.7
+        version: 21.1.7
       '@types/node':
         specifier: 18.15.11
         version: 18.15.11
@@ -110,7 +110,7 @@ importers:
         version: 3.0.1(vite@4.1.4(@types/node@18.15.11))(vue@3.2.47)
       '@vitest/coverage-istanbul':
         specifier: 0.29.8
-        version: 0.29.8(vitest@0.29.8(jsdom@21.1.1))
+        version: 0.29.8(vitest@0.29.8(jsdom@21.1.2))
       '@vue/test-utils':
         specifier: 2.3.2
         version: 2.3.2(vue@3.2.47)
@@ -142,8 +142,8 @@ importers:
         specifier: 9.29.0
         version: 9.29.0(eslint@8.57.1)
       jsdom:
-        specifier: 21.1.1
-        version: 21.1.1
+        specifier: 21.1.2
+        version: 21.1.2
       npm-run-all:
         specifier: 4.1.5
         version: 4.1.5
@@ -161,7 +161,7 @@ importers:
         version: 4.1.4(@types/node@18.15.11)
       vitest:
         specifier: 0.29.8
-        version: 0.29.8(jsdom@21.1.1)
+        version: 0.29.8(jsdom@21.1.2)
       vue-eslint-parser:
         specifier: 9.4.3
         version: 9.4.3(eslint@8.57.1)
@@ -207,7 +207,7 @@ importers:
         version: 3.0.1(vite@4.1.4(@types/node@18.15.11))(vue@3.2.47)
       '@vitest/coverage-istanbul':
         specifier: 0.29.8
-        version: 0.29.8(vitest@0.29.8(jsdom@21.1.1))
+        version: 0.29.8(vitest@0.29.8(jsdom@21.1.2))
       eslint:
         specifier: 8.57.1
         version: 8.57.1
@@ -243,7 +243,7 @@ importers:
         version: 4.1.4(@types/node@18.15.11)
       vitest:
         specifier: 0.29.8
-        version: 0.29.8(jsdom@21.1.1)
+        version: 0.29.8(jsdom@21.1.2)
       vue:
         specifier: 3.2.47
         version: 3.2.47
@@ -301,7 +301,7 @@ importers:
         version: 3.0.1(vite@4.1.4(@types/node@18.15.11))(vue@3.2.47)
       '@vitest/coverage-istanbul':
         specifier: 0.29.8
-        version: 0.29.8(vitest@0.29.8(jsdom@21.1.1))
+        version: 0.29.8(vitest@0.29.8(jsdom@21.1.2))
       '@vue/test-utils':
         specifier: 2.3.2
         version: 2.3.2(vue@3.2.47)
@@ -349,7 +349,7 @@ importers:
         version: 4.1.4(@types/node@18.15.11)
       vitest:
         specifier: 0.29.8
-        version: 0.29.8(jsdom@21.1.1)
+        version: 0.29.8(jsdom@21.1.2)
       vue:
         specifier: 3.2.47
         version: 3.2.47
@@ -395,7 +395,7 @@ importers:
         version: 3.0.1(vite@4.1.4(@types/node@18.15.11))(vue@3.2.47)
       '@vitest/coverage-istanbul':
         specifier: 0.29.8
-        version: 0.29.8(vitest@0.29.8(jsdom@21.1.1))
+        version: 0.29.8(vitest@0.29.8(jsdom@21.1.2))
       '@vueuse/core':
         specifier: 9.13.0
         version: 9.13.0(vue@3.2.47)
@@ -424,8 +424,8 @@ importers:
         specifier: 9.29.0
         version: 9.29.0(eslint@8.57.1)
       jsdom:
-        specifier: 21.1.1
-        version: 21.1.1
+        specifier: 21.1.2
+        version: 21.1.2
       pinia:
         specifier: 2.0.32
         version: 2.0.32(typescript@5.5.4)(vue@3.2.47)
@@ -440,7 +440,7 @@ importers:
         version: 4.1.4(@types/node@18.15.11)
       vitest:
         specifier: 0.29.8
-        version: 0.29.8(jsdom@21.1.1)
+        version: 0.29.8(jsdom@21.1.2)
       vue:
         specifier: 3.2.47
         version: 3.2.47
@@ -488,7 +488,7 @@ importers:
         version: 3.0.1(vite@4.1.4(@types/node@18.15.11))(vue@3.2.47)
       '@vitest/coverage-istanbul':
         specifier: 0.29.8
-        version: 0.29.8(vitest@0.29.8(jsdom@21.1.1))
+        version: 0.29.8(vitest@0.29.8(jsdom@21.1.2))
       '@vue/test-utils':
         specifier: 2.3.2
         version: 2.3.2(vue@3.2.47)
@@ -530,7 +530,7 @@ importers:
         version: 4.1.4(@types/node@18.15.11)
       vitest:
         specifier: 0.29.8
-        version: 0.29.8(jsdom@21.1.1)
+        version: 0.29.8(jsdom@21.1.2)
       vue:
         specifier: 3.2.47
         version: 3.2.47
@@ -576,7 +576,7 @@ importers:
         version: 3.0.1(vite@4.1.4(@types/node@18.15.11))(vue@3.2.47)
       '@vitest/coverage-istanbul':
         specifier: 0.29.8
-        version: 0.29.8(vitest@0.29.8(jsdom@21.1.1))
+        version: 0.29.8(vitest@0.29.8(jsdom@21.1.2))
       '@vue/test-utils':
         specifier: 2.3.2
         version: 2.3.2(vue@3.2.47)
@@ -618,7 +618,7 @@ importers:
         version: 4.1.4(@types/node@18.15.11)
       vitest:
         specifier: 0.29.8
-        version: 0.29.8(jsdom@21.1.1)
+        version: 0.29.8(jsdom@21.1.2)
       vue:
         specifier: 3.2.47
         version: 3.2.47
@@ -654,7 +654,7 @@ importers:
         version: 3.0.1(vite@4.1.4(@types/node@18.15.11))(vue@3.2.47)
       '@vitest/coverage-istanbul':
         specifier: 0.29.8
-        version: 0.29.8(vitest@0.29.8(jsdom@21.1.1))
+        version: 0.29.8(vitest@0.29.8(jsdom@21.1.2))
       '@vue/test-utils':
         specifier: 2.3.2
         version: 2.3.2(vue@3.2.47)
@@ -696,7 +696,7 @@ importers:
         version: 4.1.4(@types/node@18.15.11)
       vitest:
         specifier: 0.29.8
-        version: 0.29.8(jsdom@21.1.1)
+        version: 0.29.8(jsdom@21.1.2)
       vue:
         specifier: 3.2.47
         version: 3.2.47
@@ -769,7 +769,7 @@ importers:
         version: 3.0.1(vite@4.1.4(@types/node@18.15.11))(vue@3.2.47)
       '@vitest/coverage-istanbul':
         specifier: 0.29.8
-        version: 0.29.8(vitest@0.29.8(jsdom@21.1.1))
+        version: 0.29.8(vitest@0.29.8(jsdom@21.1.2))
       '@vue/test-utils':
         specifier: 2.3.2
         version: 2.3.2(vue@3.2.47)
@@ -823,7 +823,7 @@ importers:
         version: 4.1.4(@types/node@18.15.11)
       vitest:
         specifier: 0.29.8
-        version: 0.29.8(jsdom@21.1.1)
+        version: 0.29.8(jsdom@21.1.2)
       vue:
         specifier: 3.2.47
         version: 3.2.47
@@ -2103,8 +2103,8 @@ packages:
   '@types/glob@7.2.0':
     resolution: {integrity: sha512-ZUxbzKl0IfJILTS6t7ip5fQQM/J3TJYubDm3nMbgubNNYS62eXeUpoLUC8/7fJNiFYHTrGPQn7hspDUzIHX3UA==}
 
-  '@types/jsdom@21.1.1':
-    resolution: {integrity: sha512-cZFuoVLtzKP3gmq9eNosUL1R50U+USkbLtUQ1bYVgl/lKp0FZM7Cq4aIHAL8oIvQ17uSHi7jXPtfDOdjPwBE7A==}
+  '@types/jsdom@21.1.7':
+    resolution: {integrity: sha512-yOriVnggzrnQ3a9OKOCxaVuSug3w3/SbOj5i7VwXWZEyUNl3bLF9V3MfxGbZKuwqJOQyRfqXyROBB1CoZLFWzA==}
 
   '@types/json-schema@7.0.15':
     resolution: {integrity: sha512-5+fP8P8MFNC+AyZCDxrB2pkZFPGzqQWUzpSeuuVLvm8VMcorNYavBqoFcxK8bQz4Qsbn4oUEEem4wDLfcysGHA==}
@@ -3816,8 +3816,8 @@ packages:
     resolution: {integrity: sha512-wpxZs9NoxZaJESJGIZTyDEaYpl0FKSA+FB9aJiyemKhMwkxQg63h4T1KJgUGHpTqPDNRcmmYLugrRjJlBtWvRA==}
     hasBin: true
 
-  jsdom@21.1.1:
-    resolution: {integrity: sha512-Jjgdmw48RKcdAIQyUD1UdBh2ecH7VqwaXPN3ehoZN6MqgVbMn+lRm1aAT1AsdJRAJpwfa4IpwgzySn61h2qu3w==}
+  jsdom@21.1.2:
+    resolution: {integrity: sha512-sCpFmK2jv+1sjff4u7fzft+pUh2KSUbUrEHYHyfSIbGTIcmnjyp83qg6qLwdJ/I3LpTXx33ACxeRL7Lsyc6lGQ==}
     engines: {node: '>=14'}
     peerDependencies:
       canvas: ^2.5.0
@@ -4148,8 +4148,8 @@ packages:
   nth-check@2.1.1:
     resolution: {integrity: sha512-lqjrjmaOoAnWfMmBPL+XNnynZh2+swxiX3WUE0s4yEHI6m+AwrK2UZOimIRl3X/4QctVqS8AiZjFqyOGrMXb/w==}
 
-  nwsapi@2.2.2:
-    resolution: {integrity: sha512-90yv+6538zuvUMnN+zCr8LuV6bPFdq50304114vJYJ8RDyK8D5O9Phpbd6SZWgI7PwzmmfN1upeOJlvybDSgCw==}
+  nwsapi@2.2.16:
+    resolution: {integrity: sha512-F1I/bimDpj3ncaNDhfyMWuFqmQDBwDB0Fogc2qpL3BWvkQteFD/8BzWuIRl83rq0DXfm8SGt/HFhLXZyljTXcQ==}
 
   object-assign@4.1.1:
     resolution: {integrity: sha512-rJgTQnkUnH1sFw8yT6VSU3zD3sWmu6sZhIseY8VX+GRu3P6F7Fu+JNDoXfklElbLJSnc3FUQHVe4cU5hj+BcUg==}
@@ -7017,7 +7017,7 @@ snapshots:
       '@types/minimatch': 5.1.2
       '@types/node': 18.15.11
 
-  '@types/jsdom@21.1.1':
+  '@types/jsdom@21.1.7':
     dependencies:
       '@types/node': 18.15.11
       '@types/tough-cookie': 4.0.2
@@ -7256,7 +7256,7 @@ snapshots:
       vite: 4.1.4(@types/node@18.15.11)
       vue: 3.2.47
 
-  '@vitest/coverage-istanbul@0.29.8(vitest@0.29.8(jsdom@21.1.1))':
+  '@vitest/coverage-istanbul@0.29.8(vitest@0.29.8(jsdom@21.1.2))':
     dependencies:
       istanbul-lib-coverage: 3.2.0
       istanbul-lib-instrument: 5.2.1
@@ -7264,7 +7264,7 @@ snapshots:
       istanbul-lib-source-maps: 4.0.1
       istanbul-reports: 3.1.5
       test-exclude: 6.0.0
-      vitest: 0.29.8(jsdom@21.1.1)
+      vitest: 0.29.8(jsdom@21.1.2)
     transitivePeerDependencies:
       - supports-color
 
@@ -9242,7 +9242,7 @@ snapshots:
     dependencies:
       argparse: 2.0.1
 
-  jsdom@21.1.1:
+  jsdom@21.1.2:
     dependencies:
       abab: 2.0.6
       acorn: 8.13.0
@@ -9257,7 +9257,7 @@ snapshots:
       http-proxy-agent: 5.0.0
       https-proxy-agent: 5.0.1
       is-potential-custom-element-name: 1.0.1
-      nwsapi: 2.2.2
+      nwsapi: 2.2.16
       parse5: 7.1.2
       rrweb-cssom: 0.6.0
       saxes: 6.0.0
@@ -9574,7 +9574,7 @@ snapshots:
     dependencies:
       boolbase: 1.0.0
 
-  nwsapi@2.2.2: {}
+  nwsapi@2.2.16: {}
 
   object-assign@4.1.1:
     optional: true
@@ -10635,7 +10635,7 @@ snapshots:
       '@types/node': 18.15.11
       fsevents: 2.3.2
 
-  vitest@0.29.8(jsdom@21.1.1):
+  vitest@0.29.8(jsdom@21.1.2):
     dependencies:
       '@types/chai': 4.3.4
       '@types/chai-subset': 1.3.3
@@ -10662,7 +10662,7 @@ snapshots:
       vite-node: 0.29.8(@types/node@18.15.11)
       why-is-node-running: 2.2.2
     optionalDependencies:
-      jsdom: 21.1.1
+      jsdom: 21.1.2
     transitivePeerDependencies:
       - less
       - sass
