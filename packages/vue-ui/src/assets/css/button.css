@@ -54,6 +54,7 @@
   transition: all var(--button-transition-duration) ease;
   user-select: none;
   vertical-align: bottom;
+  width: var(--button-width, fit-content);
 }
 
 .button.disabled {

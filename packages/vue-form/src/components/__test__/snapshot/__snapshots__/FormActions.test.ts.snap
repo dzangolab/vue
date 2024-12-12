@@ -10,6 +10,7 @@ exports[`FormActions > matches snapshot 1`] = `
   <button
     class="cancel-button"
     data-v-ed243437=""
+    type="button"
   >
     Cancel
   </button>

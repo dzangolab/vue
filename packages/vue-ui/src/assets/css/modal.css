@@ -1,0 +1,67 @@
+.modal .content {
+  padding: 1em;
+}
+
+.modal .dialog {
+  background-color: var(--modal-bg-color, #fff);
+  border-radius: 5px;
+  box-shadow: 0 0 10px #0003;
+  color: var(--modal-color, inherit);
+  max-width: var(--modal-max-width, 80%);
+  max-height: var(--modal-max-height, 80%);
+  min-width: var(--modal-min-width, 300px);
+  left: 50%;
+  overflow-y: auto;
+  padding: var(--modal-padding-v, 1rem) var(--modal-padding-h, 1rem);
+  position: fixed;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+}
+
+.modal .footer {
+  display: flex;
+  gap: 1em;
+  margin-left: auto;
+  padding: 1em;
+}
+
+.modal .header.disabled-header {
+  padding-bottom: 0.1rem;
+}
+
+.modal .header {
+  align-items: center;
+  display: flex;
+  margin-bottom: 0.5rem;
+  justify-content: var(--modal-header-justify, space-between);
+  padding: 0.7rem;
+}
+
+.modal .header > span[role=heading] {
+  font-size: var(--modal-header-font-size, 1.5rem);
+  font-weight: var(--modal-header-font-weight, 700);
+}
+
+.modal .header svg {
+  --_icon-color: var(--modal-icon-color, #000000);
+
+  color: var(--_icon-color);
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.modal .overlay {
+  background-color: #00000080;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: fixed;
+  top: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1000;
+}
+
+main:has(.modal .overlay) {
+  z-index: 999;
+}

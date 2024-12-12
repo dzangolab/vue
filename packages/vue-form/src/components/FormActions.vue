@@ -5,7 +5,12 @@
   >
     <slot>
       <slot name="cancelButton">
-        <button :disabled="loading" class="cancel-button" @click="onCancel">
+        <button
+          :disabled="loading"
+          class="cancel-button"
+          type="button"
+          @click="onCancel"
+        >
           {{ cancelLabel }}
         </button>
       </slot>
@@ -65,6 +70,7 @@ const onSubmit = () => emit("submit");
   display: flex;
   gap: var(--form-field-gap);
   margin-bottom: 2rem;
+  width: 100%;
 }
 
 .form-actions.align-center {

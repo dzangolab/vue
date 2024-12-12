@@ -14,6 +14,7 @@ import Errors from "./Errors/Index.vue";
 import DebouncedInput from "./FormWidgets/DebouncedInput/Index.vue";
 import LoadingPage from "./LoadingPage/Index.vue";
 import Message from "./Message/Index.vue";
+import Modal from "./Modal/Index.vue";
 import Page from "./Page/Index.vue";
 import Popup from "./Popup/Index.vue";
 import ResponsiveMenu from "./ResponsiveMenu/Index.vue";
@@ -49,6 +50,7 @@ export {
   LoadingIcon,
   LoadingPage,
   Message,
+  Modal,
   Page,
   Popup,
   ResponsiveMenu,

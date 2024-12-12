@@ -7,6 +7,7 @@ const ConfirmationModal = () =>
 const Dropdown = () => import("@/views/UI/dropdown/Index.vue");
 const LoadingPage = () => import("@/views/UI/loading/Index.vue");
 const Message = () => import("@/views/UI/message/Index.vue");
+const Modal = () => import("@/views/UI/modal/Index.vue");
 const Popup = () => import("@/views/UI/popup/Index.vue");
 const SortableList = () => import("@/views/UI/sortableList/Index.vue");
 const Stepper = () => import("@/views/UI/stepper/Index.vue");
@@ -75,6 +76,11 @@ const routes = [
         component: Message,
         name: "message",
         path: "message",
+      },
+      {
+        component: Modal,
+        name: "modal",
+        path: "modal",
       },
       {
         component: LoadingPage,

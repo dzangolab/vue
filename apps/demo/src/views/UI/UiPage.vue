@@ -74,6 +74,10 @@ const menu = [
     routeName: "message",
   },
   {
+    name: "Modal",
+    routeName: "modal",
+  },
+  {
     name: "Popup",
     routeName: "popup",
   },
