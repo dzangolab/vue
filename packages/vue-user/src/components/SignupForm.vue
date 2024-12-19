@@ -17,8 +17,26 @@
       name="confirmation"
     />
 
+    <TermsAndConditions
+      v-if="termsAndConditionsConfig?.display"
+      :has-checkbox="!!termsAndConditionsConfig?.showCheckbox"
+      @update:check="disableButton = !$event"
+    >
+      <component
+        :is="termsAndConditionsConfig?.label"
+        v-if="termsAndConditionsConfig?.label"
+      />
+    </TermsAndConditions>
+
     <div class="actions">
-      <LoadingButton :label="t('user.signup.form.actions.submit')" />
+      <LoadingButton
+        :disabled="
+          disableButton &&
+          termsAndConditionsConfig?.display &&
+          termsAndConditionsConfig?.showCheckbox
+        "
+        :label="t('user.signup.form.actions.submit')"
+      />
     </div>
   </Form>
 </template>
@@ -41,9 +59,11 @@ import { useI18n } from "@dzangolab/vue3-i18n";
 import { LoadingButton } from "@dzangolab/vue3-ui";
 import { toFormValidator } from "@vee-validate/zod";
 import { Form } from "vee-validate";
+import { ref } from "vue";
 import { z } from "zod";
 
 import { useTranslations } from "../index";
+import TermsAndConditions from "./TermsAndConditions.vue";
 
 import type { LoginCredentials } from "../types";
 
@@ -52,6 +72,9 @@ const config = useConfig();
 const messages = useTranslations();
 
 const { t } = useI18n({ messages });
+
+const termsAndConditionsConfig =
+  config.user?.features?.signUp?.termsAndConditions;
 
 let credentials = {
   email: undefined,
@@ -95,6 +118,8 @@ const validationSchema = toFormValidator(
 );
 
 const emit = defineEmits(["submit"]);
+
+const disableButton = ref<boolean>(true);
 
 const onSubmit = (credentials: LoginCredentials) => {
   emit("submit", credentials);

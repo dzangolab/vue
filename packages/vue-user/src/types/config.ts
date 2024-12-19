@@ -1,3 +1,5 @@
+import { DefineComponent } from "vue";
+
 import type { RouteOverrides } from "./router";
 import type {
   IsEmailOptions,
@@ -8,6 +10,11 @@ interface DzangolabVueUserConfig {
   features?: {
     signUp?: {
       emailVerification?: boolean;
+      termsAndConditions?: {
+        display?: boolean;
+        showCheckbox?: boolean;
+        label: DefineComponent;
+      };
     };
   };
   password?: {

@@ -107,6 +107,7 @@ exports[`SignUp > matches snapshot in en 1`] = `
         <!---->
         
       </div>
+      <!--v-if-->
       <div
         class="actions"
       >
@@ -254,6 +255,7 @@ exports[`SignUp > matches snapshot in fr 1`] = `
         <!---->
         
       </div>
+      <!--v-if-->
       <div
         class="actions"
       >
