@@ -1,6 +1,34 @@
 {
   "en": {
     "user": {
+      "changePassword": {
+        "form": {
+          "confirmPassword": {
+            "errors": {
+              "required": "Confirm password is required",
+              "unmatched": "Passwords must match"
+            },
+            "label": "Confirm password"
+          },
+          "currentPassword": {
+            "errors": {
+              "required": "Current password is required",
+              "weak": "Current password is required"
+            },
+            "label": "Current password"
+          },
+          "newPassword": {
+            "errors": {
+              "required": "New password is required",
+              "weak": "Password must contain at least 8 characters, an uppercase, a lowercase and a number"
+            },
+            "label": "New password"
+          },
+          "submit": {
+            "label": "Change password"
+          }
+        }
+      },
       "emailVerification": {
         "button": {
           "label": "Resend email"
@@ -25,7 +53,7 @@
       "login": {
         "errors": {
           "401": "The credentials you input are invalid.",
-          "SOMETHING_WRONG": "Something went wrong. Plese try again."
+          "SOMETHING_WRONG": "Something went wrong. Please try again."
         },
         "form": {
           "actions": {
@@ -123,7 +151,7 @@
       "signup": {
         "errors": {
           "401": "Sorry! We could not register your account because of an unexpected error.",
-          "SOMETHING_WRONG": "Something went wrong. Plese try again."
+          "SOMETHING_WRONG": "Something went wrong. Please try again."
         },
         "form": {
           "actions": {
@@ -164,6 +192,34 @@
   },
   "fr": {
     "user": {
+      "changePassword": {
+        "form": {
+          "confirmPassword": {
+            "errors": {
+              "required": "Confirm password is required",
+              "unmatched": "Passwords must match"
+            },
+            "label": "Confirm password"
+          },
+          "currentPassword": {
+            "errors": {
+              "required": "Current password is required",
+              "weak": "Current password is required"
+            },
+            "label": "Current password"
+          },
+          "newPassword": {
+            "errors": {
+              "required": "New password is required",
+              "weak": "Password must contain at least 8 characters, an uppercase, a lowercase and a number"
+            },
+            "label": "New password"
+          },
+          "submit": {
+            "label": "Change password"
+          }
+        }
+      },
       "emailVerification": {
         "button": {
           "label": "Resend email"

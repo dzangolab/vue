@@ -21,6 +21,12 @@ interface PasswordResetRequestPayload {
   url: string | null | undefined;
 }
 
+interface UpdatePasswordPayload {
+  confirmPassword: string;
+  currentPassword: string;
+  newPassword: string;
+}
+
 interface User extends EmailPasswordUserType {
   //usertype and emailusertype are same one type with different name in different recipe
   email: string;
@@ -32,5 +38,6 @@ export type {
   LoginCredentials,
   PasswordResetPayload,
   PasswordResetRequestPayload,
+  UpdatePasswordPayload,
   User,
 };

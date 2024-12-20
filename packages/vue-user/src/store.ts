@@ -2,6 +2,7 @@ import { defineStore } from "pinia";
 import { ref } from "vue";
 
 import {
+  changePassword as doChangePassword,
   googleSignIn as doGoogleSignIn,
   login as doLogin,
   logout as doLogout,
@@ -14,6 +15,7 @@ import type {
   LoginCredentials,
   PasswordResetPayload,
   PasswordResetRequestPayload,
+  UpdatePasswordPayload,
   User,
 } from "./types";
 
@@ -21,6 +23,15 @@ const USER_KEY = "user";
 
 const useUserStore = defineStore("user", () => {
   const user = ref<User | undefined>(undefined);
+
+  const changePassword = async (
+    payload: UpdatePasswordPayload,
+    apiBaseUrl: string,
+  ) => {
+    const response = await doChangePassword(payload, apiBaseUrl);
+
+    return response;
+  };
 
   const getUser = (): User => {
     if (user.value) {
@@ -59,13 +70,13 @@ const useUserStore = defineStore("user", () => {
   };
 
   const requestPasswordReset = async (
-    payload: PasswordResetRequestPayload,
+    payload: PasswordResetRequestPayload
   ): Promise<boolean> => {
     return doRequestPasswordReset(payload);
   };
 
   const resetPassword = async (
-    payload: PasswordResetPayload,
+    payload: PasswordResetPayload
   ): Promise<boolean> => {
     return doResetPassword(payload);
   };
@@ -83,6 +94,7 @@ const useUserStore = defineStore("user", () => {
   };
 
   return {
+    changePassword,
     googleSignIn,
     getUser,
     login,

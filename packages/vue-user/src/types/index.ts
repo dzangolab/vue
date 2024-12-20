@@ -3,6 +3,7 @@ export type {
   LoginCredentials,
   PasswordResetPayload,
   PasswordResetRequestPayload,
+  UpdatePasswordPayload,
   User,
 } from "./auth";
 
