@@ -34,6 +34,14 @@
   padding-left: 0;
 }
 
+.nav-menu-item .toggle-menu > svg {
+  transition: transform 0.3s ease;
+}
+
+.nav-menu-item .toggle-menu > svg.up-chevron {
+  transform: rotate(180deg);
+}
+
 .sub-menu-item {
   overflow: hidden;
   max-height: 20rem;

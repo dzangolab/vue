@@ -18,14 +18,16 @@
   --_color: #4e4e4e;
   --_position: relative;
   --_width: 100%;
+
+  padding-right: 2rem;
 }
 
 .demo-aside .link.active,
 .demo-aside .link:hover {
-  --_bg-color: transparent;
-  --_hover-bg-color: transparent;
+  --_bg-color: rgba(45, 45, 45, .125);
+  --_hover-bg-color: rgba(45, 45, 45, .125);
 
-  text-decoration: underline;
+  border-radius: 0.312rem;
 }
 
 .demo-aside .nav-menu-item > .link {

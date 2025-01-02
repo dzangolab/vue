@@ -19,6 +19,7 @@ export default {
 </script>
 
 <script setup lang="ts">
+import { useI18n } from "@dzangolab/vue3-i18n";
 import { Sidebar } from "@dzangolab/vue3-layout";
 
 import type { PropType } from "vue";
@@ -36,82 +37,114 @@ defineProps({
   },
 });
 
+const { t } = useI18n();
+
 const menu = [
   {
-    name: "Get started",
+    name: t("ui.getStarted"),
     routeName: "",
   },
   {
-    name: "Accordion",
-    routeName: "accordion",
+    name: t("ui.buttons"),
+    children: [
+      {
+        name: t("ui.button.title"),
+        routeName: "button",
+      },
+    ],
   },
   {
-    name: "Badge",
-    routeName: "badge",
+    name: t("ui.menu"),
+    children: [
+      {
+        name: t("ui.dropdown.title"),
+        routeName: "dropdown",
+      },
+    ],
   },
   {
-    name: "Button",
-    routeName: "button",
+    name: t("ui.messages"),
+    children: [
+      {
+        name: t("ui.message.title"),
+        routeName: "message",
+      },
+    ],
   },
   {
-    name: "Card",
-    routeName: "card",
+    name: t("ui.overlay"),
+    children: [
+      {
+        name: t("ui.confirmationModal.title"),
+        routeName: "confirmationModal",
+      },
+      {
+        name: t("ui.modal.title"),
+        routeName: "modal",
+      },
+      {
+        name: t("ui.popup.title"),
+        routeName: "popup",
+      },
+      {
+        name: t("ui.tooltip.title"),
+        routeName: "tooltip",
+      },
+    ],
   },
   {
-    name: "Confirmation modal",
-    routeName: "confirmationModal",
+    name: t("ui.panel"),
+    children: [
+      {
+        name: t("ui.accordion.title"),
+        routeName: "accordion",
+      },
+      {
+        name: t("ui.card.title"),
+        routeName: "card",
+      },
+      {
+        name: t("ui.stepper.title"),
+        routeName: "stepper",
+      },
+      {
+        name: t("ui.tabbed-panel.title"),
+        routeName: "tabbedPanel",
+      },
+    ],
   },
   {
-    name: "Divider",
-    routeName: "divider",
-  },
-  {
-    name: "Dropdown",
-    routeName: "dropdown",
-  },
-  {
-    name: "Grid container",
-    routeName: "gridContainer",
-  },
-  {
-    name: "Loading page",
-    routeName: "loadingPage",
-  },
-  {
-    name: "Message",
-    routeName: "message",
-  },
-  {
-    name: "Modal",
-    routeName: "modal",
-  },
-  {
-    name: "Popup",
-    routeName: "popup",
-  },
-  {
-    name: "Sortable list",
-    routeName: "sortableList",
-  },
-  {
-    name: "Stepper",
-    routeName: "stepper",
-  },
-  {
-    name: "Tabbed panel",
-    routeName: "tabbedPanel",
-  },
-  {
-    name: "Tooltip",
-    routeName: "tooltip",
-  },
-  {
-    name: "Typography",
-    routeName: "typography",
-  },
-  {
-    name: "Youtube facade",
-    routeName: "youtubeFacade",
+    name: t("ui.misc"),
+    children: [
+      {
+        name: t("ui.badge.title"),
+        routeName: "badge",
+      },
+      {
+        name: t("ui.divider.title"),
+        routeName: "divider",
+      },
+      {
+        name: t("ui.gridContainer.title"),
+        routeName: "gridContainer",
+      },
+      {
+        name: t("ui.loading.title"),
+        routeName: "loadingPage",
+      },
+      {
+        name: t("ui.sortableList.title"),
+        routeName: "sortableList",
+      },
+      {
+        name: t("ui.typography.title"),
+        routeName: "typography",
+      },
+      {
+        name: t("ui.youtubeFacade.title"),
+        routeName: "youtubeFacade",
+      },
+    ],
   },
 ];
 </script>

@@ -1,9 +1,17 @@
+#app > .layout {
+  height: 100dvh;
+}
+
 .layout.basic {
   --layout-basic-max-width: 100%;
 }
 
 .layout header > nav {
   opacity: 0.95;
+}
+
+.layout > main {
+  overflow-y: auto;
 }
 
 section:has(h3) {
