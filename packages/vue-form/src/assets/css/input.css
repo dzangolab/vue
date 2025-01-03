@@ -24,6 +24,10 @@
   width: 100%;
 }
 
+.field input:disabled {
+  cursor: default;
+}
+
 .field input[type="radio"] {
   height: fit-content;
 }
@@ -41,4 +45,12 @@
 
 .field textarea:disabled {
   resize: none;
+}
+
+.field.checkbox input[type=checkbox] {
+  height: fit-content;
+  margin-right: .5em;
+  width: auto;
+  cursor: pointer;
+  accent-color: #007aff;
 }

@@ -1,3 +1,4 @@
+const CheckboxInput = () => import("@/views/Form/checkboxInput/Index.vue");
 const DatePicker = () => import("@/views/Form/datePicker/Index.vue");
 const DaysInput = () => import("@/views/Form/daysInput/Index.vue");
 const EditableContent = () => import("@/views/Form/editableContent/Index.vue");
@@ -17,6 +18,11 @@ const routes = [
   {
     path: "/form",
     children: [
+      {
+        component: CheckboxInput,
+        name: "checkboxInput",
+        path: "checkbox-input",
+      },
       {
         component: DatePicker,
         name: "datePicker",

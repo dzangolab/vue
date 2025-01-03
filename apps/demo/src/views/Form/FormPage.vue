@@ -42,6 +42,10 @@ const menu = [
     routeName: "",
   },
   {
+    name: "Checkbox input",
+    routeName: "checkboxInput",
+  },
+  {
     name: "Date picker",
     routeName: "datePicker",
   },
