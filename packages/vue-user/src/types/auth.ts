@@ -33,6 +33,22 @@ interface User extends EmailPasswordUserType {
   username?: string;
 }
 
+interface UserType extends EmailPasswordUserType {
+  disabled?: boolean;
+  givenName: string | null;
+  isEmailVerified?: boolean;
+  isProfileCompleted?: boolean;
+  lastLoginAt: number;
+  middleNames: string | null;
+  roles: string[];
+  signedUpAt: number;
+  surname: string | null;
+  thirdParty?: {
+    id: string;
+    userId: string;
+  };
+}
+
 export type {
   AuthTokens,
   LoginCredentials,
@@ -40,4 +56,5 @@ export type {
   PasswordResetRequestPayload,
   UpdatePasswordPayload,
   User,
+  UserType,
 };

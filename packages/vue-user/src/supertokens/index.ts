@@ -3,6 +3,7 @@ import EmailVerification from "supertokens-web-js/recipe/emailverification";
 import Session from "supertokens-web-js/recipe/session";
 import ThirdPartyEmailPassword from "supertokens-web-js/recipe/thirdpartyemailpassword";
 
+import changeEmail from "./change-email";
 import changePassword from "./change-password";
 import googleSignIn from "./google-signin";
 import { verifySessionRoles } from "./helper";
@@ -57,6 +58,7 @@ const getUser = async (): Promise<User | undefined> => {
 export default initSupertokens;
 
 export {
+  changeEmail,
   changePassword,
   getUser,
   getVerificationStatus,

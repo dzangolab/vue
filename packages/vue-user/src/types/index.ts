@@ -5,6 +5,7 @@ export type {
   PasswordResetRequestPayload,
   UpdatePasswordPayload,
   User,
+  UserType,
 } from "./auth";
 
 export type { DzangolabVueUserConfig } from "./config";
