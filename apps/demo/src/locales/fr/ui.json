@@ -128,6 +128,19 @@
       "withI18n": "With i18n"
     }
   },
+  "data": {
+    "label": {
+      "email": "Email",
+      "name": "Name"
+    },
+    "title": "Data",
+    "usage": {
+      "basic": "Basic",
+      "displayObject": "Display value from object",
+      "separatorSlot": "With separator slot",
+      "structuredData": "Rendering structured data"
+    }
+  },
   "divider": {
     "title": "Divider",
     "usage": {

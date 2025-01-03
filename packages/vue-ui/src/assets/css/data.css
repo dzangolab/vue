@@ -1,0 +1,39 @@
+.data {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.data.direction-horizontal > .data-label {
+  --_width: var(--data-label-width, 8rem);
+
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  width: var(--_width);
+}
+
+.data > .data-label {
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.data > .data-value {
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.data > .separator {
+  display: none;
+}
+
+@media screen and (min-width: 576px) {
+  .data.direction-horizontal {
+    align-items: center;
+    flex-direction: row;
+    gap: 1rem;
+  }
+
+  .data > .separator {
+    display: block;
+  }
+}
