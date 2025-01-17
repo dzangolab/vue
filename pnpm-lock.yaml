@@ -101,7 +101,7 @@ importers:
         version: 4.7.4
       '@vee-validate/zod':
         specifier: 4.7.4
-        version: 4.7.4(vee-validate@4.7.4(vue@3.2.47))(zod@3.20.6)
+        version: 4.7.4(vee-validate@4.7.4(vue@3.2.47))(zod@3.22.3)
       '@vitejs/plugin-vue':
         specifier: 4.2.1
         version: 4.2.1(vite@4.1.4(@types/node@18.15.11))(vue@3.2.47)
@@ -169,8 +169,8 @@ importers:
         specifier: 1.2.0
         version: 1.2.0(typescript@5.5.4)
       zod:
-        specifier: 3.20.6
-        version: 3.20.6
+        specifier: 3.22.3
+        version: 3.22.3
 
   packages/vue-config:
     dependencies:
@@ -292,7 +292,7 @@ importers:
         version: 4.7.4
       '@vee-validate/zod':
         specifier: 4.7.4
-        version: 4.7.4(vee-validate@4.7.4(vue@3.2.47))(zod@3.20.6)
+        version: 4.7.4(vee-validate@4.7.4(vue@3.2.47))(zod@3.22.3)
       '@vitejs/plugin-vue':
         specifier: 4.2.1
         version: 4.2.1(vite@4.1.4(@types/node@18.15.11))(vue@3.2.47)
@@ -363,8 +363,8 @@ importers:
         specifier: 2.2.1
         version: 2.2.1(vue@3.2.47)
       zod:
-        specifier: 3.20.6
-        version: 3.20.6
+        specifier: 3.22.3
+        version: 3.22.3
 
   packages/vue-i18n:
     dependencies:
@@ -763,7 +763,7 @@ importers:
         version: 4.7.4
       '@vee-validate/zod':
         specifier: 4.7.4
-        version: 4.7.4(vee-validate@4.7.4(vue@3.2.47))(zod@3.20.6)
+        version: 4.7.4(vee-validate@4.7.4(vue@3.2.47))(zod@3.22.3)
       '@vitejs/plugin-vue':
         specifier: 4.2.1
         version: 4.2.1(vite@4.1.4(@types/node@18.15.11))(vue@3.2.47)
@@ -840,8 +840,8 @@ importers:
         specifier: 1.2.0
         version: 1.2.0(typescript@5.5.4)
       zod:
-        specifier: 3.20.6
-        version: 3.20.6
+        specifier: 3.22.3
+        version: 3.22.3
 
 packages:
 
@@ -5407,8 +5407,8 @@ packages:
     resolution: {integrity: sha512-9bnSc/HEW2uRy67wc+T8UwauLuPJVn28jb+GtJY16iiKWyvmYJRXVT4UamsAEGQfPohgr2q4Tq0sQbQlxTfi1g==}
     engines: {node: '>=12.20'}
 
-  zod@3.20.6:
-    resolution: {integrity: sha512-oyu0m54SGCtzh6EClBVqDDlAYRz4jrVtKwQ7ZnsEmMI9HnzuZFj8QFwAY1M5uniIYACdGvv0PBWPF2kO0aNofA==}
+  zod@3.22.3:
+    resolution: {integrity: sha512-EjIevzuJRiRPbVH4mGc8nApb/lVLKVpmUhAaR5R5doKGfAnGJ6Gr3CViAVjP+4FWSxCsybeWQdcgCtbX+7oZug==}
 
 snapshots:
 
@@ -7252,10 +7252,10 @@ snapshots:
 
   '@vee-validate/rules@4.7.4': {}
 
-  '@vee-validate/zod@4.7.4(vee-validate@4.7.4(vue@3.2.47))(zod@3.20.6)':
+  '@vee-validate/zod@4.7.4(vee-validate@4.7.4(vue@3.2.47))(zod@3.22.3)':
     dependencies:
       vee-validate: 4.7.4(vue@3.2.47)
-      zod: 3.20.6
+      zod: 3.22.3
 
   '@vitejs/plugin-vue-jsx@3.0.1(vite@4.1.4(@types/node@18.15.11))(vue@3.2.47)':
     dependencies:
@@ -10895,4 +10895,4 @@ snapshots:
 
   yocto-queue@1.0.0: {}
 
-  zod@3.20.6: {}
+  zod@3.22.3: {}
