@@ -1,5 +1,5 @@
 :root {
-  --button-alternate-color: var(--dz-alternate-color, #0284c7);
+  --button-alternate-color: var(--dz-alternate-color, #027dbb);
   --button-alternate-outlined-hover-color: #f1f9fc;
   --button-danger-color: var(--dz-danger-color, #dc3545);
   --button-danger-outlined-hover-color: #fef1f1;
@@ -13,7 +13,7 @@
   --button-medium-icon-size: 1rem;
   --button-medium-padding: 0.75rem 1.25rem;
   --button-medium-width: 2.75rem;
-  --button-primary-color: var(--dz-primary-color, #007aff);
+  --button-primary-color: var(--dz-primary-color, #0071eb);
   --button-primary-outlined-hover-color: #eef6fe;
   --button-secondary-color: var(--dz-secondary-color, #475569);
   --button-secondary-outlined-hover-color: #f3f4f5;
@@ -21,11 +21,11 @@
   --button-small-icon-size: 0.875rem;
   --button-small-padding: 0.65625rem 1.09375rem;
   --button-small-width: 2.438rem;
-  --button-success-color: var(--dz-success-color, #22c55e);
+  --button-success-color: var(--dz-success-color, #178740);
   --button-success-outlined-hover-color: #f0fcf6;
   --button-text-color: #ffffff;
   --button-transition-duration: var(--transition-duration, 0.2s);
-  --button-warning-color: var(--dz-warning-color, #ea580c);
+  --button-warning-color: var(--dz-warning-color, #cb4e0b);
   --button-warning-outlined-hover-color: #fef7f5;
 }
 
