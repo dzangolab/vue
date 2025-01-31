@@ -34,7 +34,9 @@ exports[`SortableList > matches snapshot 1`] = `
           </svg>
         </span>
         <div>
+          
           item1
+          
         </div>
       </li>
       <li>
@@ -62,7 +64,9 @@ exports[`SortableList > matches snapshot 1`] = `
           </svg>
         </span>
         <div>
+          
           item2
+          
         </div>
       </li>
       <li>
@@ -90,7 +94,9 @@ exports[`SortableList > matches snapshot 1`] = `
           </svg>
         </span>
         <div>
+          
           item3
+          
         </div>
       </li>
       <li>
@@ -118,7 +124,9 @@ exports[`SortableList > matches snapshot 1`] = `
           </svg>
         </span>
         <div>
+          
           item4
+          
         </div>
       </li>
       <li>
@@ -146,7 +154,9 @@ exports[`SortableList > matches snapshot 1`] = `
           </svg>
         </span>
         <div>
+          
           item5
+          
         </div>
       </li>
       

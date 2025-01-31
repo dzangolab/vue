@@ -28,6 +28,8 @@
   "devDependencies": {
     "@12deg/eslint-config": "0.1.11",
     "@12deg/tsconfig": "0.1.11",
+    "@dzangolab/vue3-form": "0.10.0",
+    "@dzangolab/vue3-ui": "0.10.0",
     "@iconify/vue": "4.1.0",
     "@types/node": "18.15.11",
     "@typescript-eslint/eslint-plugin": "8.14.0",
@@ -54,6 +56,8 @@
     "vue-tsc": "1.2.0"
   },
   "peerDependencies": {
+    "@dzangolab/vue3-form": "0.10.0",
+    "@dzangolab/vue3-ui": "0.10.0",
     "vue": ">=3.2"
   },
   "engines": {
