@@ -559,6 +559,9 @@ importers:
       '@12deg/tsconfig':
         specifier: 0.1.11
         version: 0.1.11(@types/node@18.15.11)
+      '@dzangolab/vue3-form':
+        specifier: 0.10.1
+        version: link:../vue-form
       '@dzangolab/vue3-ui':
         specifier: 0.10.1
         version: link:../vue-ui

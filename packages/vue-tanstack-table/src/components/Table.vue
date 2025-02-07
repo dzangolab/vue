@@ -36,6 +36,7 @@ export default {
 </script>
 
 <script setup lang="ts">
+import { Checkbox } from "@dzangolab/vue3-form";
 import {
   getCoreRowModel,
   getFilteredRowModel,
@@ -44,7 +45,7 @@ import {
   SortingState,
   useVueTable,
 } from "@tanstack/vue-table";
-import { computed, ref } from "vue";
+import { computed, h, ref } from "vue";
 
 import Pagination from "./Pagination.vue";
 import TableBody from "./TableBody.vue";
@@ -62,6 +63,10 @@ const props = defineProps({
   columnsData: {
     type: Array as PropType<ColumnDef<unknown, unknown>[]>,
     default: () => [],
+  },
+  enableRowSelection: {
+    default: false,
+    type: Boolean,
   },
   data: {
     type: Array,
@@ -93,7 +98,7 @@ const props = defineProps({
   },
 });
 
-const columns: ColumnDef<unknown, unknown>[] = [];
+let columns: ColumnDef<unknown, unknown>[] = [];
 
 props.columnsData.forEach((column) => {
   columns.push({
@@ -101,6 +106,30 @@ props.columnsData.forEach((column) => {
     enableSorting: column.enableSorting ?? false,
   } as ColumnDef<unknown, unknown>);
 });
+
+if (props.enableRowSelection) {
+  columns = [
+    {
+      id: "select",
+      header: ({ table }) =>
+        h(Checkbox, {
+          "aria-label": "Select all",
+          modelValue: table.getIsAllPageRowsSelected(),
+          "onUpdate:modelValue": () =>
+            table.toggleAllPageRowsSelected(!table.getIsAllPageRowsSelected()),
+        }),
+      cell: ({ row }) =>
+        h(Checkbox, {
+          "aria-label": "Select row",
+          modelValue: row.getIsSelected(),
+          "onUpdate:modelValue": () => row.toggleSelected(!row.getIsSelected()),
+        }),
+      align: "center",
+      enableSorting: false,
+    },
+    ...columns,
+  ];
+}
 
 const pagination = ref({
   pageIndex: DEFAULT_PAGE_INDEX,
