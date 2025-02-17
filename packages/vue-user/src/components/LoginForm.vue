@@ -7,9 +7,30 @@
         required: t('user.login.form.email.errors.required'),
       }"
       :label="t('user.login.form.email.label')"
-      :options="userConfig?.options?.email"
       :placeholder="t('user.login.form.email.placeholder')"
     />
+
+    <div class="field username">
+      <label for="username"> Username </label>
+      <Field
+        v-slot="{ field, meta }"
+        :model-value="credentials.username"
+        :name="'username'"
+      >
+        <input
+          v-bind="field"
+          :class="{
+            invalid: meta.touched && !meta.valid,
+            valid: meta.dirty && meta.valid,
+          }"
+          :disabled="false"
+          :placeholder="'Username'"
+          tabindex="0"
+          type="text"
+        />
+        <ErrorMessage :name="'username'" />
+      </Field>
+    </div>
 
     <Password
       v-model="credentials.password"
@@ -18,7 +39,7 @@
         weak: t('user.login.form.password.errors.invalid'),
       }"
       :label="t('user.login.form.password.label')"
-      :options="{ minLength: 8 }"
+      :options="{ minLength: 6 }"
     />
 
     <div class="actions">
@@ -38,17 +59,17 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { useConfig } from "@dzangolab/vue3-config";
+// import { AppConfig, useConfig } from "@dzangolab/vue3-config";
 import { Email, Password } from "@dzangolab/vue3-form";
 import { useI18n } from "@dzangolab/vue3-i18n";
 import { LoadingButton } from "@dzangolab/vue3-ui";
-import { Form } from "vee-validate";
+import { ErrorMessage, Field, Form } from "vee-validate";
 
 import { useTranslations } from "../index";
 
 import type { LoginCredentials } from "../types";
 
-const { user: userConfig } = useConfig();
+// const config = useConfig() as AppConfig;
 
 const messages = useTranslations();
 
@@ -57,6 +78,7 @@ const { t } = useI18n({ messages });
 let credentials = {
   email: undefined,
   password: undefined,
+  username: undefined,
 } as Partial<LoginCredentials>;
 
 const emit = defineEmits(["submit"]);
@@ -64,6 +86,12 @@ const emit = defineEmits(["submit"]);
 const onSubmit = (credentials: LoginCredentials) => {
   emit("submit", credentials);
 };
+
+// const onUsernameInput = (event: Event) => {
+//   const value = (event.target as HTMLInputElement).value;
+
+//   emit("update:modelValue", value);
+// };
 
 defineProps({
   loading: {

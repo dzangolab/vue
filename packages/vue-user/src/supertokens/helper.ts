@@ -38,7 +38,7 @@ export async function verifySessionRoles(claims: string[]): Promise<boolean> {
 
       const { logout } = userStore;
       // all user roles claim check failed
-      await logout();
+      await logout("");
     }
   }
   // either a session does not exist, or one of the validators failed.

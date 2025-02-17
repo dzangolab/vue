@@ -7,8 +7,10 @@ interface AuthTokens {
 }
 
 interface LoginCredentials {
-  email: string;
+  email?: string;
   password: string;
+  username?: string;
+  withRoles?: string[];
 }
 
 interface PasswordResetPayload {
