@@ -23,6 +23,7 @@
         :multiple="multiple"
         :options="options"
         :placeholder="placeholder"
+        :show-remove-option="showRemoveOption"
         tabindex="0"
         @update:model-value="onSelect"
       >
@@ -104,6 +105,10 @@ const props = defineProps({
   searchPlaceholder: {
     default: undefined,
     type: String,
+  },
+  showRemoveOption: {
+    default: true,
+    type: Boolean,
   },
 });
 

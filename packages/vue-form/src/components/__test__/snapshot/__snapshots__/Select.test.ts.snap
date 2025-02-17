@@ -15,108 +15,24 @@ exports[`MultiSelect > matches snapshot for multiple select 1`] = `
     <span
       class="selected-options"
     >
-      
-      <span
-        class="selected-option"
-      >
-        FR 
-        <svg
-          fill="none"
-          viewBox="0 0 24 24"
-          width="1rem"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M6 6L18 18M18 6L6 18"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-          />
-        </svg>
-      </span>
-      <span
-        class="selected-option"
-      >
-        DE 
-        <svg
-          fill="none"
-          viewBox="0 0 24 24"
-          width="1rem"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M6 6L18 18M18 6L6 18"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-          />
-        </svg>
-      </span>
-      <span
-        class="selected-option"
-      >
-        BE 
-        <svg
-          fill="none"
-          viewBox="0 0 24 24"
-          width="1rem"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M6 6L18 18M18 6L6 18"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-          />
-        </svg>
-      </span>
-      <span
-        class="selected-option"
-      >
-        FE 
-        <svg
-          fill="none"
-          viewBox="0 0 24 24"
-          width="1rem"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M6 6L18 18M18 6L6 18"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-          />
-        </svg>
-      </span>
-      <span
-        class="selected-option"
-      >
-        RE 
-        <svg
-          fill="none"
-          viewBox="0 0 24 24"
-          width="1rem"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M6 6L18 18M18 6L6 18"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-          />
-        </svg>
-      </span>
-      
+      FR, DE, BE, FE, RE
     </span>
     <span
-      class="menu-trigger"
+      class="action-icons"
     >
-      <!--v-if-->
+      <svg
+        fill="none"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M6 6L18 18M18 6L6 18"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+        />
+      </svg>
       <svg
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
@@ -266,17 +182,10 @@ exports[`MultiSelect > matches snapshot for single select 1`] = `
     <span
       class="selected-options"
     >
-      
-      <span
-        class="selected-option"
-      >
-        FR 
-        <!--v-if-->
-      </span>
-      
+      FR
     </span>
     <span
-      class="menu-trigger"
+      class="action-icons"
     >
       <svg
         fill="none"

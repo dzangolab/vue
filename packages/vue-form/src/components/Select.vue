@@ -16,34 +16,11 @@
         {{ placeholder }}
       </span>
       <span v-else class="selected-options">
-        <span
-          v-for="selectedOption in selectedOptions"
-          :key="selectedOption.label"
-          class="selected-option"
-        >
-          {{ selectedOption.label }}
-
-          <svg
-            v-if="multiple"
-            fill="none"
-            viewBox="0 0 24 24"
-            width="1rem"
-            xmlns="http://www.w3.org/2000/svg"
-            @click.stop="!disabled ? onUnselect($event, selectedOption) : ''"
-          >
-            <path
-              d="M6 6L18 18M18 6L6 18"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-            />
-          </svg>
-        </span>
+        {{ selectedLabels }}
       </span>
-      <span class="menu-trigger">
+      <span class="action-icons">
         <svg
-          v-if="!disabled && !multiple && selectedOptions.length"
+          v-if="hasRemoveOption"
           fill="none"
           viewBox="0 0 24 24"
           xmlns="http://www.w3.org/2000/svg"
@@ -160,6 +137,10 @@ const props = defineProps({
     default: undefined,
     type: String,
   },
+  showRemoveOption: {
+    default: true,
+    type: Boolean,
+  },
   searchPlaceholder: {
     default: undefined,
     type: String,
@@ -200,6 +181,15 @@ const filteredOptions = computed(() => {
       .includes(String(searchInput.value).toLowerCase()),
   );
 });
+
+const hasRemoveOption = computed(
+  () =>
+    props.showRemoveOption && !props.disabled && selectedOptions.value.length,
+);
+
+const selectedLabels = computed(() =>
+  selectedOptions.value.map((option) => option.label).join(", "),
+);
 
 const sortedOptions = computed(() => {
   if (props.hasSortedOptions) {

@@ -24,51 +24,24 @@ exports[`SelectInput > matches snapshot 1`] = `
       <span
         class="selected-options"
       >
-        
-        <span
-          class="selected-option"
-        >
-          FR 
-          <svg
-            fill="none"
-            viewBox="0 0 24 24"
-            width="1rem"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M6 6L18 18M18 6L6 18"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-            />
-          </svg>
-        </span>
-        <span
-          class="selected-option"
-        >
-          FE 
-          <svg
-            fill="none"
-            viewBox="0 0 24 24"
-            width="1rem"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M6 6L18 18M18 6L6 18"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-            />
-          </svg>
-        </span>
-        
+        FR, FE
       </span>
       <span
-        class="menu-trigger"
+        class="action-icons"
       >
-        <!--v-if-->
+        <svg
+          fill="none"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M6 6L18 18M18 6L6 18"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+          />
+        </svg>
         <svg
           viewBox="0 0 24 24"
           xmlns="http://www.w3.org/2000/svg"
