@@ -1,4 +1,3 @@
-import { BrowserTracing } from "@sentry/tracing";
 import * as Sentry from "@sentry/vue";
 
 import type { AppConfig } from "./types";
@@ -15,13 +14,11 @@ const plugin: Plugin = {
         ...sentryOptions,
         app,
         integrations: [
-          new BrowserTracing({
-            routingInstrumentation: Sentry.vueRouterInstrumentation(
-              options.router,
-            ),
-            tracePropagationTargets: ["localhost", config.websiteDomain, /^\//],
+          Sentry.browserTracingIntegration({
+            router: options.router,
           }),
         ],
+        tracePropagationTargets: ["localhost", config.websiteDomain, /^\//],
         release: options.config.appVersion,
       });
     }

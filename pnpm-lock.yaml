@@ -174,15 +174,12 @@ importers:
 
   packages/vue-config:
     dependencies:
-      '@sentry/tracing':
-        specifier: 7.44.2
-        version: 7.44.2
-      '@sentry/types':
-        specifier: 7.44.2
-        version: 7.44.2
+      '@sentry/core':
+        specifier: 9.1.0
+        version: 9.1.0
       '@sentry/vue':
-        specifier: 7.44.2
-        version: 7.44.2(vue@3.2.47)
+        specifier: 9.1.0
+        version: 9.1.0(pinia@2.0.32(typescript@5.6.3)(vue@3.2.47))(vue@3.2.47)
     devDependencies:
       '@12deg/eslint-config':
         specifier: 0.1.11
@@ -2035,39 +2032,39 @@ packages:
   '@rushstack/eslint-patch@1.10.4':
     resolution: {integrity: sha512-WJgX9nzTqknM393q1QJDJmoW28kUfEnybeTfVNcNAPnIx210RXm2DiXiHzfNPJNIUUb1tJnz/l4QGtJ30PgWmA==}
 
-  '@sentry-internal/tracing@7.44.2':
-    resolution: {integrity: sha512-3nteYNWiQDbO4yROBqduWTVR0Jah+FiU/2Tz44FcWvWyBboRP4gggaN7BDJahRwbhcRQKE9lTjGCbQLgNOuUCw==}
-    engines: {node: '>=8'}
+  '@sentry-internal/browser-utils@9.1.0':
+    resolution: {integrity: sha512-S1uT+kkFlstWpwnaBTIJSwwAID8PS3aA0fIidOjNezeoUE5gOvpsjDATo9q+sl6FbGWynxMz6EnYSrq/5tuaBQ==}
+    engines: {node: '>=18'}
 
-  '@sentry/browser@7.44.2':
-    resolution: {integrity: sha512-pF2lyXkIjjCoIWUHN17zGO0R2n0/5yb7k+LehbEC1UhvSEBZW/zrRS+AeebjVF0eG2Wir3SoSe4TWt+CRQFOiA==}
-    engines: {node: '>=8'}
+  '@sentry-internal/feedback@9.1.0':
+    resolution: {integrity: sha512-jTDCqkqH3QDC8m9WO4mB06hqnBRsl3p7ozoh0E774UvNB6blOEZjShhSGMMEy5jbbJajPWsOivCofUtFAwbfGw==}
+    engines: {node: '>=18'}
 
-  '@sentry/core@7.44.2':
-    resolution: {integrity: sha512-m2nOHP4YX+kmWFQTzgBEsdblCuNFSB7017oLaR6/VH0a0mVWdrW7Q1gHMpw4/08uWRiA+oC2dXqCH7A1FwfGIQ==}
-    engines: {node: '>=8'}
+  '@sentry-internal/replay-canvas@9.1.0':
+    resolution: {integrity: sha512-gxredVe+mOgfNqDJ3dTLiRON3FK1rZ8d0LHp7TICK/umLkWFkuso0DbNeyKU+3XCEjCr9VM7ZRqTDMzmY6zyVg==}
+    engines: {node: '>=18'}
 
-  '@sentry/replay@7.44.2':
-    resolution: {integrity: sha512-3KO0QE0OvH0I2hP7yU3W511nEQ55yHN5jWL6V/ay2PlUR1hCw42g8/o9zARq4qw1t4k5ZY6M36ZMqnQQwISqeA==}
-    engines: {node: '>=12'}
+  '@sentry-internal/replay@9.1.0':
+    resolution: {integrity: sha512-E2xrUoms90qvm0BVOuaZ8QfkMoTUEgoIW/35uOeaqNcL7uOIj8c5cSEQQKit2Dr7CL6W+Ci5c6Khdyd5C0NL5w==}
+    engines: {node: '>=18'}
 
-  '@sentry/tracing@7.44.2':
-    resolution: {integrity: sha512-z8wqPgpaQ4EaxPRZdx4MEWfbySSpHlYO7URJPvudyhsezDr33kyZ79QYiZP3KexoHud7gsjnkI1u/DqjdEhDng==}
-    engines: {node: '>=8'}
+  '@sentry/browser@9.1.0':
+    resolution: {integrity: sha512-G55e5j77DqRW3LkalJLAjRRfuyKrjHaKTnwIYXa6ycO+Q1+l14pEUxu+eK5Abu2rtSdViwRSb5/G6a/miSUlYA==}
+    engines: {node: '>=18'}
 
-  '@sentry/types@7.44.2':
-    resolution: {integrity: sha512-vdGb2BAelXRitgKWRBF1cCAoisLsbugUaJzrGCQoIoS3lYpZ8d8r2zELE7cNoVObVoQbUHF/WFhXVv8cumj+RA==}
-    engines: {node: '>=8'}
+  '@sentry/core@9.1.0':
+    resolution: {integrity: sha512-djWEzSBpMgqdF3GQuxO+kXCUX+Mgq42G4Uah/HSUBvPDHKipMmyWlutGRoFyVPPOnCDgpHu3wCt83wbpEyVmDw==}
+    engines: {node: '>=18'}
 
-  '@sentry/utils@7.44.2':
-    resolution: {integrity: sha512-PzL4Z0fhIHfQacfWvgiAs+drcm4Nc45Tc8PW1RdOZtHxzhGAYZYAPniDGML586Mnlu19QM6kGHiDu+CBgnnXAQ==}
-    engines: {node: '>=8'}
-
-  '@sentry/vue@7.44.2':
-    resolution: {integrity: sha512-Fo9DK1/QEbAleHU2RrVkXl53Ix3JPXW99/o6gt3A8HDeOORnDoBr6qIMsYifdgYlKN4PkcXIYpja+tHzdi8kkA==}
-    engines: {node: '>=8'}
+  '@sentry/vue@9.1.0':
+    resolution: {integrity: sha512-BxOcpaxRrmj2yKKzwxpvRb/phbh55gkV7KP9sQ8LXWoSNsNlz5eckHV+riIjCNqlXA/QX29ta33xjB7sj8Dvwg==}
+    engines: {node: '>=18'}
     peerDependencies:
+      pinia: 2.x || 3.x
       vue: 2.x || 3.x
+    peerDependenciesMeta:
+      pinia:
+        optional: true
 
   '@slack/types@1.10.0':
     resolution: {integrity: sha512-tA7GG7Tj479vojfV3AoxbckalA48aK6giGjNtgH6ihpLwTyHE3fIgRrvt8TWfLwW8X8dyu7vgmAsGLRG7hWWOg==}
@@ -5583,27 +5580,6 @@ packages:
 
 snapshots:
 
-  '@12deg/eslint-config@0.1.11(5yip6nvxofnmzfo3zfyxerfuwe)':
-    dependencies:
-      '@typescript-eslint/eslint-plugin': 8.14.0(@typescript-eslint/parser@8.14.0(eslint@8.57.1)(typescript@5.5.4))(eslint@8.57.1)(typescript@5.5.4)
-      '@typescript-eslint/parser': 8.14.0(eslint@8.57.1)(typescript@5.5.4)
-      eslint: 8.57.1
-      eslint-config-prettier: 9.1.0(eslint@8.57.1)
-      eslint-import-resolver-alias: 1.1.2(eslint-plugin-import@2.31.0)
-      eslint-import-resolver-typescript: 3.6.3(@typescript-eslint/parser@8.14.0(eslint@8.57.1)(typescript@5.5.4))(eslint-plugin-import@2.31.0)(eslint@8.57.1)
-      eslint-plugin-import: 2.31.0(@typescript-eslint/parser@8.14.0(eslint@8.57.1)(typescript@5.5.4))(eslint-import-resolver-typescript@3.6.3)(eslint@8.57.1)
-      eslint-plugin-prettier: 5.2.3(eslint-config-prettier@9.1.0(eslint@8.57.1))(eslint@8.57.1)(prettier@3.3.3)
-      eslint-plugin-unicorn: 56.0.1(eslint@8.57.1)
-      prettier: 3.3.3
-      typescript: 5.5.4
-    optionalDependencies:
-      eslint-config-react-app: 7.0.1(@babel/plugin-syntax-flow@7.25.9(@babel/core@7.21.3))(@babel/plugin-transform-react-jsx@7.25.9(@babel/core@7.21.3))(eslint-import-resolver-typescript@3.6.3)(eslint@8.57.1)(typescript@5.5.4)
-      eslint-plugin-cypress: 3.6.0(eslint@8.57.1)
-      eslint-plugin-n: 14.0.0(eslint@8.57.1)
-      eslint-plugin-promise: 7.1.0(eslint@8.57.1)
-      eslint-plugin-vue: 9.29.0(eslint@8.57.1)
-      vue-eslint-parser: 9.4.3(eslint@8.57.1)
-
   '@12deg/eslint-config@0.1.11(h6beomnla5wi3bmqisxp3azd6u)':
     dependencies:
       '@typescript-eslint/eslint-plugin': 8.14.0(@typescript-eslint/parser@8.14.0(eslint@8.57.1)(typescript@5.5.4))(eslint@8.57.1)(typescript@5.5.4)
@@ -7162,53 +7138,41 @@ snapshots:
   '@rushstack/eslint-patch@1.10.4':
     optional: true
 
-  '@sentry-internal/tracing@7.44.2':
+  '@sentry-internal/browser-utils@9.1.0':
     dependencies:
-      '@sentry/core': 7.44.2
-      '@sentry/types': 7.44.2
-      '@sentry/utils': 7.44.2
-      tslib: 1.14.1
+      '@sentry/core': 9.1.0
 
-  '@sentry/browser@7.44.2':
+  '@sentry-internal/feedback@9.1.0':
     dependencies:
-      '@sentry-internal/tracing': 7.44.2
-      '@sentry/core': 7.44.2
-      '@sentry/replay': 7.44.2
-      '@sentry/types': 7.44.2
-      '@sentry/utils': 7.44.2
-      tslib: 1.14.1
+      '@sentry/core': 9.1.0
 
-  '@sentry/core@7.44.2':
+  '@sentry-internal/replay-canvas@9.1.0':
     dependencies:
-      '@sentry/types': 7.44.2
-      '@sentry/utils': 7.44.2
-      tslib: 1.14.1
+      '@sentry-internal/replay': 9.1.0
+      '@sentry/core': 9.1.0
 
-  '@sentry/replay@7.44.2':
+  '@sentry-internal/replay@9.1.0':
     dependencies:
-      '@sentry/core': 7.44.2
-      '@sentry/types': 7.44.2
-      '@sentry/utils': 7.44.2
+      '@sentry-internal/browser-utils': 9.1.0
+      '@sentry/core': 9.1.0
 
-  '@sentry/tracing@7.44.2':
+  '@sentry/browser@9.1.0':
     dependencies:
-      '@sentry-internal/tracing': 7.44.2
+      '@sentry-internal/browser-utils': 9.1.0
+      '@sentry-internal/feedback': 9.1.0
+      '@sentry-internal/replay': 9.1.0
+      '@sentry-internal/replay-canvas': 9.1.0
+      '@sentry/core': 9.1.0
 
-  '@sentry/types@7.44.2': {}
+  '@sentry/core@9.1.0': {}
 
-  '@sentry/utils@7.44.2':
+  '@sentry/vue@9.1.0(pinia@2.0.32(typescript@5.6.3)(vue@3.2.47))(vue@3.2.47)':
     dependencies:
-      '@sentry/types': 7.44.2
-      tslib: 1.14.1
-
-  '@sentry/vue@7.44.2(vue@3.2.47)':
-    dependencies:
-      '@sentry/browser': 7.44.2
-      '@sentry/core': 7.44.2
-      '@sentry/types': 7.44.2
-      '@sentry/utils': 7.44.2
-      tslib: 1.14.1
+      '@sentry/browser': 9.1.0
+      '@sentry/core': 9.1.0
       vue: 3.2.47
+    optionalDependencies:
+      pinia: 2.0.32(typescript@5.6.3)(vue@3.2.47)
 
   '@slack/types@1.10.0': {}
 
@@ -10388,6 +10352,15 @@ snapshots:
       vue-demi: 0.13.11(vue@3.2.47)
     optionalDependencies:
       typescript: 5.5.4
+
+  pinia@2.0.32(typescript@5.6.3)(vue@3.2.47):
+    dependencies:
+      '@vue/devtools-api': 6.5.0
+      vue: 3.2.47
+      vue-demi: 0.13.11(vue@3.2.47)
+    optionalDependencies:
+      typescript: 5.6.3
+    optional: true
 
   pkg-types@1.0.1:
     dependencies:
