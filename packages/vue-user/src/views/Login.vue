@@ -43,11 +43,12 @@ import { Errors, Page } from "@dzangolab/vue3-ui";
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 
+import { auth } from "../auth-provider";
 import GoogleLogin from "../components/GoogleLogin.vue";
 import LoginForm from "../components/LoginForm.vue";
 import { useTranslations } from "../index";
 import useUserStore from "../store";
-import { verifySessionRoles } from "../supertokens";
+// import { verifySessionRoles } from "../supertokens";
 
 import type { LoginCredentials } from "../types";
 import type { AppConfig } from "@dzangolab/vue3-config";
@@ -55,6 +56,8 @@ import type { Error as ErrorType } from "@dzangolab/vue3-ui";
 import type { Ref } from "vue";
 
 const config = useConfig() as AppConfig;
+
+const selectedAuthProvider = auth();
 
 const messages = useTranslations();
 
@@ -72,13 +75,19 @@ const loading = ref(false);
 const handleSubmit = async (credentials: LoginCredentials) => {
   loading.value = true;
 
-  await login(credentials)
+  const finalCredentials = {
+    ...credentials,
+    withRoles: config?.user?.supportedRoles,
+  };
+
+  await login(finalCredentials, config?.apiBaseUrl)
     .then(async (response) => {
       if (response) {
         const supportedRoles = config?.user?.supportedRoles;
 
         if (
-          (supportedRoles && (await verifySessionRoles(supportedRoles))) ||
+          (supportedRoles &&
+            (await selectedAuthProvider.verifySessionRoles(supportedRoles))) ||
           !supportedRoles?.length
         ) {
           setUser(response);

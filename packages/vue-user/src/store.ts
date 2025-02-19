@@ -1,17 +1,10 @@
 import { defineStore } from "pinia";
 import { ref } from "vue";
 
-import {
-  changePassword as doChangePassword,
-  googleSignIn as doGoogleSignIn,
-  login as doLogin,
-  logout as doLogout,
-  requestPasswordReset as doRequestPasswordReset,
-  resetPassword as doResetPassword,
-  signup as doSignup,
-} from "./supertokens";
+import { auth } from "./auth-provider";
 
 import type {
+  AuthTokens,
   LoginCredentials,
   PasswordResetPayload,
   PasswordResetRequestPayload,
@@ -23,14 +16,27 @@ const USER_KEY = "user";
 
 const useUserStore = defineStore("user", () => {
   const user = ref<UserType | undefined>(undefined);
+  const accessToken = ref(localStorage.getItem("accessToken") || null);
+  const refreshToken = ref(localStorage.getItem("refreshToken") || null);
 
   const changePassword = async (
     payload: UpdatePasswordPayload,
-    apiBaseUrl: string,
+    apiBaseUrl: string
   ) => {
-    const response = await doChangePassword(payload, apiBaseUrl);
+    const selectedAuthProvider = auth();
 
-    return response;
+    if ("doChangePassword" in selectedAuthProvider) {
+      const response = await selectedAuthProvider.doChangePassword(
+        payload,
+        apiBaseUrl
+      );
+
+      return response;
+    }
+
+    throw new Error(
+      "Change password is not supported for the selected auth provider"
+    );
   };
 
   const getUser = (): UserType => {
@@ -44,17 +50,34 @@ const useUserStore = defineStore("user", () => {
   };
 
   const googleSignIn = async (redirectURL: string) => {
-    await doGoogleSignIn(redirectURL);
+    const selectedAuthProvider = auth();
+
+    if ("doGoogleSignIn" in selectedAuthProvider) {
+      await selectedAuthProvider.doGoogleSignIn(redirectURL);
+    }
+
+    throw new Error(
+      "Google signin is not supported for the selected auth provider"
+    );
   };
 
-  const login = async (credentials: LoginCredentials) => {
-    const response = await doLogin(credentials);
+  const login = async (credentials: LoginCredentials, apiBaseUrl: string) => {
+    const selectedAuthProvider = auth();
+
+    // eslint-disable-next-line no-console
+    console.log("store.ts", credentials);
+    const response = await selectedAuthProvider.doLogin(
+      credentials,
+      apiBaseUrl
+    );
 
     return response;
   };
 
-  const logout = async () => {
-    await doLogout().then(() => {
+  const logout = async (apiBaseUrl: string) => {
+    const selectedAuthProvider = auth();
+
+    await selectedAuthProvider.doLogout(apiBaseUrl).then(() => {
       user.value = undefined;
 
       // FIXME [SS 17 MARCH 2023]
@@ -65,6 +88,11 @@ const useUserStore = defineStore("user", () => {
     removeUser();
   };
 
+  const removeAuthTokens = () => {
+    localStorage.removeItem("accessToken");
+    localStorage.removeItem("refreshToken");
+  };
+
   const removeUser = () => {
     localStorage.removeItem(USER_KEY);
   };
@@ -72,13 +100,29 @@ const useUserStore = defineStore("user", () => {
   const requestPasswordReset = async (
     payload: PasswordResetRequestPayload
   ): Promise<boolean> => {
-    return doRequestPasswordReset(payload);
+    const selectedAuthProvider = auth();
+
+    if ("doRequestPasswordReset" in selectedAuthProvider) {
+      return selectedAuthProvider.doRequestPasswordReset(payload);
+    }
+
+    throw new Error(
+      "Request password reset is not supported for the selected auth provider"
+    );
   };
 
   const resetPassword = async (
     payload: PasswordResetPayload
   ): Promise<boolean> => {
-    return doResetPassword(payload);
+    const selectedAuthProvider = auth();
+
+    if ("doResetPassword" in selectedAuthProvider) {
+      return selectedAuthProvider.doResetPassword(payload);
+    }
+
+    throw new Error(
+      "Reset password is not supported for the selected auth provider"
+    );
   };
 
   const setUser = (userData: UserType | undefined) => {
@@ -87,21 +131,40 @@ const useUserStore = defineStore("user", () => {
     localStorage.setItem(USER_KEY, JSON.stringify(userData));
   };
 
-  const signup = async (credentials: LoginCredentials): Promise<void> => {
-    const response = await doSignup(credentials);
+  const setAuthTokens = (authTokens: AuthTokens) => {
+    console.log("setAuthTokens", authTokens);
+    accessToken.value = authTokens.accessToken;
+    refreshToken.value = authTokens.refreshToken as string | null;
 
-    setUser(response);
+    localStorage.setItem("accessToken", authTokens.accessToken as string);
+    localStorage.setItem("refreshToken", authTokens.refreshToken as string);
+  };
+
+  const signup = async (credentials: LoginCredentials): Promise<void> => {
+    const selectedAuthProvider = auth();
+
+    if ("doSignup" in selectedAuthProvider) {
+      const response = await selectedAuthProvider.doSignup(credentials);
+
+      setUser(response);
+    }
+
+    throw new Error("Signup is not supported for the selected auth provider");
   };
 
   return {
+    accessToken,
     changePassword,
     googleSignIn,
     getUser,
     login,
     logout,
+    refreshToken,
+    removeAuthTokens,
     removeUser,
     resetPassword,
     requestPasswordReset,
+    setAuthTokens,
     setUser,
     signup,
     user,
