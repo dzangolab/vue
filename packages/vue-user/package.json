@@ -63,7 +63,7 @@
     "prettier": "3.3.3",
     "typescript": "5.5.4",
     "vee-validate": "4.7.4",
-    "vite": "6.1.0",
+    "vite": "6.1.1",
     "vitest": "3.0.6",
     "vue": "3.2.47",
     "vue-eslint-parser": "9.4.3",
