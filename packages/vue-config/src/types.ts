@@ -1,4 +1,4 @@
-import type { Options as SentryOptions } from "@sentry/types";
+import type { Options as SentryOptions } from "@sentry/core";
 
 interface AppConfig {
   authBasePath?: string;
