@@ -27,7 +27,7 @@
   },
   "dependencies": {
     "supertokens-web-js": "0.5.0",
-    "supertokens-website": "16.0.1"
+    "supertokens-website": "16.0.10"
   },
   "devDependencies": {
     "@12deg/eslint-config": "0.1.11",
