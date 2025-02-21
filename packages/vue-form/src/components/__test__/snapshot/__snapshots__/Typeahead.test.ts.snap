@@ -19,6 +19,7 @@ exports[`Typeahead > matches snapshot 1`] = `
       aria-label="input"
       placeholder="Placeholder"
       type="text"
+      value=""
     />
   </div>
   <!--v-if-->

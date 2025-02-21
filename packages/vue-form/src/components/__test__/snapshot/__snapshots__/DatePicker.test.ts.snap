@@ -13,6 +13,7 @@ exports[`DatePicker > matches snapshot 1`] = `
   
   <vue-date-picker-stub
     actionrow="[object Object]"
+    alwaysclearable="false"
     arialabels="[object Object]"
     arrownavigation="false"
     autoapply="false"

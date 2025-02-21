@@ -17,6 +17,7 @@ exports[`TextareaInput > matches snapshot 1`] = `
     placeholder="Placeholder"
     tabindex="0"
     type="textarea"
+    value=""
   />
   <!---->
   

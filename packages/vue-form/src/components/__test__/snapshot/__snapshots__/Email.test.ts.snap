@@ -16,6 +16,7 @@ exports[`Email > matches snapshot 1`] = `
     placeholder=""
     tabindex="0"
     type="email"
+    value=""
   />
   <!---->
   
