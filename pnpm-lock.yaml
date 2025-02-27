@@ -716,8 +716,8 @@ importers:
   packages/vue-user:
     dependencies:
       supertokens-web-js:
-        specifier: 0.5.0
-        version: 0.5.0
+        specifier: 0.14.0
+        version: 0.14.0
       supertokens-website:
         specifier: 16.0.1
         version: 16.0.1
@@ -2757,6 +2757,9 @@ packages:
 
   browser-tabs-lock@1.2.15:
     resolution: {integrity: sha512-J8K9vdivK0Di+b8SBdE7EZxDr88TnATing7XoLw6+nFkXMQ6sVBh92K3NQvZlZU91AIkFRi0w3sztk5Z+vsswA==}
+
+  browser-tabs-lock@1.3.0:
+    resolution: {integrity: sha512-g6nHaobTiT0eMZ7jh16YpD2kcjAp+PInbiVq3M1x6KKaEIVhT4v9oURNIpZLOZ3LQbQ3XYfNhMAb/9hzNLIWrw==}
 
   browserslist@4.24.4:
     resolution: {integrity: sha512-KDi1Ny1gSePi1vm0q4oxSF8b4DR44GF4BbmS2YdhPLOEqd8pDviZOGH/GsmRwoWJ2+5Lr085X7naowMwKHDG1A==}
@@ -5108,14 +5111,14 @@ packages:
   supertokens-js-override@0.0.4:
     resolution: {integrity: sha512-r0JFBjkMIdep3Lbk3JA+MpnpuOtw4RSyrlRAbrzMcxwiYco3GFWl/daimQZ5b1forOiUODpOlXbSOljP/oyurg==}
 
-  supertokens-web-js@0.5.0:
-    resolution: {integrity: sha512-qlpgWLnHBor98k5wY97vzG7ouVOb/eeWOCKgaid055MUVPQr2gTEDrlKJN9I+Z4Vj6Dmblg1vC/cUbR/cx1TGw==}
+  supertokens-web-js@0.14.0:
+    resolution: {integrity: sha512-p4HZ580YX9UYFfY9Sv2VzBQOilqHnNzhrmHlOc45oMxqr/vqvqf+Ih7OXS1lx6RUVmQT8TAsLlFFKIWslIkbHA==}
 
   supertokens-website@16.0.1:
     resolution: {integrity: sha512-IOiMVABP9d95lGoCKuZPQxx6hJCaETFIpLsspULbqwDpgSj7K2UkBWTTZeAxdKkEpaOJW9i2GcF2AgNTuYOjWw==}
 
-  supertokens-website@16.0.5:
-    resolution: {integrity: sha512-TDxEKyYGO8uPGtzAtTWmWDmm0ulPWXBE+KO+a0PHLs+XKZli2LGjAPUI6N1UNkXv/NjprIFaW2QBb5w8+J8Kzg==}
+  supertokens-website@20.1.5:
+    resolution: {integrity: sha512-2yN42BvHY41/pNIFdJTKSRW3sWZzfOY607i6cY+WWjHSAx7ppMgujyk8tKj+fiQ4MLWCk3HL6QsXZl0zLV4yEw==}
 
   supports-color@5.5.0:
     resolution: {integrity: sha512-QjVjwdXIt408MIiAqCX4oUKsgU2EqAGzs2Ppkm4aQYbjm+ZEWEcW4SfFNTr4uMNZma0ey4f5lgLrkB0aX0QMow==}
@@ -8310,6 +8313,10 @@ snapshots:
     dependencies:
       lodash: 4.17.21
 
+  browser-tabs-lock@1.3.0:
+    dependencies:
+      lodash: 4.17.21
+
   browserslist@4.24.4:
     dependencies:
       caniuse-lite: 1.0.30001700
@@ -11322,19 +11329,19 @@ snapshots:
 
   supertokens-js-override@0.0.4: {}
 
-  supertokens-web-js@0.5.0:
+  supertokens-web-js@0.14.0:
     dependencies:
       supertokens-js-override: 0.0.4
-      supertokens-website: 16.0.5
+      supertokens-website: 20.1.5
 
   supertokens-website@16.0.1:
     dependencies:
       browser-tabs-lock: 1.2.15
       supertokens-js-override: 0.0.4
 
-  supertokens-website@16.0.5:
+  supertokens-website@20.1.5:
     dependencies:
-      browser-tabs-lock: 1.2.15
+      browser-tabs-lock: 1.3.0
       supertokens-js-override: 0.0.4
 
   supports-color@5.5.0:
