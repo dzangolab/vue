@@ -1,13 +1,21 @@
 <template>
   <Form @submit="onSubmit">
+    <Input
+      v-if="config?.user?.features?.loginType === 'username'"
+      :label="t('user.login.form.username.label')"
+      :model-value="credentials.username"
+      :name="'username'"
+      :placeholder="t('user.login.form.username.placeholder')"
+    />
+
     <Email
+      v-else
       v-model="credentials.email"
       :error-messages="{
         invalid: t('user.login.form.email.errors.invalid'),
         required: t('user.login.form.email.errors.required'),
       }"
       :label="t('user.login.form.email.label')"
-      :options="userConfig?.options?.email"
       :placeholder="t('user.login.form.email.placeholder')"
     />
 
@@ -18,7 +26,7 @@
         weak: t('user.login.form.password.errors.invalid'),
       }"
       :label="t('user.login.form.password.label')"
-      :options="{ minLength: 8 }"
+      :options="{ minLength: 6 }"
     />
 
     <div class="actions">
@@ -39,7 +47,7 @@ export default {
 
 <script setup lang="ts">
 import { useConfig } from "@dzangolab/vue3-config";
-import { Email, Password } from "@dzangolab/vue3-form";
+import { Email, Input, Password } from "@dzangolab/vue3-form";
 import { useI18n } from "@dzangolab/vue3-i18n";
 import { LoadingButton } from "@dzangolab/vue3-ui";
 import { Form } from "vee-validate";
@@ -48,7 +56,7 @@ import { useTranslations } from "../index";
 
 import type { LoginCredentials } from "../types";
 
-const { user: userConfig } = useConfig();
+const config = useConfig();
 
 const messages = useTranslations();
 
@@ -57,6 +65,7 @@ const { t } = useI18n({ messages });
 let credentials = {
   email: undefined,
   password: undefined,
+  username: undefined,
 } as Partial<LoginCredentials>;
 
 const emit = defineEmits(["submit"]);

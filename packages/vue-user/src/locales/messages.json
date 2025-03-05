@@ -74,6 +74,14 @@
               "required": "Please provide a password"
             },
             "label": "Your password"
+          },
+          "username": {
+            "errors": {
+              "invalid": "Please provide a valid username",
+              "required": "Your username is required"
+            },
+            "label": "Your username",
+            "placeholder": "Username"
           }
         },
         "instructions": "Enter your credentials to continue.",

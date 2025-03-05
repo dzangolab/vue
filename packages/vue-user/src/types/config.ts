@@ -7,7 +7,14 @@ import type {
 } from "@dzangolab/vue3-form";
 
 interface DzangolabVueUserConfig {
+  apiRoutes?: {
+    login: string;
+    logout: string;
+    refresh: string;
+  };
   features?: {
+    authProvider?: string;
+    loginType?: "email" | "username";
     signUp?: {
       emailVerification?: boolean;
       termsAndConditions?: {
