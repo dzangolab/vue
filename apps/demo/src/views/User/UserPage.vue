@@ -19,6 +19,7 @@ export default {
 </script>
 
 <script setup lang="ts">
+import { useI18n } from "@dzangolab/vue3-i18n";
 import { Sidebar } from "@dzangolab/vue3-layout";
 
 import type { PropType } from "vue";
@@ -36,18 +37,24 @@ defineProps({
   },
 });
 
+const { t } = useI18n();
+
 const menu = [
   {
     name: "Get started",
     routeName: "",
   },
   {
-    name: "Invitation form",
+    name: t("user.label.invitationForm"),
     routeName: "invitationForm",
   },
   {
-    name: "Invitation modal",
+    name: t("user.label.invitationModal"),
     routeName: "invitationModal",
+  },
+  {
+    name: t("user.label.invitationTable"),
+    routeName: "invitationTable",
   },
 ];
 </script>

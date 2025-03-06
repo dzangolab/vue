@@ -32,7 +32,7 @@ export default {
 
 <script setup lang="ts">
 import { Checkbox } from "@dzangolab/vue3-form";
-import { ButtonElement, Popup } from "@dzangolab/vue3-ui";
+import { ButtonElement, Popup, SortableList } from "@dzangolab/vue3-ui";
 import { computed, h } from "vue";
 
 import type { Table } from "@tanstack/vue-table";

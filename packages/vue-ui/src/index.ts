@@ -40,6 +40,8 @@ const plugin = {
 
 export default plugin;
 
+export * from "./utils";
+
 export {
   Accordion,
   BadgeComponent,

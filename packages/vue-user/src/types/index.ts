@@ -12,6 +12,7 @@ export type {
 export type { DzangolabVueUserConfig } from "./config";
 
 export type {
+  Invitation,
   InvitationAppOption,
   InvitationPayload,
   InvitationRoleOption,

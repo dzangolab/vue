@@ -3,6 +3,7 @@ export { default as ChangePasswordForm } from "./ChangePasswordForm.vue";
 export { default as DropdownUserMenu } from "./DropdownUserMenu.vue";
 export { default as InvitationForm } from "./invitation/InvitationForm.vue";
 export { default as InvitationModal } from "./invitation/InvitationModal.vue";
+export { default as InvitationTable } from "./invitation/InvitationTable.vue";
 export { default as LoginForm } from "./LoginForm.vue";
 export { default as PasswordResetForm } from "./PasswordResetForm.vue";
 export { default as PasswordResetRequestForm } from "./PasswordResetRequestForm.vue";
