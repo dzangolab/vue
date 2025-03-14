@@ -17,7 +17,39 @@ declare module "@tanstack/vue-table" {
     tooltipOptions?: Object;
     width?: string;
   }
+
+  interface ColumnFilter {
+    filterFn?: TFilterFn;
+  }
 }
+
+type TFilterRequest =
+  | TSingleFilter
+  | {
+      AND: TFilterRequest[];
+    }
+  | {
+      OR: TFilterRequest[];
+    }
+  | null;
+
+type TLimit = number | null;
+
+type TOffset = number | null;
+
+type TSingleFilter = {
+  key: string;
+  operator: string;
+  value: string;
+};
+
+type TSingleSort = {
+  key: string;
+  direction: TSortDirection;
+};
+
+type TSortRequest = TSingleSort[] | null;
+
 
 export type CellAlignmentType = "left" | "center" | "right";
 
@@ -53,3 +85,42 @@ export type DataActionsMenuItem = {
   icon?: string;
   requireConfirmationModal?: boolean;
 };
+
+export type TFilterFn =
+  | "contains"
+  | "equals"
+  | "startsWith"
+  | "endsWith"
+  | "greaterThan"
+  | "lessThan"
+  | "greaterThanOrEqual"
+  | "lessThanOrEqual"
+  | "in"
+  | "notEqual"
+  | "notIn"
+  | "between"
+  | "notBetween"
+  | "isNull"
+  | "isNotNull"
+  | "isEmpty"
+  | "isNotEmpty"
+  | "like"
+  | "notLike";
+
+export type TFilterVariant =
+  | "text"
+  | "select"
+  | "multiselect"
+  | "date"
+  | "dateRange"
+  | "range"
+  | "checkBox";
+
+export type TRequestJSON = {
+  filter: TFilterRequest;
+  sort: TSortRequest;
+  offset: TOffset;
+  limit: TLimit;
+};
+
+export type TSortDirection = "ASC" | "DESC" | "";

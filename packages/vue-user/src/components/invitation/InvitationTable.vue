@@ -6,6 +6,7 @@
     :data-action-menu="actionMenuData"
     :empty-table-message="t('user.invitation.table.emptyMessage')"
     :initial-sorting="initialSorting"
+    :is-server-table="isServerTable"
     :pagination-options="{
       pageInputLabel: t('user.invitation.table.pagination.pageInputLabel'),
       itemsPerPageControlLabel: t(
@@ -14,6 +15,7 @@
     }"
     :visible-columns="visibleColumns"
     @action:select="onActionSelect"
+    @update:request="onUpdateRequest"
   >
     <template v-if="showInviteAction" #toolbar>
       <div className="table-actions">
@@ -66,6 +68,7 @@ import type {
 import type {
   SortingState,
   TableColumnDefinition,
+  TRequestJSON,
 } from "@dzangolab/vue3-tanstack-table";
 import type { PropType } from "vue";
 
@@ -100,6 +103,7 @@ const props = defineProps({
     default: () => [],
     type: Array as PropType<Invitation[]>,
   },
+  isServerTable: Boolean,
   roles: {
     default: () => [],
     type: Array as PropType<Array<InvitationRoleOption>>,
@@ -128,6 +132,7 @@ const emit = defineEmits([
   "action:revoke",
   "on:closeInvitation",
   "on:submitInvitation",
+  "update:request",
 ]);
 
 const defaultColumns: TableColumnDefinition<Invitation>[] = [
@@ -291,5 +296,9 @@ const onCloseInvitation = () => {
   showModal.value = false;
 
   emit("on:closeInvitation");
+};
+
+const onUpdateRequest = (invitationRequest: TRequestJSON) => {
+  emit("update:request", invitationRequest);
 };
 </script>
