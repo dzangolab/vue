@@ -259,7 +259,7 @@ const fetchData = () => {
 };
 
 const onReset = () => {
-  sorting.value = [];
+  sorting.value = props.initialSorting || [];
   pagination.value = {
     pageIndex: DEFAULT_PAGE_INDEX,
     pageSize: !props.paginated ? props.data.length : props.rowPerPage,
