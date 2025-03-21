@@ -719,8 +719,8 @@ importers:
   packages/vue-user:
     dependencies:
       supertokens-web-js:
-        specifier: 0.5.0
-        version: 0.5.0
+        specifier: 0.15.0
+        version: 0.15.0
       supertokens-website:
         specifier: 16.0.1
         version: 16.0.1
@@ -2190,6 +2190,9 @@ packages:
       pinia:
         optional: true
 
+  '@simplewebauthn/browser@13.1.0':
+    resolution: {integrity: sha512-WuHZ/PYvyPJ9nxSzgHtOEjogBhwJfC8xzYkPC+rR/+8chl/ft4ngjiK8kSU5HtRJfczupyOh33b25TjYbvwAcg==}
+
   '@slack/types@1.10.0':
     resolution: {integrity: sha512-tA7GG7Tj479vojfV3AoxbckalA48aK6giGjNtgH6ihpLwTyHE3fIgRrvt8TWfLwW8X8dyu7vgmAsGLRG7hWWOg==}
     engines: {node: '>= 8.9.0', npm: '>= 5.5.1'}
@@ -2772,6 +2775,9 @@ packages:
 
   browser-tabs-lock@1.2.15:
     resolution: {integrity: sha512-J8K9vdivK0Di+b8SBdE7EZxDr88TnATing7XoLw6+nFkXMQ6sVBh92K3NQvZlZU91AIkFRi0w3sztk5Z+vsswA==}
+
+  browser-tabs-lock@1.3.0:
+    resolution: {integrity: sha512-g6nHaobTiT0eMZ7jh16YpD2kcjAp+PInbiVq3M1x6KKaEIVhT4v9oURNIpZLOZ3LQbQ3XYfNhMAb/9hzNLIWrw==}
 
   browserslist@4.24.2:
     resolution: {integrity: sha512-ZIc+Q62revdMcqC6aChtW4jz3My3klmCO1fEmINZY/8J3EpBg5/A/D0AKmBveUh6pgoeycoMkVMko84tuYS+Gg==}
@@ -5163,14 +5169,14 @@ packages:
   supertokens-js-override@0.0.4:
     resolution: {integrity: sha512-r0JFBjkMIdep3Lbk3JA+MpnpuOtw4RSyrlRAbrzMcxwiYco3GFWl/daimQZ5b1forOiUODpOlXbSOljP/oyurg==}
 
-  supertokens-web-js@0.5.0:
-    resolution: {integrity: sha512-qlpgWLnHBor98k5wY97vzG7ouVOb/eeWOCKgaid055MUVPQr2gTEDrlKJN9I+Z4Vj6Dmblg1vC/cUbR/cx1TGw==}
+  supertokens-web-js@0.15.0:
+    resolution: {integrity: sha512-IJB1Z+SI5gsWwunvrLyhbpyVaetQt23QlMoD6Gy7+OcmJ8EaPO+knhZnqzQAppe4HiNhROAiGZb7gUTJgXonzg==}
 
   supertokens-website@16.0.1:
     resolution: {integrity: sha512-IOiMVABP9d95lGoCKuZPQxx6hJCaETFIpLsspULbqwDpgSj7K2UkBWTTZeAxdKkEpaOJW9i2GcF2AgNTuYOjWw==}
 
-  supertokens-website@16.0.5:
-    resolution: {integrity: sha512-TDxEKyYGO8uPGtzAtTWmWDmm0ulPWXBE+KO+a0PHLs+XKZli2LGjAPUI6N1UNkXv/NjprIFaW2QBb5w8+J8Kzg==}
+  supertokens-website@20.1.6:
+    resolution: {integrity: sha512-WSehco2PsrFp4WY7h6tDutYyi2nPgJS8lahUadcL/cpBqgEuZ3pjnvN1NDASSNSTfXeO1smm3HrvvLZG5C7qHA==}
 
   supports-color@5.5.0:
     resolution: {integrity: sha512-QjVjwdXIt408MIiAqCX4oUKsgU2EqAGzs2Ppkm4aQYbjm+ZEWEcW4SfFNTr4uMNZma0ey4f5lgLrkB0aX0QMow==}
@@ -7381,6 +7387,8 @@ snapshots:
     optionalDependencies:
       pinia: 3.0.1(typescript@5.7.3)(vue@3.5.13(typescript@5.7.3))
 
+  '@simplewebauthn/browser@13.1.0': {}
+
   '@slack/types@1.10.0': {}
 
   '@slack/webhook@5.0.4':
@@ -8381,6 +8389,10 @@ snapshots:
     dependencies:
       lodash: 4.17.21
 
+  browser-tabs-lock@1.3.0:
+    dependencies:
+      lodash: 4.17.21
+
   browserslist@4.24.2:
     dependencies:
       caniuse-lite: 1.0.30001669
@@ -9030,7 +9042,7 @@ snapshots:
 
   eslint-import-resolver-alias@1.1.2(eslint-plugin-import@2.31.0):
     dependencies:
-      eslint-plugin-import: 2.31.0(@typescript-eslint/parser@8.24.1(eslint@9.20.1(jiti@2.4.2))(typescript@5.7.3))(eslint-import-resolver-typescript@3.8.3)(eslint@9.20.1(jiti@2.4.2))
+      eslint-plugin-import: 2.31.0(@typescript-eslint/parser@8.24.1(eslint@8.57.1)(typescript@5.5.4))(eslint-import-resolver-typescript@3.8.3)(eslint@8.57.1)
 
   eslint-import-resolver-node@0.3.9:
     dependencies:
@@ -11421,19 +11433,20 @@ snapshots:
 
   supertokens-js-override@0.0.4: {}
 
-  supertokens-web-js@0.5.0:
+  supertokens-web-js@0.15.0:
     dependencies:
+      '@simplewebauthn/browser': 13.1.0
       supertokens-js-override: 0.0.4
-      supertokens-website: 16.0.5
+      supertokens-website: 20.1.6
 
   supertokens-website@16.0.1:
     dependencies:
       browser-tabs-lock: 1.2.15
       supertokens-js-override: 0.0.4
 
-  supertokens-website@16.0.5:
+  supertokens-website@20.1.6:
     dependencies:
-      browser-tabs-lock: 1.2.15
+      browser-tabs-lock: 1.3.0
       supertokens-js-override: 0.0.4
 
   supports-color@5.5.0:
