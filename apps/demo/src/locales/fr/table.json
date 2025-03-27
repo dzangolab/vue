@@ -18,7 +18,7 @@
     "builtinActions": "With built-in actions column",
     "customToolbar": "With custom toolbar actions",
     "filteredActions": "With actions menu items filtered based on row data logic",
-    "footer": "with footer",
+    "footer": "With footer",
     "pagination": "With pagination",
     "singleAction": "With single action button",
     "singleActionMenu": "With single action menu",

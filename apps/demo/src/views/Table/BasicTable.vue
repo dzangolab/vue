@@ -18,7 +18,6 @@
           :columns-data="columns"
           :data="data.slice(0, 15)"
           :paginated="false"
-          show-reset-button
         />
 
         <!-- eslint-disable -->
@@ -28,7 +27,6 @@
               :columns-data="columns"
               :data="data"
               :paginated="false"
-              show-reset-button
             /&gt;
           &lt;/template&gt;
     
@@ -40,7 +38,6 @@
           const columns: Array&lt;TableColumnDefinition&gt; = [
             {
               accessorKey: "email",
-              enableSorting: true,
               header: "Email",
             },
             {
@@ -150,6 +147,7 @@
           :columns-data="sortableColumns"
           :data="data"
           :initial-sorting="[{ id: 'email', desc: false }]"
+          show-reset-button
         />
 
         <!-- eslint-disable -->
@@ -159,6 +157,7 @@
               :columns-data="sortableColumns"
               :data="data"
               :initial-sorting="[{ id: 'email', desc: false }]"
+              show-reset-button
             /&gt;
           &lt;/template&gt;
     
@@ -600,7 +599,6 @@ import type { TableColumnDefinition } from "@dzangolab/vue3-tanstack-table";
 const columns: Array<TableColumnDefinition<unknown, unknown>> = [
   {
     accessorKey: "email",
-    enableSorting: true,
     header: "Email",
   },
   {

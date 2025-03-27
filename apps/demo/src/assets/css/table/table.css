@@ -58,7 +58,6 @@
   width: 5rem;
 }
 
-.demo-data-tables-page tfoot {
-  display: flex;
+.demo-data-tables-page tfoot>tr>td {
   padding: var(--table-column-padding, 0.8rem);
 }
