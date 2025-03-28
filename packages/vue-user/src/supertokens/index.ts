@@ -6,7 +6,7 @@ import ThirdPartyEmailPassword from "supertokens-web-js/recipe/thirdpartyemailpa
 import changeEmail from "./change-email";
 import changePassword from "./change-password";
 import googleSignIn from "./google-signin";
-import { verifySessionRoles } from "./helper";
+import { isProfileCompleted, verifySessionRoles } from "./helper";
 import login from "./login";
 import logout from "./logout";
 import requestPasswordReset from "./request-password-reset";
@@ -63,6 +63,7 @@ export {
   getUser,
   getVerificationStatus,
   googleSignIn,
+  isProfileCompleted,
   isLoggedIn,
   login,
   logout,

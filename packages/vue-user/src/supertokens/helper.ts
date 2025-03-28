@@ -2,6 +2,7 @@ import Session from "supertokens-web-js/recipe/session";
 import { UserRoleClaim } from "supertokens-web-js/recipe/userroles";
 
 import useUserStore from "../store";
+import { ProfileValidationClaim } from "./profile-validation-claim";
 
 export async function verifySessionRoles(claims: string[]): Promise<boolean> {
   if (await Session.doesSessionExist()) {
@@ -45,3 +46,34 @@ export async function verifySessionRoles(claims: string[]): Promise<boolean> {
   // so we do not allow access to this page.
   return false;
 }
+
+/**
+ * Checks if the user's profile is completed based on validation criteria.
+ *
+ * @async
+ * @function isProfileCompleted
+ * @returns {Promise<boolean|undefined>} - A promise that resolves to:
+ *   - `true` if the profile is completed.
+ *   - `false` if the profile is not completed or no session exists.
+ *   - `undefined` if the profile validation is disabled in the api.
+ *
+ */
+export const isProfileCompleted = async (): Promise<boolean | undefined> => {
+  const profileClaim = await Session.getClaimValue({
+    claim: new ProfileValidationClaim(),
+  });
+
+  if (!profileClaim) {
+    return;
+  }
+
+  if (profileClaim.isVerified) {
+    return true;
+  }
+
+  if (profileClaim.gracePeriodEndsAt) {
+    return profileClaim.gracePeriodEndsAt >= Date.now();
+  }
+
+  return false;
+};

@@ -13,6 +13,7 @@ import {
 import {
   changePassword as doChangePassword,
   googleSignIn as doGoogleSignIn,
+  isProfileCompleted,
   login as doLogin,
   logout as doLogout,
   requestPasswordReset as doRequestPasswordReset,
@@ -133,10 +134,14 @@ const useUserStore = defineStore("user", () => {
     invitation.value = invitationData;
   };
 
-  const setUser = (userData: UserType | undefined) => {
+  const setUser = async (userData: UserType | undefined) => {
     user.value = userData;
 
-    localStorage.setItem(USER_KEY, JSON.stringify(userData));
+    if (user.value) {
+      user.value.isProfileCompleted = await isProfileCompleted();
+    }
+
+    localStorage.setItem(USER_KEY, JSON.stringify(user.value));
   };
 
   const signup = async (credentials: LoginCredentials): Promise<void> => {

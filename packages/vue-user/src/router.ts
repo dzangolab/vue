@@ -227,6 +227,13 @@ const addAuthenticationGuard = (
         router.push({ name: "home" });
       }
     }
+
+    const isProfileCompleted = !!user.value?.isProfileCompleted;
+    const profileCompletionEnabled = user.value?.isProfileCompleted !== undefined;
+
+    if (meta.authenticated && profileCompletionEnabled && !isProfileCompleted && name !== "profile") {
+      router.push({ name: "profile" });
+    }
   });
 };
 
