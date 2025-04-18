@@ -3,6 +3,7 @@ const API_PATH_LOGIN = "/api/login";
 const API_PATH_LOGOUT = "/api/logout";
 const API_PATH_REFRESH = "/api/login/refresh";
 const API_PATH_SIGNUP = "/api/signup";
+const API_PATH_UPDATE_PROFILE = "/api/profile";
 
 enum EMAIL_VERIFICATION {
   EMAIL_ALREADY_VERIFIED = "EMAIL_ALREADY_VERIFIED",
@@ -32,6 +33,7 @@ export {
   API_PATH_LOGOUT,
   API_PATH_REFRESH,
   API_PATH_SIGNUP,
+  API_PATH_UPDATE_PROFILE,
   EMAIL_VERIFICATION,
   ERROR_NOT_FOUND,
   ERROR_ROLE_ALREADY_EXISTS,

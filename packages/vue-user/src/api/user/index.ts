@@ -1,11 +1,16 @@
+import { authConfig } from "../../auth-provider";
+import {
+  API_PATH_UPDATE_PROFILE,
+  ERROR_NOT_FOUND,
+  STATUS_ERROR,
+} from "../../constant";
 import client from "../axios";
-import { ERROR_NOT_FOUND, STATUS_ERROR } from "../../constant";
 
 import type {
   Invitation,
   LoginCredentials,
   UpdateProfileInputType,
-  UserType
+  UserType,
 } from "../../types";
 
 export const acceptInvitation = async (
@@ -138,7 +143,18 @@ export const updateUserProfile = async (
   data: UpdateProfileInputType,
   apiBaseUrl: string,
 ): Promise<{ data: UserType }> => {
-  const response = await client(apiBaseUrl).put(`me`, data, {
+  let path = `me`;
+
+  if (
+    authConfig?.user &&
+    authConfig?.user?.features &&
+    authConfig?.user?.features?.authProvider &&
+    authConfig?.user?.features?.authProvider === "laravel-passport"
+  ) {
+    path = API_PATH_UPDATE_PROFILE;
+  }
+
+  const response = await client(apiBaseUrl).put(path, data, {
     withCredentials: true,
   });
 
