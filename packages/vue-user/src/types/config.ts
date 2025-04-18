@@ -10,6 +10,7 @@ interface DzangolabVueUserConfig {
   apiRoutes?: {
     login?: string;
     logout?: string;
+    passwordResetRequest?: string,
     refresh?: string;
     signup?: string;
   };
