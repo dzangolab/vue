@@ -30,7 +30,6 @@ import { computed, ref } from "vue";
 import { getMe } from "../../api/user";
 import { emitter, useTranslations } from "../../index";
 import useUserStore from "../../store";
-import { changeEmail } from "../../supertokens";
 
 type UpdateEmailFormData = {
   email: string;
@@ -64,8 +63,8 @@ const onSubmit = async (data: UpdateEmailFormData) => {
   loading.value = true;
 
   try {
-    const response = await changeEmail(data.email, config.apiBaseUrl);
-    switch (response?.status) {
+    const result = await userStore.changeEmail(data.email, config.apiBaseUrl);
+    switch (result) {
       case "OK": {
         const userInfo = await getMe(config.apiBaseUrl);
         const isSameEmail = userInfo.data.email === user.value?.email;
@@ -77,6 +76,7 @@ const onSubmit = async (data: UpdateEmailFormData) => {
           });
         } else {
           setUser(userInfo.data);
+          email.value = userInfo.data.email;
           emitter.emit("notify", {
             text: t("user.profile.accountInfo.messages.success"),
             type: "success",
@@ -84,7 +84,6 @@ const onSubmit = async (data: UpdateEmailFormData) => {
         }
 
         emit("email:updateProcessed");
-        dzangolabVueUpdateEmail.value?.resetForm();
         break;
       }
       case "EMAIL_ALREADY_EXISTS_ERROR": {

@@ -1,7 +1,9 @@
+const API_PATH_CHANGE_EMAIL = "/api/user/change-email-username";
 const API_PATH_CHANGE_PASSWORD = "/api/user/change-password";
 const API_PATH_GET_VERIFICATION_STATUS = "/api/email/verification-status";
 const API_PATH_LOGIN = "/api/login";
 const API_PATH_LOGOUT = "/api/logout";
+const API_PATH_ME = "/api/me";
 const API_PATH_PASSWORD_RESET = "/api/reset-password";
 const API_PATH_PASSWORD_RESET_REQUEST = "/api/reset-password-request";
 const API_PATH_REFRESH = "/api/login/refresh";
@@ -33,12 +35,14 @@ const STATUS_OK = "OK";
 const SUPERTOKENS_API_BASE_PATH_DEFAULT = "/auth";
 
 export {
+  API_PATH_CHANGE_EMAIL,
   API_PATH_CHANGE_PASSWORD,
   API_PATH_GET_VERIFICATION_STATUS,
   API_PATH_LOGIN,
   API_PATH_LOGOUT,
   API_PATH_PASSWORD_RESET,
   API_PATH_PASSWORD_RESET_REQUEST,
+  API_PATH_ME,
   API_PATH_REFRESH,
   API_PATH_SEND_VERIFICATION_EMAIL,
   API_PATH_SIGNUP,

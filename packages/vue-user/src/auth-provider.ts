@@ -1,4 +1,5 @@
 import {
+  API_PATH_CHANGE_EMAIL,
   API_PATH_CHANGE_PASSWORD,
   API_PATH_GET_VERIFICATION_STATUS,
   API_PATH_LOGIN,
@@ -43,6 +44,16 @@ const getAuthProvider = () => {
 
 const providers = {
   "laravel-passport": {
+    doChangeEmail: (email: string) => {
+      const path =
+        authConfig?.user?.apiRoutes?.changeEmail || API_PATH_CHANGE_EMAIL;
+
+      return laravelPassport.changeEmail(
+        email,
+        authConfig?.apiBaseUrl || "",
+        path,
+      );
+    },
     doChangePassword: (payload: ChangePasswordPayload) => {
       const path =
         authConfig?.user?.apiRoutes?.changePassword || API_PATH_CHANGE_PASSWORD;
@@ -124,6 +135,7 @@ const providers = {
     verifySessionRoles: laravelPassport.verifySessionRoles,
   },
   supertokens: {
+    doChangeEmail: supertokens.changeEmail,
     doChangePassword: supertokens.changePassword,
     doGetVerificationStatus: supertokens.getVerificationStatus,
     doGoogleSignIn: supertokens.googleSignIn,

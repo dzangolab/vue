@@ -1,16 +1,16 @@
 import client from "../api/axios";
 
-const changeEmail = async (email: string, apiBaseUrl: string) => {
+const changeEmail = async (email: string, apiBaseUrl: string, path: string) => {
   try {
-    const response = await client(apiBaseUrl).post(
-      "/change-email",
+    const response = await client(apiBaseUrl).put(
+      path,
       { email },
       {
         withCredentials: true,
       },
     );
 
-    return response.data.status;
+    return response.statusText;
     /*eslint-disable-next-line @typescript-eslint/no-explicit-any */
   } catch (err: any) {
     if (err.response) {
