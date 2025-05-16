@@ -20,5 +20,6 @@ export type {
   FilterFunctions,
   SortingState,
   TableColumnDefinition,
+  TableRow,
   TRequestJSON,
 } from "./types";
