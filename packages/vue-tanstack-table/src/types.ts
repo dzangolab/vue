@@ -85,6 +85,7 @@ export type {
   ColumnDef as TableColumnDefinition,
   FilterFn as FilterFunction,
   FilterFns as FilterFunctions,
+  Row as TableRow,
   SortingState,
 } from "@tanstack/vue-table";
 

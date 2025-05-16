@@ -56,7 +56,7 @@
 
           const visibleColumns = [
             "email",
-            "app",
+            "appId",
             "role",
             "invitedBy",
             "expiresAt",
@@ -79,7 +79,7 @@ import { invitations } from "../Table/data";
 
 const visibleColumns = [
   "email",
-  "app",
+  "appId",
   "role",
   "invitedBy",
   "expiresAt",

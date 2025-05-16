@@ -58,18 +58,26 @@ import {
 import { computed, h, ref } from "vue";
 
 import InvitationModal from "./InvitationModal.vue";
-import { ROLE_ADMIN } from "../../constant";
+import {
+  INVITATION_STATUS_ACCEPTED,
+  INVITATION_STATUS_EXPIRED,
+  INVITATION_STATUS_PENDING,
+  INVITATION_STATUS_REVOKED,
+  ROLE_ADMIN,
+  ROLE_SUPERADMIN,
+  ROLE_USER,
+} from "../../constant";
 import { useTranslations } from "../../index";
 
 import type {
   Invitation,
   InvitationAppOption,
   InvitationRoleOption,
-  UserType,
 } from "../../types";
 import type {
   SortingState,
   TableColumnDefinition,
+  TableRow,
   TRequestJSON,
 } from "@dzangolab/vue3-tanstack-table";
 import type { PropType } from "vue";
@@ -152,13 +160,14 @@ const defaultColumns: TableColumnDefinition<Invitation>[] = [
   },
   {
     align: "center",
-    accessorKey: "app",
-    header: t("user.invitation.table.defaultColumns.app"),
+    accessorKey: "appId",
     cell: ({ row }) => row.original.appId || "—",
+    enableColumnFilter: true,
+    enableSorting: true,
+    header: t("user.invitation.table.defaultColumns.app"),
   },
   {
     accessorKey: "role",
-    header: t("user.invitation.table.defaultColumns.role"),
     cell: ({ getValue, row: original }) => {
       const roles = (original as unknown as { roles: string[] })?.roles;
       if (Array.isArray(roles)) {
@@ -178,39 +187,84 @@ const defaultColumns: TableColumnDefinition<Invitation>[] = [
         fullWidth: true,
       });
     },
-  },
-  {
-    accessorKey: "invitedBy",
-    header: t("user.invitation.table.defaultColumns.invitedBy"),
-    cell: ({ getValue }) => {
-      const invitedBy = getValue() as UserType;
-      if (!invitedBy) {
-        return "—";
-      }
-
-      return invitedBy.givenName || invitedBy.surname
-        ? `${invitedBy.givenName} ${invitedBy.surname}`
-        : invitedBy.email;
+    enableColumnFilter: true,
+    enableSorting: true,
+    header: t("user.invitation.table.defaultColumns.role"),
+    meta: {
+      filterVariant: "multiselect",
+      filterOptions: [
+        {
+          value: ROLE_ADMIN,
+          label: t("user.table.role.admin"),
+        },
+        {
+          value: ROLE_SUPERADMIN,
+          label: t("user.table.role.superadmin"),
+        },
+        {
+          value: ROLE_USER,
+          label: t("user.table.role.user"),
+        },
+      ],
     },
   },
   {
+    accessorFn: (original: Invitation) => {
+      return (
+        (original?.invitedBy?.givenName ? original?.invitedBy?.givenName : "") +
+          (original?.invitedBy?.middleNames
+            ? " " + original?.invitedBy?.middleNames
+            : "") +
+          (original?.invitedBy?.surname
+            ? " " + original?.invitedBy?.surname
+            : "") || "-"
+      );
+    },
+    accessorKey: "invitedBy",
+    cell: ({ getValue }) => getValue(),
+    enableColumnFilter: true,
+    enableSorting: true,
+    header: t("user.invitation.table.defaultColumns.invitedBy"),
+  },
+  {
     accessorKey: "expiresAt",
-    header: t("user.invitation.table.defaultColumns.expiresAt"),
     cell: ({ getValue }) => formatDateTime(getValue() as string),
+    enableColumnFilter: true,
+    enableSorting: true,
+    header: t("user.invitation.table.defaultColumns.expiresAt"),
+    meta: {
+      filterVariant: "dateRange",
+      serverFilterFn: "between",
+    },
   },
   {
     align: "center",
     accessorKey: "status",
+    enableColumnFilter: !props.isServerTable,
+    enableSorting: !props.isServerTable,
+    filterFn: (row, columnId, filterValue) => {
+      const { acceptedAt, revokedAt, expiresAt } = row.original;
+
+      if (!filterValue || filterValue.length === 0) {
+        return true;
+      }
+
+      let status = "Pending";
+
+      if (acceptedAt) {
+        status = "Accepted";
+      } else if (revokedAt) {
+        status = "Revoked";
+      } else if (isExpired(expiresAt)) {
+        status = "Expired";
+      }
+
+      return filterValue.includes(status);
+    },
     header: t("user.invitation.table.defaultColumns.status"),
     cell: ({ row }) => {
       const { acceptedAt, revokedAt, expiresAt } = row.original;
-      const label = acceptedAt
-        ? t("user.invitation.table.status.accepted")
-        : revokedAt
-          ? t("user.invitation.table.status.revoked")
-          : isExpired(expiresAt)
-            ? t("user.invitation.table.status.expired")
-            : t("user.invitation.table.status.pending");
+      const label = getStatusLabel(row);
       const severity = acceptedAt
         ? "success"
         : revokedAt
@@ -219,6 +273,30 @@ const defaultColumns: TableColumnDefinition<Invitation>[] = [
             ? "secondary"
             : "warning";
       return h(BadgeComponent, { label, severity });
+    },
+    meta: {
+      filterVariant: "multiselect",
+      filterOptions: [
+        {
+          label: t("user.invitation.table.status.accepted"),
+          value: INVITATION_STATUS_ACCEPTED,
+        },
+        {
+          label: t("user.invitation.table.status.revoked"),
+          value: INVITATION_STATUS_REVOKED,
+        },
+        {
+          label: t("user.invitation.table.status.expired"),
+          value: INVITATION_STATUS_EXPIRED,
+        },
+        {
+          label: t("user.invitation.table.status.pending"),
+          value: INVITATION_STATUS_PENDING,
+        },
+      ],
+    },
+    sortingFn: (rowA, rowB, columnId) => {
+      return getStatusLabel(rowA).localeCompare(getStatusLabel(rowB));
     },
   },
 ];
@@ -287,6 +365,20 @@ const isExpired = (date?: string | Date | number) => {
   return !!(date && new Date(date) < new Date());
 };
 
+const getStatusLabel = (row: TableRow<Invitation>) => {
+  const { acceptedAt, revokedAt, expiresAt } = row.original;
+
+  if (acceptedAt) {
+    return t("user.invitation.table.status.accepted");
+  } else if (revokedAt) {
+    return t("user.invitation.table.status.revoked");
+  } else if (isExpired(expiresAt)) {
+    return t("user.invitation.table.status.expired");
+  }
+
+  return t("user.invitation.table.status.pending");
+};
+
 const onActionSelect = (rowData: { action: string; data: Invitation }) => {
   switch (rowData.action) {
     case "delete":
@@ -315,3 +407,7 @@ defineExpose({
   showModal,
 });
 </script>
+
+<style lang="css">
+@import "../../assets/css/invitation-table.css";
+</style>

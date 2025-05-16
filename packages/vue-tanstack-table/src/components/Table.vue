@@ -405,7 +405,7 @@ const prepareComponent = () => {
       return;
     }
 
-    if (column.meta?.filterVariant === "multiselect") {
+    if (column.meta?.filterVariant === "multiselect" && !column.filterFn) {
       column.filterFn = (row, columnId, filterValue) => {
         if (!filterValue || filterValue.length === 0) {
           return row;
@@ -419,7 +419,7 @@ const prepareComponent = () => {
           }
         });
       };
-    } else if (column.meta?.filterVariant === "dateRange") {
+    } else if (column.meta?.filterVariant === "dateRange" && !column.filterFn) {
       column.filterFn = (row, columnId, filterValue) => {
         if (filterValue?.length) {
           const endDate = new Date(filterValue[1]).setHours(23, 59, 59, 999);
