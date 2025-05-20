@@ -56,7 +56,7 @@
 
           const visibleColumns = [
             "email",
-            "app",
+            "appId",
             "role",
             "invitedBy",
             "expiresAt",

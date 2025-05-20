@@ -16,6 +16,7 @@
     }"
     :total-records="totalRecords"
     :visible-columns="visibleColumns"
+    class="table-invitations"
     @action:select="onActionSelect"
     @update:request="onUpdateRequest"
   >
@@ -58,7 +59,15 @@ import {
 import { computed, h, ref } from "vue";
 
 import InvitationModal from "./InvitationModal.vue";
-import { ROLE_ADMIN } from "../../constant";
+import {
+  INVITATION_STATUS_ACCEPTED,
+  INVITATION_STATUS_EXPIRED,
+  INVITATION_STATUS_PENDING,
+  INVITATION_STATUS_REVOKED,
+  ROLE_ADMIN,
+  ROLE_SUPERADMIN,
+  ROLE_USER,
+} from "../../constant";
 import { useTranslations } from "../../index";
 
 import type {
@@ -153,14 +162,14 @@ const defaultColumns: TableColumnDefinition<Invitation>[] = [
   {
     align: "center",
     accessorKey: "appId",
+    cell: ({ row }) => row.original.appId || "—",
+    enableColumnFilter: true,
     enableSorting: true,
     header: t("user.invitation.table.defaultColumns.app"),
-    cell: ({ row }) => row.original.appId || "—",
   },
   {
+    align: "center",
     accessorKey: "role",
-    enableSorting: true,
-    header: t("user.invitation.table.defaultColumns.role"),
     cell: ({ getValue, row: original }) => {
       const roles = (original as unknown as { roles: string[] })?.roles;
       if (Array.isArray(roles)) {
@@ -180,6 +189,26 @@ const defaultColumns: TableColumnDefinition<Invitation>[] = [
         fullWidth: true,
       });
     },
+    enableColumnFilter: true,
+    enableSorting: true,
+    header: t("user.invitation.table.defaultColumns.role"),
+    meta: {
+      filterVariant: "multiselect",
+      filterOptions: [
+        {
+          value: ROLE_ADMIN,
+          label: t("user.table.role.admin"),
+        },
+        {
+          value: ROLE_SUPERADMIN,
+          label: t("user.table.role.superadmin"),
+        },
+        {
+          value: ROLE_USER,
+          label: t("user.table.role.user"),
+        },
+      ],
+    },
   },
   {
     accessorFn: (original: Invitation) => {
@@ -195,19 +224,45 @@ const defaultColumns: TableColumnDefinition<Invitation>[] = [
     },
     accessorKey: "invitedBy",
     cell: ({ getValue }) => getValue(),
+    enableColumnFilter: true,
     enableSorting: true,
     header: t("user.invitation.table.defaultColumns.invitedBy"),
   },
   {
     accessorKey: "expiresAt",
+    cell: ({ getValue }) => formatDateTime(getValue() as string),
+    enableColumnFilter: true,
     enableSorting: true,
     header: t("user.invitation.table.defaultColumns.expiresAt"),
-    cell: ({ getValue }) => formatDateTime(getValue() as string),
+    meta: {
+      filterVariant: "dateRange",
+      serverFilterFn: "between",
+    },
   },
   {
     align: "center",
     accessorKey: "status",
+    enableColumnFilter: !props.isServerTable,
     enableSorting: !props.isServerTable,
+    filterFn: (row, columnId, filterValue) => {
+      const { acceptedAt, revokedAt, expiresAt } = row.original;
+
+      if (!filterValue || filterValue.length === 0) {
+        return true;
+      }
+
+      let status = INVITATION_STATUS_PENDING;
+
+      if (acceptedAt) {
+        status = INVITATION_STATUS_ACCEPTED;
+      } else if (revokedAt) {
+        status = INVITATION_STATUS_REVOKED;
+      } else if (isExpired(expiresAt)) {
+        status = INVITATION_STATUS_EXPIRED;
+      }
+
+      return filterValue.includes(status);
+    },
     header: t("user.invitation.table.defaultColumns.status"),
     cell: ({ row }) => {
       const { acceptedAt, revokedAt, expiresAt } = row.original;
@@ -220,6 +275,27 @@ const defaultColumns: TableColumnDefinition<Invitation>[] = [
             ? "secondary"
             : "warning";
       return h(BadgeComponent, { label, severity });
+    },
+    meta: {
+      filterVariant: "multiselect",
+      filterOptions: [
+        {
+          label: t("user.invitation.table.status.accepted"),
+          value: INVITATION_STATUS_ACCEPTED,
+        },
+        {
+          label: t("user.invitation.table.status.revoked"),
+          value: INVITATION_STATUS_REVOKED,
+        },
+        {
+          label: t("user.invitation.table.status.expired"),
+          value: INVITATION_STATUS_EXPIRED,
+        },
+        {
+          label: t("user.invitation.table.status.pending"),
+          value: INVITATION_STATUS_PENDING,
+        },
+      ],
     },
     sortingFn: (rowA, rowB, columnId) => {
       return getStatusLabel(rowA).localeCompare(getStatusLabel(rowB));
@@ -333,3 +409,7 @@ defineExpose({
   showModal,
 });
 </script>
+
+<style lang="css">
+@import "../../assets/css/invitation-table.css";
+</style>
