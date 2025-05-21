@@ -1,3 +1,4 @@
+import changeEmail from "./change-email";
 import changePassword from "./change-password";
 import { verifySessionRoles } from "./helper";
 import login from "./login";
@@ -12,6 +13,7 @@ import {
 } from "./verify-email";
 
 export {
+  changeEmail,
   changePassword,
   getVerificationStatus,
   login,

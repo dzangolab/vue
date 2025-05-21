@@ -1,5 +1,6 @@
 import { authConfig } from "../../auth-provider";
 import {
+  API_PATH_ME,
   API_PATH_UPDATE_PROFILE,
   ERROR_NOT_FOUND,
   STATUS_ERROR,
@@ -113,7 +114,13 @@ export const getInvitationByToken = async (
 export const getMe = async (
   apiBaseUrl: string,
 ): Promise<{ data: UserType }> => {
-  const response = await client(apiBaseUrl).get(`me`, {
+  let path = `me`;
+
+  if (authConfig?.user?.features?.authProvider === "laravel-passport") {
+    path = API_PATH_ME;
+  }
+
+  const response = await client(apiBaseUrl).get(path, {
     withCredentials: true,
   });
 
