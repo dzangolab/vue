@@ -3,6 +3,8 @@
     ref="dzangolabVueFormSelect"
     :class="{ 'multiple-mode': multiple }"
     class="multiselect"
+    tabindex="0"
+    @keydown="onKeyDown"
   >
     <label v-if="label" for="multiselect">
       {{ label }}
@@ -22,9 +24,12 @@
         <svg
           v-if="hasRemoveOption"
           fill="none"
+          tabindex="0"
           viewBox="0 0 24 24"
           xmlns="http://www.w3.org/2000/svg"
           @click.stop="onUnselect"
+          @keydown.enter.stop="onUnselect"
+          @keydown.space.stop.prevent="onUnselect"
         >
           <path
             d="M6 6L18 18M18 6L6 18"
@@ -51,7 +56,11 @@
         </svg>
       </span>
     </div>
-    <ul v-if="showDropdownMenu && !disabled" role="list">
+    <ul
+      v-if="showDropdownMenu && !disabled"
+      role="list"
+      @mouseenter="enableOptionNavigation = false"
+    >
       <DebouncedInput
         v-if="enableSearch"
         v-model="searchInput"
@@ -66,10 +75,16 @@
         <span>Select all</span>
       </li>
       <li
-        v-for="option in sortedOptions"
+        v-for="(option, index) in sortedOptions"
         :key="option.label"
-        class="multiselect-option"
-        :class="{ selected: isSelected(option) && !multiple }"
+        :ref="setOptionReference(index)"
+        :class="[
+          {
+            selected: isSelected(option) && !multiple,
+            focused: focusedOptionIndex === index && enableOptionNavigation,
+          },
+          'multiselect-option',
+        ]"
         :disabled="option.disabled"
         @click="!option.disabled ? onSelect($event, option) : ''"
       >
@@ -96,12 +111,12 @@ export default {
 <script setup lang="ts">
 import { DebouncedInput } from "@dzangolab/vue3-ui";
 import { onClickOutside } from "@vueuse/core";
-import { computed, onMounted, ref, toRaw, toRefs, watch } from "vue";
+import { computed, nextTick, onMounted, ref, toRaw, toRefs, watch } from "vue";
 
 import Checkbox from "./Checkbox.vue";
 
 import type { SelectOption } from "../types";
-import type { PropType, Ref } from "vue";
+import type { ComponentPublicInstance, PropType, Ref } from "vue";
 
 const props = defineProps({
   disabled: {
@@ -151,6 +166,9 @@ const emit = defineEmits(["update:modelValue"]);
 
 const { options, multiple, placeholder } = toRefs(props);
 const dzangolabVueFormSelect = ref(null);
+const focusedOptionIndex = ref(-1);
+const enableOptionNavigation = ref(false);
+const dzangolabVueFormSelectOptions = ref<(HTMLElement | null)[]>([]);
 const searchInput: Ref<string | undefined> = ref();
 const selectedOptions: Ref<SelectOption[]> = ref([]);
 const showDropdownMenu: Ref<boolean> = ref(false);
@@ -220,6 +238,72 @@ const isSelected = (option: SelectOption): boolean =>
   selectedOptions.value.some(
     (selectedOption) => selectedOption.value === option.value,
   );
+
+const onKeyDown = (event: KeyboardEvent) => {
+  if (props.disabled) {
+    return;
+  }
+
+  const toggleKeys = ["Enter", " "];
+
+  if (!showDropdownMenu.value) {
+    toggleKeys.push("ArrowUp", "ArrowDown");
+  } else {
+    if (event.key === "ArrowDown") {
+      event.preventDefault();
+
+      const nextIndex = (startIndex: number): number => {
+        const total = sortedOptions.value.length;
+        let index = (startIndex + 1) % total;
+
+        while (sortedOptions.value[index]?.disabled && index !== startIndex) {
+          index = (index + 1) % total;
+        }
+
+        return index;
+      };
+
+      focusedOptionIndex.value = nextIndex(focusedOptionIndex.value);
+
+      enableOptionNavigation.value = true;
+    } else if (event.key === "ArrowUp") {
+      event.preventDefault();
+
+      const prevIndex = (startIndex: number): number => {
+        const total = sortedOptions.value.length;
+        let index = (startIndex - 1 + total) % total;
+
+        while (sortedOptions.value[index]?.disabled && index !== startIndex) {
+          index = (index - 1 + total) % total;
+        }
+
+        return index;
+      };
+
+      focusedOptionIndex.value = prevIndex(focusedOptionIndex.value);
+
+      enableOptionNavigation.value = true;
+    }
+
+    nextTick(() => {
+      const element =
+        dzangolabVueFormSelectOptions.value[focusedOptionIndex.value];
+      element?.scrollIntoView({ block: "nearest", behavior: "smooth" });
+    });
+  }
+
+  if (toggleKeys.includes(event.key)) {
+    event.preventDefault();
+
+    toggleDropdown();
+
+    const highlightedOption = sortedOptions.value[focusedOptionIndex.value];
+    if (enableOptionNavigation.value && !highlightedOption?.disabled) {
+      onSelect(event, highlightedOption);
+      enableOptionNavigation.value = false;
+    }
+  }
+};
 
 const onSelect = (event: Event, option: SelectOption) => {
   event.stopPropagation();
@@ -298,6 +382,11 @@ const onUnselect = (event: Event, option?: SelectOption) => {
 
   onMultiSelect();
 };
+
+const setOptionReference =
+  (index: number) => (element: Element | ComponentPublicInstance | null) => {
+    dzangolabVueFormSelectOptions.value[index] = element as HTMLElement | null;
+  };
 
 onMounted(() => {
   prepareComponent();

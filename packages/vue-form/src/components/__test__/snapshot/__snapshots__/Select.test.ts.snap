@@ -3,6 +3,7 @@
 exports[`MultiSelect > matches snapshot for multiple select 1`] = `
 <div
   class="multiple-mode multiselect"
+  tabindex="0"
 >
   <label
     for="multiselect"
@@ -22,6 +23,7 @@ exports[`MultiSelect > matches snapshot for multiple select 1`] = `
     >
       <svg
         fill="none"
+        tabindex="0"
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -188,6 +190,7 @@ exports[`MultiSelect > matches snapshot for multiple select 1`] = `
 exports[`MultiSelect > matches snapshot for single select 1`] = `
 <div
   class="multiselect"
+  tabindex="0"
 >
   <label
     for="multiselect"
@@ -207,6 +210,7 @@ exports[`MultiSelect > matches snapshot for single select 1`] = `
     >
       <svg
         fill="none"
+        tabindex="0"
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -279,7 +283,7 @@ exports[`MultiSelect > matches snapshot for single select 1`] = `
       
     </li>
     <li
-      class="multiselect-option selected"
+      class="selected multiselect-option"
     >
       <!--v-if-->
       
