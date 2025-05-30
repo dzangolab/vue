@@ -49,6 +49,7 @@ export default {
 <script setup lang="ts">
 import { toFieldValidator } from "@vee-validate/zod";
 import { ErrorMessage, Field } from "vee-validate";
+import { computed } from "vue";
 import { z } from "zod";
 
 import MultiSelect from "./Select.vue";
@@ -70,6 +71,14 @@ const props = defineProps({
     default: "",
     required: false,
     type: String as PropType<string>,
+  },
+  maxSelection: {
+    default: undefined,
+    type: Number as PropType<number | undefined>,
+  },
+  minSelection: {
+    default: undefined,
+    type: Number as PropType<number | undefined>,
   },
   modelValue: {
     default: () => null,
@@ -114,9 +123,45 @@ const props = defineProps({
 
 const emit = defineEmits(["update:modelValue"]);
 
-const fieldSchema = Object.keys(props.schema).length
-  ? toFieldValidator(props.schema)
-  : null;
+let fieldSchema: object;
+
+const activeOptions = computed(() =>
+  props.options.filter((option) => !option.disabled),
+);
+
+if (Object.keys(props.schema).length) {
+  fieldSchema = toFieldValidator(props.schema);
+} else if ((props.maxSelection || props.minSelection) && props.multiple) {
+  const max = props.maxSelection ?? 0;
+  const min = props.minSelection ?? 0;
+  const currentLength = activeOptions.value.length;
+
+  const minValue =
+    min > currentLength
+      ? currentLength
+      : props.maxSelection && max < min
+        ? max
+        : min;
+  const maxValue = props.maxSelection ? Math.max(min, max) : undefined;
+
+  const arraySchema = z.array(z.string()).refine(
+    (value) => {
+      return (
+        (!maxValue || value.length <= maxValue) &&
+        (!minValue || value.length >= minValue)
+      );
+    },
+    {
+      message: `Please select ${
+        minValue !== maxValue
+          ? `between ${minValue} and ${maxValue ?? "available"}`
+          : minValue
+      } options`,
+    },
+  );
+
+  fieldSchema = toFieldValidator(arraySchema);
+}
 
 const onSelect = (value: string | number | []) => {
   emit("update:modelValue", value);

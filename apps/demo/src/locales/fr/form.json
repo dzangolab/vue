@@ -97,6 +97,7 @@
     "labelInput": "With label[fr]",
     "language": "Language",
     "male": "Male",
+    "minMaxValidation": "With min max options validation",
     "misc": "Misc",
     "month": "Month[fr]",
     "monthAndYear": "Month and year[fr]",

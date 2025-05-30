@@ -448,7 +448,45 @@
     </section>
 
     <section>
-      <h2>{{ $t("form.label.inputWithValidation") }}</h2>
+      <h2>{{ $t("form.label.minMaxValidation") }}</h2>
+
+      <div class="section-content">
+        <Form>
+          <SelectInput
+            v-model="formData.inputWithValidation"
+            :label="$t('form.label.language')"
+            :max-selection="3"
+            :min-selection="2"
+            :options="options"
+            :placeholder="$t('form.placeholder.languages')"
+            multiple
+          />
+        </Form>
+
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;Form&gt;
+            &lt;SelectInput 
+              v-model="input"
+              :max-selection="3"
+              :min-selection="2"
+              :options="options"
+              label="Language"
+              multiple
+              placeholder="Select languages"
+            /&gt;
+          &lt;/Form&gt;
+
+          &lt;script setup lang="ts"&gt;
+          import { Form, SelectInput } from "@dzangolab/vue3-form";
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+      </div>
+    </section>
+
+    <section>
+      <h2>{{ $t("form.label.customValidationInput") }}</h2>
 
       <div class="section-content">
         <Form>
