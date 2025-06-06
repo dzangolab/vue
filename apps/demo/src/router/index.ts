@@ -1,4 +1,4 @@
-import { createRouter, createWebHashHistory } from "vue-router";
+import { createRouter, createWebHistory } from "vue-router";
 
 import { feature } from "@/config";
 import form from "./form";
@@ -28,7 +28,7 @@ const Layout = () => import("@/views/Layout/Index.vue");
 const Sentry = () => import("@/views/Sentry.vue");
 
 const router: Router = createRouter({
-  history: createWebHashHistory(import.meta.env.BASE_URL),
+  history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       component: About,

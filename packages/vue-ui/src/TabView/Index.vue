@@ -169,10 +169,10 @@ onMounted(() => {
       }
     }
   }
-  initialized.value = true;
 
   setHashTab();
   window.addEventListener("hashchange", setHashTab);
+  initialized.value = true;
 });
 
 watch(
@@ -188,7 +188,7 @@ watch(
   () => props.activeKey,
   (newVal) => {
     if (initialized.value) {
-      activeTab.value = newVal;
+      setActiveTab(newVal);
     }
   },
 );
@@ -252,6 +252,11 @@ const onClickTab = (key: string) => {
 
 const setActiveTab = (key: string) => {
   activeTab.value = key;
+
+  if (initialized.value) {
+    history.replaceState(null, "", `#${activeTab.value}`);
+  }
+
   emit("update:activeKey", key);
 };
 
@@ -262,10 +267,12 @@ const setHashTab = () => {
     return;
   }
 
-  nextTick(() => {
+  if (!initialized.value) {
     const element = document.getElementById(hash);
     element?.scrollIntoView({ behavior: "smooth" });
+  }
 
+  nextTick(() => {
     const shouldUpdateTab =
       hash && hash !== activeTab.value && visibleTabs.value.includes(hash);
 

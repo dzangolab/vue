@@ -417,8 +417,8 @@
         <TabView
           id="tab-view-interception-close"
           ref="dzangolabVueTabView"
-          :active-key="1"
           :tabs="tabs"
+          active-key="1"
           intercept-tab-close
           @before-tab-close="beforeTabClose"
         />
@@ -434,8 +434,8 @@
             &lt;TabView
               id="tab-view-interception-close"
               ref="dzangolabVueTabView"
-              :active-key="1"
               :tabs="tabs"
+              active-key="1"
               intercept-tab-close
               @before-tab-change="beforeTabClose"
             /&gt;
@@ -481,15 +481,6 @@
           &lt;/script&gt;
         </SshPre>
         <!-- eslint-enable -->
-      </div>
-    </section>
-
-    <section>
-      <h2>{{ $t("ui.tabView.usage.shareableTab") }}</h2>
-      <div class="section-content">
-        <SshPre language="html-vue">
-          &lbrace;url&rbrace;/ui/tab-view#&lbrace;tab_key&rbrace;
-        </SshPre>
       </div>
     </section>
 

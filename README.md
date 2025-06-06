@@ -3,7 +3,7 @@
 A set of vue 3 libraries to be used in our monorepo apps.
 
 ## Demo
-Please find out [demo app](https://dzangolab.github.io/vue/) for examples.
+Please find out [demo app](https://app-ofvi39.ws0.12deg.io/vue/) for examples.
 
 ## Packages
   - @dzangolab/vue3-config (https://www.npmjs.com/package/@dzangolab/vue3-config)
