@@ -329,6 +329,8 @@
       "positionLeft": "Left tabs",
       "positionRight": "Right tabs",
       "shareableTab": "Shareable open tab",
+      "withHashRouting": "Hash routing enabled",
+      "withI18n": "With i18n",
       "withSlot": "With slot for custom content"
     }
   },

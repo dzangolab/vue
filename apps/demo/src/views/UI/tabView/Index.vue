@@ -485,6 +485,44 @@
     </section>
 
     <section>
+      <h2>{{ $t("ui.tabView.usage.withHashRouting") }}</h2>
+
+      <div class="section-content">
+        <TabView
+          id="tab-view-hash-routing"
+          :tabs="hashRoutingTabs"
+          active-key="tab1"
+          enable-hash-routing
+        />
+
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;TabView id="tab-view" :tabs="tabs" active-key="tab1" enable-hash-routing /&gt;
+          &lt;/template&gt;
+
+          &lt;script setup lang="ts"&gt;
+          import { TabView } from "@dzangolab/vue3-ui";
+
+          const tabs = [
+            { children: "Description", key: "tab1", label: "Description" },
+            { children: "Reviews", key: "tab2", label: "Reviews" },
+            {
+              children: "Specifications",
+              key: "tab3",
+              label: "Specifications",
+            },
+            { children: "Pricing", key: "tab4", label: "Pricing",  },
+            { children: "Installation Instructions", key: "tab5", label: "Installation",  },
+            { children: "Certifications", key: "tab6", label: "Certifications" },
+          ];
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+      </div>
+    </section>
+
+    <section>
       <h2>{{ $t("common.properties", { value: "TabViewProperties" }) }}</h2>
       <div class="section-content">
         <Table
@@ -593,6 +631,19 @@ const eventData = [
   },
 ];
 
+const hashRoutingTabs = [
+  { children: "Description", key: "tab1", label: "Description" },
+  { children: "Reviews", key: "tab2", label: "Reviews" },
+  {
+    children: "Specifications",
+    key: "tab3",
+    label: "Specifications",
+  },
+  { children: "Pricing", key: "tab4", label: "Pricing" },
+  { children: "Installation Instructions", key: "tab5", label: "Installation" },
+  { children: "Certifications", key: "tab6", label: "Certifications" },
+];
+
 const propsColumns = [
   {
     accessorKey: "prop",
@@ -621,24 +672,31 @@ const propsData = [
     type: "string",
   },
   {
+    default: "false",
+    description: "Enable hash routing for the tab view URL.",
+    id: 2,
+    prop: "enableHashRouting",
+    type: "boolean",
+  },
+  {
     default: "-",
     description:
       "Id of tab to save the state. Should provide 'id' in case of tab state persistence.",
-    id: 2,
+    id: 3,
     prop: "id",
     type: "string",
   },
   {
     default: "false",
     description: "Enable event emitting before tab actually change.",
-    id: 3,
+    id: 4,
     prop: "interceptTabChange",
     type: "boolean",
   },
   {
     default: "false",
     description: "Enable event emitting before tab actually change.",
-    id: 4,
+    id: 5,
     prop: "interceptTabClose",
     type: "boolean",
   },
@@ -646,35 +704,35 @@ const propsData = [
     default: "true",
     description:
       "If true, tab state is saved either in localStorage or sessionStorage.",
-    id: 5,
+    id: 6,
     prop: "persistState",
     type: "boolean",
   },
   {
     default: "localStorage",
     description: "Storage to save tab state.",
-    id: 6,
+    id: 7,
     prop: "persistStateStorage",
     type: '"localStorage" | "sessionStorage"',
   },
   {
     default: "top",
     description: "Position of the tab panel header relative to its content.",
-    id: 7,
+    id: 8,
     prop: "position",
     type: '"top" | "left" | "bottom" | "right"',
   },
   {
     default: "-",
     description: "Array of tab object.",
-    id: 8,
+    id: 9,
     prop: "tabs",
     type: "Tab[]",
   },
   {
     default: "-",
     description: "Array of visible tabs.",
-    id: 9,
+    id: 10,
     prop: "visibleTabs",
     type: "string[]",
   },

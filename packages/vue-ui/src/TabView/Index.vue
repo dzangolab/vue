@@ -65,6 +65,7 @@ const props = defineProps({
     type: String,
     required: true,
   },
+  enableHashRouting: Boolean,
   id: {
     type: String,
     default: "",
@@ -170,8 +171,11 @@ onMounted(() => {
     }
   }
 
-  setHashTab();
-  window.addEventListener("hashchange", setHashTab);
+  if (props.enableHashRouting) {
+    setHashTab();
+    window.addEventListener("hashchange", setHashTab);
+  }
+
   initialized.value = true;
 });
 
@@ -254,7 +258,12 @@ const setActiveTab = (key: string) => {
   activeTab.value = key;
 
   if (initialized.value) {
-    history.replaceState(null, "", `#${activeTab.value}`);
+    const { pathname, search } = window.location;
+    const newUrl = props.enableHashRouting
+      ? `${pathname}${search}#${activeTab.value}`
+      : `${pathname}${search}`;
+
+    history.replaceState(null, "", newUrl);
   }
 
   emit("update:activeKey", key);
