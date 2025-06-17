@@ -1,11 +1,9 @@
 .field {
-  --_input-field-margin-bottom: var(--form-input-margin-bottom, 1em);
-
-  align-items: flex-start;
-  display: flex;
-  flex-direction: column;
-  gap: var(--form-field-gap, 0.25em);
-  justify-content: flex-start;
+  --_background-color: var(--field-bg-color, transparent);
+  --_border-color: var(--border-color);
+  --_border-radius: var(--border-radius);
+  --_padding-block: var(--field-padding-block, 0.5rem);
+  --_padding-inline: var(--field-padding-inline, 0.75rem);
 }
 
 .field input, .field textarea {
