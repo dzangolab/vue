@@ -75,6 +75,21 @@ const useUserStore = defineStore("user", () => {
     return await doEnableUser(id, apiBaseUrl);
   };
 
+  const socialSignIn = async (providerId: string, redirectURL: string) => {
+    const selectedAuthProvider = auth();
+
+    if (
+      "doSocialSignIn" in selectedAuthProvider &&
+      typeof selectedAuthProvider.doSocialSignIn === "function"
+    ) {
+      return await selectedAuthProvider.doSocialSignIn(providerId, redirectURL);
+    }
+
+    throw new Error(
+      `${providerId} signin is not supported for the selected auth provider`
+    );
+  };
+
   const getIsFirstUser = async (
     apiBaseUrl: string,
   ) => {
@@ -104,18 +119,6 @@ const useUserStore = defineStore("user", () => {
     const response = await selectedAuthProvider.doGetVerificationStatus();
 
     return response;
-  };
-
-  const googleSignIn = async (redirectURL: string) => {
-    const selectedAuthProvider = auth();
-
-    if ("doGoogleSignIn" in selectedAuthProvider) {
-      return await selectedAuthProvider.doGoogleSignIn(redirectURL);
-    }
-
-    throw new Error(
-      "Google signin is not supported for the selected auth provider"
-    );
   };
 
   const login = async (credentials: LoginCredentials) => {
@@ -250,7 +253,6 @@ const useUserStore = defineStore("user", () => {
     changePassword,
     disableUser,
     enableUser,
-    googleSignIn,
     getIsFirstUser,
     getInvitationByToken,
     getUser,
@@ -269,6 +271,7 @@ const useUserStore = defineStore("user", () => {
     setInvitation,
     setUser,
     signup,
+    socialSignIn,
     user,
     verifyEmail,
   };

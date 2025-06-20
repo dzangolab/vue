@@ -1,21 +1,24 @@
 <template>
-  <GoogleSignInButton
-    :title="t('user.login.social.google')"
+  <FacebookSignInButton
+    :title="t('user.login.social.facebook')"
     :loading="loading"
-    @click="onGoogleSignIn"
+    :base-button-options="{
+      variant: 'dark',
+    }"
+    @click="onFacebookSignIn"
   />
 </template>
 
 <script lang="ts">
 export default {
-  name: "GoogleLogin",
+  name: "FacebookLogin",
 };
 </script>
 
 <script setup lang="ts">
 import { useConfig } from "@dzangolab/vue3-config";
 import { useI18n } from "@dzangolab/vue3-i18n";
-import { GoogleSignInButton } from "@dzangolab/vue3-ui";
+import { FacebookSignInButton } from "@dzangolab/vue3-ui";
 import { ref } from "vue";
 
 import { useTranslations } from "../index";
@@ -31,13 +34,13 @@ const loading = ref(false);
 
 const emit = defineEmits(["error"]);
 
-const onGoogleSignIn = async () => {
+const onFacebookSignIn = async () => {
   loading.value = true;
 
   try {
     await socialSignIn(
-      "google",
-      `${config.websiteDomain}/auth/callback/google`,
+      "facebook",
+      `${config.websiteDomain}/auth/callback/facebook`,
     );
     loading.value = false;
   } catch (error) {

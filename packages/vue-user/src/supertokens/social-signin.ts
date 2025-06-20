@@ -1,12 +1,12 @@
 import { getAuthorisationURLWithQueryParamsAndSetState } from "supertokens-web-js/recipe/thirdpartyemailpassword";
 
-async function googleSignIn(redirectURL: string) {
+async function socialSignIn(providerId: string, redirectURL: string) {
   const authUrl = await getAuthorisationURLWithQueryParamsAndSetState({
-    authorisationURL: `${redirectURL}/auth/callback/google`,
-    providerId: "google",
+    authorisationURL: redirectURL,
+    providerId: providerId,
   });
 
   window.location.assign(authUrl);
 }
 
-export default googleSignIn;
+export default socialSignIn;

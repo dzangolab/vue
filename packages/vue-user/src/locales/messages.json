@@ -208,10 +208,12 @@
           "signup": "Sign up"
         },
         "messages": {
+          "error": "No email provided by social login. Please use another form of login.",
           "success": "Logged in successfully."
         },
         "social": {
-          "google": "Sign in with Google"
+          "facebook": "Continue with Facebook",
+          "google": "Continue with Google"
         },
         "title": "Login"
       },
@@ -599,10 +601,12 @@
           "signup": "Inscription"
         },
         "messages": {
+          "error": "No email provided by social login. Please use another form of login.",
           "success": "Vous êtes maintenant connecté(e)"
         },
         "social": {
-          "google": "Sign in with Google[fr]"
+          "facebook": "Continue with Facebook",
+          "google": "Continue with Google"
         },
         "title": "Connexion"
       },

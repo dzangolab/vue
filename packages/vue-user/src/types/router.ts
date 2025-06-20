@@ -11,6 +11,7 @@ interface RouteOverride {
 interface RouteOverrides {
   acceptInvitation: RouteOverride;
   changePassword: RouteOverride;
+  facebook?: RouteOverride;
   google?: RouteOverride;
   home?: string;
   login: RouteOverride;

@@ -26,6 +26,11 @@
         v-if="config.user?.socialLogins?.includes('google')"
         @error="onError"
       />
+
+      <FacebookLogin
+        v-if="config.user?.socialLogins?.includes('facebook')"
+        @error="onError"
+      />
     </div>
   </Page>
 </template>
@@ -44,6 +49,7 @@ import { ref } from "vue";
 import { useRouter } from "vue-router";
 
 import { auth } from "../auth-provider";
+import FacebookLogin from "../components/FacebookLogin.vue";
 import GoogleLogin from "../components/GoogleLogin.vue";
 import LoginForm from "../components/LoginForm.vue";
 import { useTranslations } from "../index";
