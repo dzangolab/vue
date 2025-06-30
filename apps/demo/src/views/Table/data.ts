@@ -255,7 +255,7 @@ const formatDemoData = [
 const invitations = [
   {
     id: 456,
-    appId: 2,
+    appId: 1,
     createdAt: new Date("2024-01-05").getTime(),
     expiresAt: new Date("2024-02-04").getTime(),
     email: "bob@dzangolab.com",
@@ -278,7 +278,7 @@ const invitations = [
   },
   {
     id: 123,
-    appId: 3,
+    appId: 1,
     createdAt: new Date("2024-01-05").getTime(),
     expiresAt: new Date("2024-02-04").getTime(),
     email: "jane@dzangolab.com",
@@ -348,7 +348,7 @@ const invitations = [
   },
   {
     id: 890,
-    appId: 2,
+    appId: 1,
     createdAt: new Date("2024-01-10").getTime(),
     expiresAt: new Date().getTime() + 4 * 24 * 60 * 60 * 1000,
     payload: null,
@@ -440,7 +440,7 @@ const invitations = [
   },
   {
     id: 894,
-    appId: 2,
+    appId: 4,
     createdAt: new Date("2024-03-05").getTime(),
     expiresAt: new Date("2024-05-05").getTime(),
     payload: null,
@@ -555,7 +555,7 @@ const invitations = [
   },
   {
     id: 899,
-    appId: 2,
+    appId: 3,
     createdAt: new Date("2024-01-30").getTime(),
     expiresAt: new Date("2024-03-30").getTime(),
     payload: null,

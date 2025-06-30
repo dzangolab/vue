@@ -440,18 +440,14 @@ const prepareComponent = () => {
       return;
     }
 
-    if (column.meta?.filterVariant === "multiselect") {
+    if (column.meta?.filterVariant === "multiselect" && !column.filterFn) {
       column.filterFn = (row, columnId, filterValue) => {
         if (!filterValue || filterValue.length === 0) {
           return row;
         }
 
-        return filterValue.some((value: string | boolean) => {
-          if (typeof value === "boolean") {
-            return row.getValue(columnId) === value;
-          } else {
-            return row.getValue<unknown[]>(columnId)?.includes(value);
-          }
+        return filterValue.some((value: string | number | boolean) => {
+          return row.getValue(columnId) == value;
         });
       };
     } else if (column.meta?.filterVariant === "select") {
@@ -462,7 +458,7 @@ const prepareComponent = () => {
 
         return filterValue === row.getValue(columnId);
       };
-    } else if (column.meta?.filterVariant === "dateRange") {
+    } else if (column.meta?.filterVariant === "dateRange" && !column.filterFn) {
       column.filterFn = (row, columnId, filterValue) => {
         if (filterValue?.length) {
           const endDate = new Date(filterValue[1]).setHours(23, 59, 59, 999);

@@ -59,7 +59,15 @@ import {
 import { computed, h, ref } from "vue";
 
 import InvitationModal from "./InvitationModal.vue";
-import { ROLE_ADMIN } from "../../constant";
+import {
+  INVITATION_STATUS_ACCEPTED,
+  INVITATION_STATUS_EXPIRED,
+  INVITATION_STATUS_PENDING,
+  INVITATION_STATUS_REVOKED,
+  ROLE_ADMIN,
+  ROLE_SUPERADMIN,
+  ROLE_USER,
+} from "../../constant";
 import { useTranslations } from "../../index";
 
 import type {
@@ -143,97 +151,6 @@ const emit = defineEmits([
   "update:request",
 ]);
 
-const defaultColumns: TableColumnDefinition<Invitation>[] = [
-  {
-    accessorKey: "email",
-    enableColumnFilter: true,
-    enableSorting: true,
-    filterPlaceholder: "",
-    header: t("user.invitation.table.defaultColumns.email"),
-  },
-  {
-    align: "center",
-    accessorKey: "appId",
-    enableSorting: true,
-    header: t("user.invitation.table.defaultColumns.app"),
-    cell: ({ row }) => appNameMap.value?.get(row.original.appId) || "-",
-    sortingFn: (rowA, rowB, columnId) => {
-      const appRowA = appNameMap.value.get(rowA.original.appId) || "";
-      const appRowB = appNameMap.value.get(rowB.original.appId) || "";
-
-      return appRowA.localeCompare(appRowB);
-    },
-  },
-  {
-    accessorKey: "role",
-    enableSorting: true,
-    header: t("user.invitation.table.defaultColumns.role"),
-    cell: ({ getValue, row: original }) => {
-      const roles = (original as unknown as { roles: string[] })?.roles;
-      if (Array.isArray(roles)) {
-        return roles.map((role, index) =>
-          h(BadgeComponent, {
-            label: role,
-            severity: role === ROLE_ADMIN ? "primary" : "success",
-            fullWidth: true,
-            key: role + index,
-          }),
-        );
-      }
-      const role = getValue() as string;
-      return h(BadgeComponent, {
-        label: role,
-        severity: role === ROLE_ADMIN ? "primary" : "success",
-        fullWidth: true,
-      });
-    },
-  },
-  {
-    accessorFn: (original: Invitation) => {
-      return (
-        (original?.invitedBy?.givenName ? original?.invitedBy?.givenName : "") +
-          (original?.invitedBy?.middleNames
-            ? " " + original?.invitedBy?.middleNames
-            : "") +
-          (original?.invitedBy?.surname
-            ? " " + original?.invitedBy?.surname
-            : "") || "-"
-      );
-    },
-    accessorKey: "invitedBy",
-    cell: ({ getValue }) => getValue(),
-    enableSorting: true,
-    header: t("user.invitation.table.defaultColumns.invitedBy"),
-  },
-  {
-    accessorKey: "expiresAt",
-    enableSorting: true,
-    header: t("user.invitation.table.defaultColumns.expiresAt"),
-    cell: ({ getValue }) => formatDateTime(getValue() as string),
-  },
-  {
-    align: "center",
-    accessorKey: "status",
-    enableSorting: !props.isServerTable,
-    header: t("user.invitation.table.defaultColumns.status"),
-    cell: ({ row }) => {
-      const { acceptedAt, revokedAt, expiresAt } = row.original;
-      const label = getStatusLabel(row);
-      const severity = acceptedAt
-        ? "success"
-        : revokedAt
-          ? "danger"
-          : isExpired(expiresAt)
-            ? "secondary"
-            : "warning";
-      return h(BadgeComponent, { label, severity });
-    },
-    sortingFn: (rowA, rowB, columnId) => {
-      return getStatusLabel(rowA).localeCompare(getStatusLabel(rowB));
-    },
-  },
-];
-
 const showModal = ref<boolean>(false);
 
 const actionMenuData = computed(() => [
@@ -285,8 +202,175 @@ const appNameMap = computed(() => {
   return new Map(apps.map((app) => [app.id, app.name]));
 });
 
+const defaultColumns = computed<TableColumnDefinition<Invitation>[]>(() => [
+  {
+    accessorKey: "email",
+    enableColumnFilter: true,
+    enableSorting: true,
+    filterPlaceholder: "",
+    header: t("user.invitation.table.defaultColumns.email"),
+  },
+  {
+    align: "center",
+    accessorKey: "appId",
+    cell: ({ row }) => appNameMap.value?.get(row.original.appId) || "-",
+    enableColumnFilter: true,
+    enableSorting: true,
+    header: t("user.invitation.table.defaultColumns.app"),
+    meta: {
+      filterOptions: appNameMap.value
+        ? Array.from(appNameMap.value.entries()).map(([id, name]) => ({
+            label: name,
+            value: id,
+          }))
+        : [],
+      filterVariant: "multiselect",
+    },
+    sortingFn: (rowA, rowB, columnId) => {
+      const appRowA = appNameMap.value.get(rowA.original.appId) || "";
+      const appRowB = appNameMap.value.get(rowB.original.appId) || "";
+
+      return appRowA.localeCompare(appRowB);
+    },
+  },
+  {
+    align: "center",
+    accessorKey: "role",
+    cell: ({ getValue, row: original }) => {
+      const roles = (original as unknown as { roles: string[] })?.roles;
+      if (Array.isArray(roles)) {
+        return roles.map((role, index) =>
+          h(BadgeComponent, {
+            label: role,
+            severity: role === ROLE_ADMIN ? "primary" : "success",
+            fullWidth: true,
+            key: role + index,
+          }),
+        );
+      }
+      const role = getValue() as string;
+      return h(BadgeComponent, {
+        label: role,
+        severity: role === ROLE_ADMIN ? "primary" : "success",
+        fullWidth: true,
+      });
+    },
+    enableColumnFilter: true,
+    enableSorting: true,
+    header: t("user.invitation.table.defaultColumns.role"),
+    meta: {
+      filterVariant: "multiselect",
+      filterOptions: [
+        {
+          label: t("user.table.role.admin"),
+          value: ROLE_ADMIN,
+        },
+        {
+          label: t("user.table.role.superadmin"),
+          value: ROLE_SUPERADMIN,
+        },
+        {
+          label: t("user.table.role.user"),
+          value: ROLE_USER,
+        },
+      ],
+    },
+  },
+  {
+    accessorFn: (original: Invitation) => {
+      return (
+        (original?.invitedBy?.givenName ? original?.invitedBy?.givenName : "") +
+          (original?.invitedBy?.middleNames
+            ? " " + original?.invitedBy?.middleNames
+            : "") +
+          (original?.invitedBy?.surname
+            ? " " + original?.invitedBy?.surname
+            : "") || "-"
+      );
+    },
+    accessorKey: "invitedBy",
+    cell: ({ getValue }) => getValue(),
+    enableColumnFilter: true,
+    enableSorting: true,
+    header: t("user.invitation.table.defaultColumns.invitedBy"),
+  },
+  {
+    accessorKey: "expiresAt",
+    cell: ({ getValue }) => formatDateTime(getValue() as string),
+    enableColumnFilter: true,
+    enableSorting: true,
+    header: t("user.invitation.table.defaultColumns.expiresAt"),
+    meta: {
+      filterVariant: "dateRange",
+      serverFilterFn: "between",
+    },
+  },
+  {
+    align: "center",
+    accessorKey: "status",
+    enableColumnFilter: !props.isServerTable,
+    enableSorting: !props.isServerTable,
+    filterFn: (row, columnId, filterValue) => {
+      const { acceptedAt, revokedAt, expiresAt } = row.original;
+
+      if (!filterValue || filterValue.length === 0) {
+        return true;
+      }
+
+      let status = INVITATION_STATUS_PENDING;
+
+      if (acceptedAt) {
+        status = INVITATION_STATUS_ACCEPTED;
+      } else if (revokedAt) {
+        status = INVITATION_STATUS_REVOKED;
+      } else if (isExpired(expiresAt)) {
+        status = INVITATION_STATUS_EXPIRED;
+      }
+
+      return filterValue.includes(status);
+    },
+    header: t("user.invitation.table.defaultColumns.status"),
+    cell: ({ row }) => {
+      const { acceptedAt, revokedAt, expiresAt } = row.original;
+      const label = getStatusLabel(row);
+      const severity = acceptedAt
+        ? "success"
+        : revokedAt
+          ? "danger"
+          : isExpired(expiresAt)
+            ? "secondary"
+            : "warning";
+      return h(BadgeComponent, { label, severity });
+    },
+    meta: {
+      filterVariant: "multiselect",
+      filterOptions: [
+        {
+          label: t("user.invitation.table.status.accepted"),
+          value: INVITATION_STATUS_ACCEPTED,
+        },
+        {
+          label: t("user.invitation.table.status.revoked"),
+          value: INVITATION_STATUS_REVOKED,
+        },
+        {
+          label: t("user.invitation.table.status.expired"),
+          value: INVITATION_STATUS_EXPIRED,
+        },
+        {
+          label: t("user.invitation.table.status.pending"),
+          value: INVITATION_STATUS_PENDING,
+        },
+      ],
+    },
+    sortingFn: (rowA, rowB, columnId) => {
+      return getStatusLabel(rowA).localeCompare(getStatusLabel(rowB));
+    },
+  },
+]);
+
 const mergedColumns = computed(() => [
-  ...defaultColumns.map((defaultColumn) => {
+  ...defaultColumns.value.map((defaultColumn) => {
     const override = props.columnsData.find(
       (column) => column.accessorKey === defaultColumn.accessorKey,
     );
@@ -294,7 +378,7 @@ const mergedColumns = computed(() => [
   }),
   ...props.columnsData.filter(
     (column) =>
-      !defaultColumns.some(
+      !defaultColumns.value.some(
         (defaultColumn) => defaultColumn.accessorKey === column.accessorKey,
       ),
   ),

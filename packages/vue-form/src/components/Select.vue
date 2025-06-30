@@ -509,7 +509,7 @@ const prepareComponent = () => {
     selectedOptions.value = [
       getSelectedOption(props.modelValue),
     ] as SelectOption[];
-  } else if (props.modelValue === undefined) {
+  } else if (props.modelValue === undefined || props.modelValue === null) {
     selectedOptions.value = [];
   }
 };

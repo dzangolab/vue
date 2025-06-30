@@ -74,3 +74,58 @@ export const allUsers = [
     disabled: true,
   },
 ];
+
+export const apps = [
+  {
+    id: 1,
+    name: "app-vue",
+    origin: "app-vue-origin",
+    supportedRoles: [
+      {
+        id: 1,
+        name: "USER",
+      },
+    ],
+  },
+  {
+    id: 2,
+    name: "app-react",
+    origin: "app-react-origin",
+    supportedRoles: [
+      {
+        id: 1,
+        name: "USER",
+      },
+    ],
+  },
+  {
+    id: 3,
+    name: "admin-react",
+    origin: "admin-react-origin",
+    supportedRoles: [
+      {
+        id: 2,
+        name: "ADMIN",
+      },
+      {
+        id: 3,
+        name: "SUPERADMIN",
+      },
+    ],
+  },
+  {
+    id: 4,
+    name: "admin-vue",
+    origin: "admin-vue-origin",
+    supportedRoles: [
+      {
+        id: 2,
+        name: "ADMIN",
+      },
+      {
+        id: 3,
+        name: "SUPERADMIN",
+      },
+    ],
+  },
+];

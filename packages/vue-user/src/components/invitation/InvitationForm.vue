@@ -19,7 +19,7 @@
         v-if="apps?.length || roles?.length"
         v-model="formData.role"
         :disabled="Boolean(!updatedRoles?.length)"
-        :options="updatedRoles"
+        :options="updatedRoles || []"
         :schema="roleSchema"
         label="Role"
         name="role"
@@ -86,9 +86,11 @@ const props = defineProps({
     type: Array as PropType<Array<InvitationAppOption>>,
   },
   appSchema: {
-    default: z.number({
-      invalid_type_error: "Please select at least one valid option",
-    }),
+    default: z.coerce
+      .number({
+        invalid_type_error: "Please select at least one valid option",
+      })
+      .gte(1, "Please select at least one valid option"),
     required: false,
     type: Object as PropType<z.ZodType<string | number | string[] | number[]>>,
   },
@@ -171,7 +173,7 @@ const updatedApps = computed(() => {
 const updatedRoles = computed(() => {
   if (formData.value?.appId) {
     return props.apps
-      ?.find((app) => app.id === formData.value.appId)
+      ?.find((app) => app.id === Number(formData.value.appId))
       ?.supportedRoles.map((role) => {
         return {
           label: role.name,

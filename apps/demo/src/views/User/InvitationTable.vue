@@ -18,6 +18,7 @@
 
       <div class="section-content">
         <InvitationTable
+          :apps="apps"
           :columns-data="[
             {
               accessorKey: 'invitedBy',
@@ -36,6 +37,7 @@
         <SshPre language="html-vue">
           &lt;template&gt;
             &lt;InvitationTable
+              :apps="apps"
               :columns-data="[{
                 accessorKey: 'invitedBy',
                 maxWidth: '20rem',
@@ -56,7 +58,7 @@
 
           const visibleColumns = [
             "email",
-            "app",
+            "appId",
             "role",
             "invitedBy",
             "expiresAt",
@@ -74,6 +76,7 @@
 import { ButtonElement } from "@dzangolab/vue3-ui";
 import { InvitationTable } from "@dzangolab/vue3-user";
 
+import { apps } from "./data";
 import UserPage from "./UserPage.vue";
 import { invitations } from "../Table/data";
 
