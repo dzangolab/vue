@@ -7,6 +7,7 @@ export * from "./schemas";
 export type {
   CurrencyOption,
   EmailErrorMessages,
+  GroupedOption,
   IsEmailOptions,
   IsIntOptions,
   IsTextOptions,

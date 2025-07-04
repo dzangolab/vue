@@ -507,6 +507,57 @@
     </section>
 
     <section>
+      <h2>{{ $t("form.label.multiselectGrouping") }}</h2>
+
+      <div class="section-content">
+        <SelectInput
+          v-model="formData.multiselectGrouping"
+          :label="$t('form.label.country')"
+          :options="groupedOptions"
+          :placeholder="$t('form.placeholder.countries')"
+          multiple
+        />
+
+        <!-- eslint-disable -->
+        <SshPre language="html-vue">
+          &lt;template&gt;
+            &lt;SelectInput 
+              v-model="input"
+              :options="options"
+              label="Country"
+              multiple
+              placeholder="Select countries"
+            /&gt;
+          &lt;/template&gt;
+
+          &lt;script setup lang="ts"&gt;
+          import { SelectInput } from "@dzangolab/vue3-form";
+          import { ref } from "vue";
+
+          const options = ref([
+            {
+              label: t("form.label.europe"),
+              options: [
+                { label: t("form.label.germany"), value: "DE" },
+                { label: t("form.label.france"), value: "FR" },
+                { disabled: true, label: t("form.label.belgium"), value: "BE" },
+              ],
+            },
+            {
+              label: t("form.label.asia"),
+              options: [
+                { label: t("form.label.nepal"), value: "NP" },
+                { label: t("form.label.india"), value: "IN" },
+              ],
+            },
+          ]);
+          &lt;/script&gt;
+        </SshPre>
+        <!-- eslint-enable -->
+      </div>
+    </section>
+
+    <section>
       <h2>{{ $t("form.label.customLabel") }}</h2>
 
       <div class="section-content">
@@ -696,6 +747,7 @@ let formData = reactive({
   labelValueKeyInput: ref(),
   multiselect: ref(),
   multiselectExtensive: ref([]),
+  multiselectGrouping: ref([]),
   multiselectKeysInput: ref([]),
   noLabelInput: ref(),
   selectExtensive: ref(),
@@ -716,6 +768,24 @@ const countryOptions = ref([
   { code: "BE", country: t("form.label.belgium"), disabled: true },
   { code: "NP", country: t("form.label.nepal") },
   { code: "IN", country: t("form.label.india") },
+]);
+
+const groupedOptions = ref([
+  {
+    label: t("form.label.europe"),
+    options: [
+      { label: t("form.label.germany"), value: "DE" },
+      { label: t("form.label.france"), value: "FR" },
+      { disabled: true, label: t("form.label.belgium"), value: "BE" },
+    ],
+  },
+  {
+    label: t("form.label.asia"),
+    options: [
+      { label: t("form.label.nepal"), value: "NP" },
+      { label: t("form.label.india"), value: "IN" },
+    ],
+  },
 ]);
 </script>
 

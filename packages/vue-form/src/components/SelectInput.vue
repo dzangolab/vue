@@ -10,8 +10,8 @@
       :rules="fieldSchema"
     >
       <MultiSelect
-        v-bind="field"
         :id="`input-field-${name}`"
+        v-bind="field"
         :class="{
           invalid: meta.touched && !meta.valid,
           valid: meta.dirty && meta.valid && fieldSchema,
@@ -33,11 +33,19 @@
         @update:search-input="$emit('update:searchInput', $event)"
       >
         <template
+          v-for="(option, index) in normalizedOptions"
+          :key="`${index}-${option.groupLabel}`"
+          #[option.groupLabel]
+        >
+          <slot :name="option.groupLabel"></slot>
+        </template>
+
+        <template
           v-for="(option, index) in options"
           :key="`${index}-${option.label}`"
-          #[option.value]
+          #[option.label]
         >
-          <slot :name="option.value"></slot>
+          <slot :name="option.label"></slot>
         </template>
 
         <template v-if="$slots.selection" #selection>
@@ -63,7 +71,7 @@ import { z } from "zod";
 
 import MultiSelect from "./Select.vue";
 
-import type { SelectOption } from "../types";
+import type { GroupedOption, SelectOption } from "../types";
 import type { PropType } from "vue";
 
 const props = defineProps({
@@ -112,7 +120,7 @@ const props = defineProps({
   },
   options: {
     required: true,
-    type: Array as PropType<SelectOption[]>,
+    type: Array as PropType<GroupedOption[] | SelectOption[]>,
   },
   placeholder: {
     default: undefined,
@@ -143,8 +151,40 @@ const emit = defineEmits(["update:modelValue", "update:searchInput"]);
 
 let fieldSchema: object;
 
+const normalizedOptions = computed(() => {
+  const options = props.options ?? [];
+
+  if (!options.length) {
+    return [];
+  }
+
+  const isGrouped = (
+    providedOptions: (SelectOption | GroupedOption)[],
+  ): providedOptions is GroupedOption[] => "options" in providedOptions[0];
+
+  const normalize = (option: SelectOption, groupLabel?: string) => ({
+    ...option,
+    groupLabel,
+    label: (props.labelKey
+      ? option[props.labelKey as keyof SelectOption]
+      : option.label
+    )?.toString(),
+    value: (props.valueKey
+      ? option[props.valueKey as keyof SelectOption]
+      : option.value) as string | number,
+  });
+
+  if (isGrouped(options)) {
+    return options.flatMap((group) =>
+      group.options.map((option) => normalize(option, group.label)),
+    );
+  }
+
+  return options.map((option) => normalize(option));
+});
+
 const activeOptions = computed(() =>
-  props.options.filter((option) => !option.disabled),
+  [...normalizedOptions.value]?.filter((option) => !option?.disabled),
 );
 
 if (Object.keys(props.schema).length) {

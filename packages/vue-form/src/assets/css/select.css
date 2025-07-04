@@ -111,7 +111,7 @@
 }
 
 .multiselect > .multiselect-options > ul > li.selected,
-.multiselect > .multiselect-options > ul > li:hover {
+.multiselect > .multiselect-options > ul > li:not(.multiselect-group-label):hover {
   --_multiselect-selected-bg-color: var(
     --multiselect-selected-bg-color,
     #e5e5e5
@@ -125,6 +125,15 @@
   );
 
   opacity: 0.8;
+}
+
+.multiselect > .multiselect-options > ul > li.multiselect-group-label {
+  color: #555;
+  font-weight: 600;
+}
+
+.multiselect > .multiselect-options > ul:has(.multiselect-group-label) > li:not(.select-all-option, .multiselect-group-label) {
+  margin-left: 0.5rem;;
 }
 
 .multiselect .multiselect-placeholder {

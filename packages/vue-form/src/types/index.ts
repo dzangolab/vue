@@ -36,7 +36,13 @@ interface SelectOption extends Record<string, unknown> {
   disabled?: boolean;
   label?: string;
   value?: string | number;
+  groupLabel?: string;
 };
+
+interface GroupedOption {
+  label: string;
+  options: SelectOption[];
+}
 
 interface TextErrorMessages {
   invalid?: string;
@@ -47,6 +53,7 @@ export type {
   CurrencyOption,
   EmailErrorMessages,
   FileExtended,
+  GroupedOption,
   InputOption,
   MonthPickerValue,
   NumberErrorMessages,
