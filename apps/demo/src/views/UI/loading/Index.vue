@@ -1,5 +1,9 @@
 <template>
-  <UiPage :title="$t('ui.loading.title')" class="demo-loading">
+  <UiPage
+    :sub-title="$t('ui.loading.subtitle')"
+    :title="$t('ui.loading.title')"
+    class="demo-loading"
+  >
     <template #toolbar>
       <ButtonElement
         :label="$t('common.back')"
@@ -49,6 +53,13 @@
         <!-- eslint-enable -->
       </div>
     </section>
+
+    <ComponentDocumentation
+      :props-data="propsData"
+      :props-table-title="
+        $t('common.properties', { value: 'LoadingPageProperties' })
+      "
+    />
   </UiPage>
 </template>
 
@@ -56,9 +67,19 @@
 import { ButtonElement, LoadingPage } from "@dzangolab/vue3-ui";
 import { ref } from "vue";
 
+import ComponentDocumentation from "../../../components/ComponentDocumentation.vue";
 import UiPage from "../UiPage.vue";
 
 const loading = ref(false);
+
+const propsData = [
+  {
+    default: "false",
+    description: "Controls the visibility of the loading overlay.",
+    prop: "loading",
+    type: "Boolean",
+  },
+];
 
 const startLoading = () => {
   loading.value = true;
@@ -68,14 +89,3 @@ const startLoading = () => {
   }, 5000);
 };
 </script>
-
-<style lang="css">
-.demo-loading section {
-  margin-bottom: 2.5em;
-}
-
-.demo-loading .section-content {
-  display: grid;
-  gap: 1rem;
-}
-</style>

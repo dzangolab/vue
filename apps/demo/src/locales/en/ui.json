@@ -199,6 +199,7 @@
     "buttonLabel": {
       "clickMe": "Click me"
     },
+    "subtitle": "LoadingPage component is a full-screen overlay loader used to indicate a loading state across the entire page.",
     "title": "Loading page",
     "usage": {
       "basic": "Basic"
@@ -257,6 +258,7 @@
       "subtitle": "Page subtitle",
       "titleTag": "Heading tag"
     },
+    "subtitle": "Page component is a layout wrapper used to structure pages with a title, subtitle, toolbar, and loading overlay support.",
     "title": "Page",
     "usage": {
       "basic": "Basic",

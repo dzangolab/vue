@@ -1,5 +1,9 @@
 <template>
-  <UiPage :title="$t('ui.page.title')" class="demo">
+  <UiPage
+    :sub-title="$t('ui.page.subtitle')"
+    :title="$t('ui.page.title')"
+    class="demo"
+  >
     <template #toolbar>
       <ButtonElement
         :label="$t('common.back')"
@@ -236,13 +240,78 @@
         <!-- eslint-enable -->
       </div>
     </section>
+    <ComponentDocumentation
+      :props-data="propsData"
+      :props-table-title="$t('common.properties', { value: 'PageProperties' })"
+      :slots-data="slotsData"
+    />
   </UiPage>
 </template>
 
 <script setup lang="ts">
 import { BadgeComponent, ButtonElement, Page } from "@dzangolab/vue3-ui";
 
+import ComponentDocumentation from "../../../components/ComponentDocumentation.vue";
 import UiPage from "../UiPage.vue";
+
+const propsData = [
+  {
+    default: "false",
+    description: "Aligns the content in the center.",
+    prop: "centered",
+    type: "Boolean",
+  },
+  {
+    default: "false",
+    description: "Displays a loading overlay within the page content.",
+    prop: "loading",
+    type: "Boolean",
+  },
+  {
+    default: "-",
+    description: "The subtitle text displayed below the title.",
+    prop: "subTitle",
+    type: "String",
+  },
+  {
+    default: "-",
+    description: "The main title text displayed at the top of the page.",
+    prop: "title",
+    type: "String",
+  },
+  {
+    default: `"h1"`,
+    description: "HTML tag to be used for the title element.",
+    prop: "titleElement",
+    type: `"h1" | "h2" | "h3" | "h4" | "h5" | "h6"`,
+  },
+  {
+    default: "-",
+    description:
+      "Optional label displayed next to the title, typically rendered as a badge.",
+    prop: "titleTag",
+    type: "String",
+  },
+];
+
+const slotsData = [
+  {
+    description: "Main content of the page.",
+    name: "default",
+  },
+  {
+    description: "Custom subtitle slot. Replaces the `subTitle` prop.",
+    name: "subtitle",
+  },
+  {
+    description: "Toolbar area on the top-right of the page header.",
+    name: "toolbar",
+  },
+  {
+    description: "Custom title tag slot. Replaces the `titleTag` prop.",
+    name: "titleTag",
+  },
+];
 </script>
 
 <style lang="css">
