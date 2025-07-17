@@ -28,8 +28,8 @@
     "typecheck": "vue-tsc --noEmit -p tsconfig.json --composite false"
   },
   "dependencies": {
-    "@sentry/core": "9.1.0",
-    "@sentry/vue": "9.1.0"
+    "@sentry/core": "9.40.0",
+    "@sentry/vue": "9.40.0"
   },
   "devDependencies": {
     "@12deg/eslint-config": "0.1.11",
