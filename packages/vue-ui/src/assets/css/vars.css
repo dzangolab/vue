@@ -1,7 +1,7 @@
 :root {
   --background-color: #f9f8fa;
-  --border-color: #dee2e6;
-  --border-radius: 0.5em;
+  --border-color: #e5e7eb;
+  --border-radius: 0.375rem;
 
   --button-alternate-color: var(--dz-alternate-color);
   --button-border-radius: 0.375rem;
@@ -15,7 +15,7 @@
   --button-transition-duration: var(--transition-duration, 150ms);
   --button-warning-color: var(--dz-warning-color);
 
-  --color: #555;
+  --color: #2c2c2c;
   --color-alert-danger: #ff0000;
   --color-primary: green;
 
@@ -30,8 +30,8 @@
   --font-size-min: 1rem;
   --font-size-val: 2.5vw;
 
-  --form-input-border-color: #555;
-  --form-input-border-color-highlight: #555;
+  --form-input-border-color: #e5e7eb;
+  --form-input-border-color-highlight: #e5e7eb;
   --form-input-error-font-size: 0.8em;
   --form-input-margin-bottom: 1em;
   --form-input-padding-h: 0.5em;
@@ -45,7 +45,20 @@
   --message-success-color: var(--dz-success-color);
   --message-warning-color: var(--dz-warning-color);
 
+  --nav-item-active-bg: #eff6ff;
+  --nav-item-active-color: var(--dz-primary-color);
+  --nav-item-border-radius: 0;
+  --nav-item-color: var(--color);
+  --nav-item-hover-bg: #f0f2f7ad;
+  --nav-item-hover-color: var(--dz-nav-item-color);
+  --nav-item-padding-h: 2rem;
+  --nav-item-padding-v: 0.5rem;
+  --nav-menu-label-color: var(--dz-nav-item-color);
+  --nav-menu-padding-h: 0;
+  --nav-menu-padding-v: 1rem;
+  --nav-menu-separator-color: var(--border-color);
+
   --page-max-width: 550px;
 
-  --menu-border-color: #555;
+  --menu-border-color: #e5e7eb;
 }

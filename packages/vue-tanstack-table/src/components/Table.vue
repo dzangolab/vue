@@ -38,21 +38,20 @@
           <slot name="footer" />
         </tfoot>
       </table>
-
-      <template v-if="(isServerTable || paginated) && totalItems > 0">
-        <slot name="pagination">
-          <Pagination
-            v-bind="paginationOptions"
-            :current-page="pagination.pageIndex"
-            :default-items-per-page="pagination.pageSize"
-            :items-per-page-options="rowPerPageOptions"
-            :total-items="totalItems"
-            @update:current-page="table.setPageIndex"
-            @update:items-per-page="table.setPageSize"
-          />
-        </slot>
-      </template>
     </div>
+    <template v-if="(isServerTable || paginated) && totalItems > 0">
+      <slot name="pagination">
+        <Pagination
+          v-bind="paginationOptions"
+          :current-page="pagination.pageIndex"
+          :default-items-per-page="pagination.pageSize"
+          :items-per-page-options="rowPerPageOptions"
+          :total-items="totalItems"
+          @update:current-page="table.setPageIndex"
+          @update:items-per-page="table.setPageSize"
+        />
+      </slot>
+    </template>
   </div>
 </template>
 

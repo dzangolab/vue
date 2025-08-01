@@ -1,5 +1,8 @@
 <template>
-  <div v-if="!isInactive" class="sidebar">
+  <div
+    v-if="!isInactive || !collapsible"
+    :class="['sidebar', { collapsible: collapsible }]"
+  >
     <div v-if="!noHeader" class="header">
       <div class="logo">
         <Logo />
@@ -7,21 +10,26 @@
       <div class="title">
         <slot name="title"></slot>
       </div>
-      <div class="toggle" @click="sidebarActive = !sidebarActive">
-        <transition name="sidebar-toggle">
-          <img
-            v-if="sidebarActive"
-            alt="minimize sidebar"
-            src="../assets/svg/left-chevron.svg"
-          />
-          <img
-            v-else
-            class="extend"
-            alt="extend sidebar"
-            src="../assets/svg/right-chevron.svg"
-          />
-        </transition>
-      </div>
+      <slot name="toggleIcons">
+        <div
+          class="toggle"
+          @click="sidebarActive = !sidebarActive && collapsible"
+        >
+          <transition name="sidebar-toggle">
+            <img
+              v-if="sidebarActive"
+              alt="minimize sidebar"
+              src="../assets/svg/left-chevron.svg"
+            />
+            <img
+              v-else
+              class="extend"
+              alt="extend sidebar"
+              src="../assets/svg/right-chevron.svg"
+            />
+          </transition>
+        </div>
+      </slot>
     </div>
     <div class="sidebar-menu-wrapper">
       <slot> </slot>
@@ -53,7 +61,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { computed, ref, onUnmounted, useSlots } from "vue";
+import { computed, ref, useSlots } from "vue";
 
 import Logo from "./Logo.vue";
 import NavMenu from "./NavMenu.vue";
@@ -62,6 +70,10 @@ import type { SidebarMenu } from "../types";
 import type { PropType } from "vue";
 
 const props = defineProps({
+  collapsible: {
+    default: true,
+    type: Boolean,
+  },
   menu: {
     required: true,
     type: Array as PropType<SidebarMenu[]>,
@@ -83,22 +95,6 @@ const isInactive = computed(() => {
 const slots = useSlots();
 
 const sidebarActive = ref<boolean>(true);
-
-const handleResize = () => {
-  if (window.innerWidth >= 1025) {
-    sidebarActive.value = true;
-  } else if (!props.noHeader) {
-    sidebarActive.value = false;
-  }
-};
-
-onUnmounted(() => {
-  window.removeEventListener("resize", handleResize);
-});
-
-window.addEventListener("resize", handleResize);
-
-handleResize();
 
 defineExpose({
   sidebarActive,

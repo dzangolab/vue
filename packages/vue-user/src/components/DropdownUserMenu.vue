@@ -128,6 +128,10 @@ onClickOutside(dzangolabVueUserUserMenu, (event) => {
 
 <style lang="css">
 nav.user-menu-dropdown {
+  --_hover-bg: var(--nav-item-hover-bg, #f0f2f7ad);
+  --_hover-color: var(--nav-item-hover-color, #2c2c2c);
+
+  border-radius: 0.325rem;
   cursor: pointer;
   min-width: var(--dropdown-width, 6rem);
   padding: 0;
@@ -142,8 +146,8 @@ nav.user-menu-dropdown .email {
 }
 
 nav.user-menu-dropdown > .trigger {
-  --_padding-h: var(--layout-nav-item-paddind-h, 1rem);
-  --_padding-v: var(--layout-nav-item-paddind-v, 0.625rem);
+  --_padding-h: var(--layout-nav-item-padding-h, 1rem);
+  --_padding-v: var(--layout-nav-item-padding-v, 0.625rem);
 
   align-items: flex-start;
   display: flex;
@@ -159,14 +163,15 @@ nav.user-menu-dropdown span.toggle {
   display: block;
   font-size: 1.5rem;
   line-height: 1.25rem;
+  margin-left: 0.5rem;
   text-align: center;
   width: 1.25rem;
 }
 
 nav.user-menu-dropdown.expanded,
 nav.user-menu-dropdown:hover {
-  background-color: var(--dropdown-container-bg-color, #e5e5e5);
-  border-radius: 5px;
+  background: var(--_hover-bg);
+  color: var(--_hover-color);
 }
 
 nav.user-menu-dropdown.expanded span.toggle > svg {
@@ -186,9 +191,7 @@ nav.user-menu-dropdown > ul.dropdown {
   min-width: 160px;
   position: absolute;
   transform: translate3d(0, 48.5px, 0px);
-  transition:
-    border 0.4s ease,
-    max-height 0.4s ease-out;
+  transition: max-height 0.3s ease-out;
   width: max-content;
   z-index: var(--dropdown-z-index, 2);
 }
@@ -205,13 +208,23 @@ nav.user-menu-dropdown.expanded > ul.dropdown {
 }
 
 nav.user-menu-dropdown > ul.dropdown > li {
+  --_active-bg: var(--nav-item-active-bg, #eff6ff);
+  --_active-color: var(--nav-item-active-color, #2c2c2c);
+  --_hover-bg: var(--nav-item-hover-bg, #f0f2f7ad);
+  --_hover-color: var(--nav-item-hover-color, #2c2c2c);
+
   cursor: pointer;
   transition: all var(--transition-duration) ease 0s;
 }
 
-nav.user-menu-dropdown > .dropdown > li:hover,
+nav.user-menu-dropdown > .dropdown > li:hover {
+  background: var(--_hover-bg);
+  color: var(--_hover-color);
+}
+
 nav.user-menu > ul > li:has(.router-link-exact-active) {
-  background-color: var(--dropdown-bg-color-hover, #e5e5e5);
+  background: var(--_active-bg);
+  color: var(--_active-color);
 }
 
 nav.user-menu-dropdown > ul.dropdown > li > a,
@@ -225,5 +238,12 @@ nav.user-menu-dropdown > ul.dropdown > li:not(:has(a)) {
 
 nav.user-menu-dropdown > ul.dropdown > li svg {
   margin-right: 0.5rem;
+}
+
+@media screen and (min-width: 576px) {
+  nav.user-menu-dropdown > .trigger {
+    --_padding-h: 1rem;
+    --_padding-v: 0.625rem;
+  }
 }
 </style>

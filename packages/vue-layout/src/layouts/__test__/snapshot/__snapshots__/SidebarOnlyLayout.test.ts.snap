@@ -6,6 +6,7 @@ exports[`SidebarOnlyLayout > matches snapshot 1`] = `
 >
   <sidebar-stub
     class="layout-sidebar"
+    collapsible="true"
     menu="[object Object],[object Object]"
     noheader="false"
   />

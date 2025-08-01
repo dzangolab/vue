@@ -1,9 +1,20 @@
 <template>
   <header ref="dzangolabVueAppHeader">
+    <div v-if="!noToggle || !isLargeScreen" class="toggle" @click="toggle">
+      <slot name="toggle">
+        <Icon
+          v-if="expanded && !isLargeScreen"
+          icon="prime:times"
+          height="2rem"
+        />
+        <Icon v-else icon="prime:bars" height="2rem" />
+      </slot>
+    </div>
+
     <slot name="logo" class="logo">
       <Logo v-if="!noLogo" :route="home" />
     </slot>
-    <nav :data-expanded="expanded">
+    <nav>
       <slot name="menu">
         <MainMenu
           v-if="layoutConfig?.mainMenu && !noMainMenu"
@@ -18,12 +29,6 @@
         <LocaleSwitcher v-if="!noLocaleSwitcher" class="locales" />
       </slot>
     </nav>
-    <div class="toggle" @click="toggle">
-      <slot name="toggle">
-        <Icon v-if="expanded" icon="fa6-solid:bars-staggered" height="1.5rem" />
-        <Icon v-else icon="fa6-solid:bars" height="1.5rem" />
-      </slot>
-    </div>
   </header>
 </template>
 
@@ -37,8 +42,8 @@ export default {
 import { Icon } from "@iconify/vue";
 import { useConfig } from "@prefabs.tech/vue3-config";
 import { LocaleSwitcher } from "@prefabs.tech/vue3-i18n";
-import { onClickOutside } from "@vueuse/core";
-import { ref } from "vue";
+import { useWindowSize } from "@vueuse/core";
+import { ref, computed } from "vue";
 
 import Logo from "./Logo.vue";
 import MainMenu from "./MainMenu.vue";
@@ -47,15 +52,19 @@ defineProps({
   noLocaleSwitcher: Boolean,
   noLogo: Boolean,
   noMainMenu: Boolean,
+  noToggle: Boolean,
 });
 
 const { layout: layoutConfig } = useConfig();
+const { width: windowWidth } = useWindowSize();
 
 const dzangolabVueAppHeader = ref(null);
-const expanded = ref(false);
+const expanded = ref(true);
 
 const home =
   layoutConfig && layoutConfig?.homeRoute ? layoutConfig.homeRoute : undefined;
+
+const isLargeScreen = computed(() => windowWidth.value > 576);
 
 const close = () => {
   expanded.value = false;
@@ -64,10 +73,6 @@ const close = () => {
 const toggle = () => {
   expanded.value = !expanded.value;
 };
-
-onClickOutside(dzangolabVueAppHeader, (event) => {
-  expanded.value = false;
-});
 
 defineExpose({
   expanded,

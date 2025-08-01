@@ -2,17 +2,19 @@
 
 exports[`SidebarHeaderLayout > matches snapshot 1`] = `
 <div
-  class="layout sidebar-header-layout"
+  class="layout sidebar-header-layout collapsible"
 >
   
   <app-header-stub
     nolocaleswitcher="false"
-    nologo="true"
+    nologo="false"
     nomainmenu="true"
+    notoggle="false"
   />
   
   <sidebar-stub
     class="layout-sidebar"
+    collapsible="true"
     menu="[object Object],[object Object]"
     noheader="false"
   />

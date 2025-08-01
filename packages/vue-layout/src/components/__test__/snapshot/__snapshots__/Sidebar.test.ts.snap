@@ -2,7 +2,7 @@
 
 exports[`Sidebar > matches snapshot  1`] = `
 <div
-  class="sidebar"
+  class="sidebar collapsible"
 >
   <div
     class="header"
@@ -21,6 +21,7 @@ exports[`Sidebar > matches snapshot  1`] = `
       </h3>
       
     </div>
+    
     <div
       class="toggle"
     >
@@ -31,12 +32,12 @@ exports[`Sidebar > matches snapshot  1`] = `
         persisted="false"
       >
         <img
-          alt="extend sidebar"
-          class="extend"
-          src="/src/assets/svg/right-chevron.svg"
+          alt="minimize sidebar"
+          src="/src/assets/svg/left-chevron.svg"
         />
       </transition-stub>
     </div>
+    
   </div>
   <div
     class="sidebar-menu-wrapper"
@@ -52,7 +53,7 @@ exports[`Sidebar > matches snapshot  1`] = `
       
       <nav-menu-stub
         menu="[object Object],[object Object]"
-        sidebaractive="false"
+        sidebaractive="true"
       />
       
       

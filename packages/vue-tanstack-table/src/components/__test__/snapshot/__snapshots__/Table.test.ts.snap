@@ -45,21 +45,21 @@ exports[`Table > matches snapshot 1`] = `
         
       </tfoot>
     </table>
-    
-    <pagination-stub
-      currentpage="0"
-      defaultitemsperpage="10"
-      itemsperpagecontrollabel="Items per page"
-      itemsperpageoptions="10,20,30"
-      pageinputlabel="Go to page:"
-      showfirstlastbuttons="true"
-      showitemsperpagecontrol="true"
-      showpagebuttons="false"
-      showpageinput="false"
-      showpreviousnextbuttons="true"
-      totalitems="20"
-    />
-    
   </div>
+  
+  <pagination-stub
+    currentpage="0"
+    defaultitemsperpage="10"
+    itemsperpagecontrollabel="Items per page"
+    itemsperpageoptions="10,20,30"
+    pageinputlabel="Go to page:"
+    showfirstlastbuttons="true"
+    showitemsperpagecontrol="true"
+    showpagebuttons="false"
+    showpageinput="false"
+    showpreviousnextbuttons="true"
+    totalitems="20"
+  />
+  
 </div>
 `;

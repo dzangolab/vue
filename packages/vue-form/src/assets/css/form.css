@@ -41,7 +41,7 @@ form input {
 }
 
 form input:not(input[type="checkbox"]):focus {
-  outline: 2px solid var(--form-input-focus-color, #007aff);
+  outline: 1px solid var(--form-input-focus-color, #007aff);
 }
 
 form input:disabled {

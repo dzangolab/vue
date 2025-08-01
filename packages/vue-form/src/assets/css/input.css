@@ -33,7 +33,7 @@
 
 .field input:not(input[type="checkbox"]):focus-within,
 .field textarea:focus-within {
-  outline: 2px solid var(--field-outline-color, #007aff);
+  outline: 1px solid var(--field-outline-color, #007aff);
 }
 
 .field input[type="radio"] {

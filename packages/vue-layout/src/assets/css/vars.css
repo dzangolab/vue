@@ -1,0 +1,41 @@
+:root {
+  --layout-logo-max-width: 8rem;
+
+  --layout-sidebar-bg: white;
+  --layout-sidebar-border: 1px solid var(--border-color, #e5e7eb);
+  --layout-sidebar-collapsed-width: 0;
+  --layout-sidebar-color: var(--color, #374151);
+  --layout-sidebar-logo-max-width: var(--layout-logo-max-width);
+  --layout-sidebar-padding-h: 1.5rem;
+  --layout-sidebar-padding-v: 0.75rem;
+  --layout-sidebar-separator-color: var(--border-color, #e5e7eb);
+  --layout-sidebar-width: 16rem;
+
+  --layout-nav-item-padding-h: 2rem;
+  --layout-nav-item-padding-v: 0.5rem;
+  --layout-nav-menu-padding-h: 0;
+  --layout-nav-menu-padding-v: 1rem;
+  --layout-nav-menu-separator-color: var(--border-color, #e5e7eb);
+
+  --layout-main-bg: #ffffff;
+  --layout-main-padding-h: 1.5rem;
+  --layout-main-padding-v: 1.5rem;
+
+  --layout-header-bg: transparent;
+  --layout-header-border: 1px solid var(--border-color, #e5e7eb);
+  --layout-header-color: var(--color, #374151);
+  --layout-header-gap: 1.5rem;
+  --layout-header-logo-max-width: var(--layout-logo-max-width);
+  --layout-header-max-width: 1920px;
+  --layout-header-padding-h: var(--layout-main-padding-h, 1rem);
+  --layout-header-padding-v: 0.5rem;
+}
+
+@media screen and (min-width: 576px) {
+  :root {
+    --layout-main-padding-h: 2rem;
+    --layout-main-padding-v: 1.25rem;
+
+    --layout-sidebar-padding-v: 0.5rem;
+  }
+}

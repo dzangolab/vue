@@ -17,7 +17,7 @@
 .date-picker
   > .dp__main:has(.dp__outer_menu_wrap)
   input[aria-label="Datepicker input"] {
-  outline: 2px solid var(--field-outline-color, #007aff);
+  outline: 1px solid var(--field-outline-color, #007aff);
 }
 
 .date-picker .dp__main.field {

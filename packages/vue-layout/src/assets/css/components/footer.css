@@ -1,6 +1,6 @@
 .layout > footer {
   --footer-bg-color: transparent;
-  --footer-border-color: var(--border-color);
+  --footer-border-color: var(--border-color, #e5e7eb);
   --footer-font-size: var(--font-size, 1rem);
   --footer-gap: 0.5em;
   --footer-padding-v: 1em;

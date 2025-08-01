@@ -1,7 +1,11 @@
 <template>
-  <div class="layout basic">
+  <div :aria-expanded="appHeader?.expanded" class="layout basic">
     <slot name="header">
-      <AppHeader :no-locale-switcher="noLocaleSwitcher">
+      <AppHeader
+        ref="appHeader"
+        :no-locale-switcher="noLocaleSwitcher"
+        no-toggle
+      >
         <template #logo>
           <slot name="logo" />
         </template>
@@ -47,10 +51,14 @@ export default {
 </script>
 
 <script setup lang="ts">
+import { ref } from "vue";
+
 import AppFooter from "../components/AppFooter.vue";
 import AppHeader from "../components/AppHeader.vue";
 
 defineProps({
   noLocaleSwitcher: Boolean,
 });
+
+const appHeader = ref();
 </script>

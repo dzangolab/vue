@@ -2,6 +2,21 @@
 
 exports[`AppHeader Snapshot > matches snapshot 1`] = `
 <header>
+  <div
+    class="toggle"
+  >
+    
+    <svg
+      aria-hidden="true"
+      height="2rem"
+      role="img"
+      viewBox="0 0 16 16"
+      width="2rem"
+      xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+    />
+    
+  </div>
   
   <div
     class="logo"
@@ -22,9 +37,7 @@ exports[`AppHeader Snapshot > matches snapshot 1`] = `
     
   </div>
   
-  <nav
-    data-expanded="false"
-  >
+  <nav>
     
     <nav
       class="menu main-menu"
@@ -56,26 +69,26 @@ exports[`AppHeader Snapshot > matches snapshot 1`] = `
     
     <nav
       class="locale-switcher locales"
-      data-v-2184c436=""
+      data-v-0bb7ed2b=""
     >
       <div
         class="locale-trigger"
-        data-v-2184c436=""
+        data-v-0bb7ed2b=""
       >
         <div
           class="locale truncated"
-          data-v-2184c436=""
+          data-v-0bb7ed2b=""
         >
           English (US)
         </div>
         <span
           class="truncated"
-          data-v-2184c436=""
+          data-v-0bb7ed2b=""
         >
           
           <img
             alt="locale"
-            data-v-2184c436=""
+            data-v-0bb7ed2b=""
             src="data:image/svg+xml,%3c?xml%20version='1.0'%20?%3e%3c!--%20Uploaded%20to:%20SVG%20Repo,%20www.svgrepo.com,%20Generator:%20SVG%20Repo%20Mixer%20Tools%20--%3e%3csvg%20width='800px'%20height='800px'%20viewBox='0%200%2024%2024'%20xmlns='http://www.w3.org/2000/svg'%3e%3ctitle/%3e%3cg%20id='Complete'%3e%3cg%20id='F-Chevron'%3e%3cpolyline%20fill='none'%20id='Down'%20points='5%208.5%2012%2015.5%2019%208.5'%20stroke='%23000000'%20stroke-linecap='round'%20stroke-linejoin='round'%20stroke-width='2'/%3e%3c/g%3e%3c/g%3e%3c/svg%3e"
           />
           
@@ -83,16 +96,16 @@ exports[`AppHeader Snapshot > matches snapshot 1`] = `
       </div>
       <ul
         class="dropdown"
-        data-v-2184c436=""
+        data-v-0bb7ed2b=""
       >
         
         <li
           class="truncated"
-          data-v-2184c436=""
+          data-v-0bb7ed2b=""
         >
           <div
             class="locale"
-            data-v-2184c436=""
+            data-v-0bb7ed2b=""
             data-v-5ee88038=""
           >
             <span
@@ -108,11 +121,11 @@ exports[`AppHeader Snapshot > matches snapshot 1`] = `
         </li>
         <li
           class="truncated"
-          data-v-2184c436=""
+          data-v-0bb7ed2b=""
         >
           <div
             class="locale"
-            data-v-2184c436=""
+            data-v-0bb7ed2b=""
             data-v-5ee88038=""
           >
             <span
@@ -131,20 +144,5 @@ exports[`AppHeader Snapshot > matches snapshot 1`] = `
     </nav>
     
   </nav>
-  <div
-    class="toggle"
-  >
-    
-    <svg
-      aria-hidden="true"
-      height="1.5rem"
-      role="img"
-      viewBox="0 0 16 16"
-      width="1.5rem"
-      xmlns="http://www.w3.org/2000/svg"
-      xmlns:xlink="http://www.w3.org/1999/xlink"
-    />
-    
-  </div>
 </header>
 `;

@@ -1,10 +1,13 @@
 <template>
-  <div class="layout sidebar-header-layout">
+  <div
+    :aria-expanded="appHeader?.expanded"
+    :class="['layout sidebar-header-layout', { collapsible: collapsible }]"
+  >
     <slot name="header">
       <AppHeader
         ref="appHeader"
         :no-locale-switcher="noLocaleSwitcher"
-        no-logo
+        :no-toggle="!collapsible"
         no-main-menu
       >
         <template v-if="userMenuLocation === 'header'" #userMenu>
@@ -17,6 +20,7 @@
     </slot>
     <Sidebar
       ref="sidebar"
+      :collapsible="collapsible"
       :menu="menu"
       :no-header="noSidebarHeader"
       class="layout-sidebar"
@@ -30,11 +34,7 @@
         <slot v-if="userMenuLocation === 'sidebar'" name="userMenu"></slot>
         <template v-if="sidebarLocaleSwitcher">
           <slot name="locales">
-            <LocaleSwitcher v-if="!noLocaleSwitcher" class="locales">
-              <template #icon>
-                <img src="../assets/svg/up-chevron.svg" alt="toggle icon" />
-              </template>
-            </LocaleSwitcher>
+            <LocaleSwitcher v-if="!noLocaleSwitcher" class="locales" />
           </slot>
         </template>
       </template>
@@ -67,6 +67,10 @@ const sidebar = ref();
 const sidebarLocaleSwitcher = ref<boolean>(false);
 
 defineProps({
+  collapsible: {
+    default: true,
+    type: Boolean,
+  },
   menu: {
     required: true,
     type: Array as PropType<SidebarMenu[]>,

@@ -14,7 +14,7 @@
           { 'icon-only': !showShortName && !sidebarActive },
         ]"
       />
-      <span v-if="showShortName">{{ item.shortName }}</span>
+      <span v-if="showShortName" class="item-name">{{ item.shortName }}</span>
       <span v-if="sidebarActive" class="item-name">
         {{ item.name }}
       </span>

@@ -74,10 +74,6 @@
   overflow-x: auto;
 }
 
-.table-container .table-wrapper:has(thead>tr.filters) {
-  overflow-x: visible;
-}
-
 .table-container .table-wrapper > table {
   min-width: 100%;
   border-collapse: collapse;

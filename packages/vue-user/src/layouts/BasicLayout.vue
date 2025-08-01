@@ -1,7 +1,10 @@
 <template>
-  <OriginalBasicLayout :no-locale-switcher="noLocaleSwitcher">
+  <OriginalBasicLayout
+    :aria-expanded="appHeader?.expanded"
+    :no-locale-switcher="noLocaleSwitcher"
+  >
     <template #header>
-      <AppHeader>
+      <AppHeader ref="appHeader" no-toggle>
         <template #logo>
           <Logo :route="home" />
         </template>
@@ -40,7 +43,7 @@ import {
   MainMenu,
 } from "@prefabs.tech/vue3-layout";
 import { storeToRefs } from "pinia";
-import { computed } from "vue";
+import { computed, ref } from "vue";
 import { useRouter } from "vue-router";
 
 import UserMenu from "../components/UserMenu.vue";
@@ -62,6 +65,8 @@ const userStore = useUserStore();
 const { user } = storeToRefs(userStore);
 
 const { layout: layoutConfig, user: userConfig } = useConfig();
+
+const appHeader = ref();
 
 const home = computed(() => {
   return user.value

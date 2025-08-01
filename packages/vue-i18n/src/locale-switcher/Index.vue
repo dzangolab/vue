@@ -85,6 +85,10 @@ onClickOutside(dzangolabVueI18nLocaleSwitcher, (event) => {
 
 <style scoped>
 nav.locale-switcher {
+  --_hover-bg: var(--nav-item-hover-bg, #f0f2f7ad);
+  --_hover-color: var(--nav-item-hover-color, #2c2c2c);
+
+  border-radius: 0.325rem;
   cursor: pointer;
   padding: 0;
   position: relative;
@@ -93,8 +97,8 @@ nav.locale-switcher {
 
 nav.locale-switcher.expanded,
 nav.locale-switcher:hover {
-  background-color: var(--locale-switcher-hover-color, #e5e5e5);
-  border-radius: 5px;
+  background: var(--_hover-bg);
+  color: var(--_hover-color);
 }
 
 nav.locale-switcher > .locale-trigger {
@@ -139,6 +143,9 @@ nav.expanded ul {
 }
 
 nav > .dropdown > li {
+  --_hover-bg: var(--nav-item-hover-bg, #f0f2f7ad);
+  --_hover-color: var(--nav-item-hover-color, #2c2c2c);
+
   cursor: pointer;
   list-style: none;
   padding: 0.7rem 1.25rem;
@@ -149,7 +156,8 @@ nav li.current {
 }
 
 nav.expanded li:hover {
-  background-color: var(--locale-switcher-hover-color, #e5e5e5);
+  background: var(--_hover-bg);
+  color: var(--_hover-color);
 }
 
 .truncated {

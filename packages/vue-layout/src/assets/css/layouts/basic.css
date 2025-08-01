@@ -10,16 +10,14 @@
   grid-template-rows: auto 1fr auto;
   height: 100dvh;
   min-height: 100dvh;
+  overflow: hidden;
 }
 
 .layout.basic > :is(footer, header, main) {
   margin: 0 auto;
   max-width: var(--layout-basic-max-width);
-  padding-left: var(--layout-basic-padding-h);
-  padding-right: var(--layout-basic-padding-h);
   width: 100%;
 }
-
 
 .layout.basic > footer {
   grid-area: footer;
@@ -29,68 +27,28 @@
   --header-logo-max-width: 120px;
 
   grid-area: header;
-  height: var(--layout-header-height, 5.5rem);
-  padding-inline: var(--layout-header-padding-h, 1rem);
 }
 
 .layout.basic > header > nav {
   gap: 0.25rem;
 }
 
-.layout.basic > header > nav[data-expanded="true"] {
-  --layout-basic-padding-left: 0;
-  --layout-basic-padding-right: 0;
-
-  left: calc(var(--layout-basic-padding-h)*-1);
-  opacity: 1;
-  padding: 0;
-  padding-inline: var(--layout-header-padding-h, 1rem);
-  right: calc(var(--layout-basic-padding-h)*-1);
+.layout.basic[aria-expanded=false] > header > nav {
+  display: none;
 }
 
-.layout.basic > header > nav[data-expanded="true"] > .menu {
-  --_layout-nav-menu-padding-v: var(--layout-nav-menu-padding-v, 0.75rem);
-  --_layout-nav-menu-padding-h: 0;
-
-  padding: var(--_layout-nav-menu-padding-v) var(--_layout-nav-menu-padding-h);
-}
-
-.layout.basic > header > nav[data-expanded="true"] > .menu > ul {
-  --menu-margin-left: 0;
-}
-
-.layout.basic > header > nav[data-expanded="true"] .addon {
-  font-size: var(--header-font-size);
-}
-
-.layout.basic > header > nav[data-expanded="true"] ul > li > a {
-  --_nav-item-padding-h: var(--layout-menu-item-padding-h, 1rem);
-  --_nav-item-padding-v: var(--layout-menu-item-padding-v, .625rem);
-
-  font-size: var(--header-font-size);
-  padding: var(--_nav-item-padding-v) var(--_nav-item-padding-h);
-}
-
-.layout.basic > header > nav[data-expanded="true"] nav.locale-switcher {
-  --_layout-nav-menu-margin-v: var(--layout-nav-menu-margin-v, 0.75rem);
+.layout.basic[aria-expanded=true] > header > nav nav.locale-switcher {
   --locale-switcher-width: 100%;
-
-  font-size: var(--header-font-size);
-  margin-top: var(--_layout-nav-menu-margin-v);
-  margin-bottom: 0.25rem;
 }
 
-.layout.basic > header > nav[data-expanded="true"] nav.locale-switcher .dropdown {
-  left: 0;
+.layout.basic nav.user-menu-dropdown > ul.dropdown,
+.layout.basic nav.locale-switcher > ul.dropdown {
+  width: 100%;
 }
 
-.layout.basic > header nav .addon,
-.layout.basic > header nav.locale-switcher,
-.layout.basic > header nav.menu li>a {
-  --_menu-item-padding-h: 1em;
-  --_menu-item-padding-v: 0.625rem;
-
-  font-size: 0.9rem;
+.layout.basic nav.locale-switcher>.locale-trigger {
+  --locale-switcher-padding-h: var(--layout-nav-item-padding-h, 1rem);
+  --locale-switcher-padding-v: var(--layout-nav-item-padding-v, .625rem);
 }
 
 .layout.basic > main {
@@ -100,7 +58,7 @@
   overflow-y: auto;
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 576px) {
   .layout.basic > :is(footer, main) {
     padding-left: 2rem;
     padding-right: 2rem;
@@ -108,35 +66,24 @@
 
   .layout.basic > header {
     --header-logo-max-width: 150px;
-
-    padding-inline: var(--layout-header-padding-h, 2rem);
   }
 
   .layout.basic > header > nav {
     gap: var(--header-gap, 1.5rem);
   }
 
-  .layout.basic > header > nav[data-expanded="true"] {
-    padding: 0;
+  .layout.basic nav.user-menu-dropdown > ul.dropdown,
+  .layout.basic nav.locale-switcher > ul.dropdown
+  {
+    width: max-content;
   }
 
-  .layout.basic > header > nav[data-expanded="true"] > .menu {
-    --_layout-nav-menu-padding-v: 1rem;
-    --_layout-nav-menu-padding-h: 1rem;
-
-    padding: var(--_layout-nav-menu-padding-v) var(--_layout-nav-menu-padding-h);
-  }
-
-  .layout.basic > header nav .addon,
-  .layout.basic > header nav.locale-switcher,
-  .layout.basic > header nav.menu li>a {
-    --_menu-item-padding-h: 1.5rem;
-    --_menu-item-padding-v: 0.625rem;
-
-    font-size: 1rem;
-  }
-
-  .layout.basic > header > nav[data-expanded="true"] nav.locale-switcher {
+  .layout.basic[aria-expanded=true] > header > nav nav.locale-switcher {
     --locale-switcher-width: 9rem;
+  }
+
+  .layout.basic nav.locale-switcher>.locale-trigger {
+    --locale-switcher-padding-h: 1rem;
+    --locale-switcher-padding-v: var(--layout-nav-item-padding-v, .625rem);
   }
 }
