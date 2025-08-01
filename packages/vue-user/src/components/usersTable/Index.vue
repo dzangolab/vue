@@ -18,6 +18,7 @@
     :total-records="totalRecords"
     :visible-columns="visibleColumns"
     class="table-users"
+    single-action-mode="menu"
     @action:select="onActionSelect"
     @update:request="onUpdateRequest"
   >
@@ -58,7 +59,7 @@ import {
   ButtonElement,
   formatDate,
 } from "@prefabs.tech/vue3-ui";
-import { computed, h, ref } from "vue";
+import { computed, h, ref, toRef } from "vue";
 
 import {
   ROLE_ADMIN,
@@ -284,6 +285,7 @@ const defaultColumns: TableColumnDefinition<UserType>[] = [
 ];
 
 const showModal = ref<boolean>(false);
+const userInfo = toRef(userStore.user);
 
 const actionMenuData = computed(() => {
   const defaultActionMenu = [
@@ -293,6 +295,7 @@ const actionMenuData = computed(() => {
         header: t("user.table.confirmation.header"),
       },
       disabled: (user: UserType) => !user.disabled,
+      display: (user: UserType) => user.id !== userInfo.value?.id,
       icon: "pi pi-check",
       key: "enableUser",
       label: t("user.table.actions.enableUser"),
@@ -305,6 +308,7 @@ const actionMenuData = computed(() => {
         header: t("user.table.confirmation.header"),
       },
       disabled: (user: UserType) => !!user.disabled,
+      display: (user: UserType) => user.id !== userInfo.value?.id,
       icon: "pi pi-times",
       key: "disableUser",
       label: t("user.table.actions.disableUser"),
